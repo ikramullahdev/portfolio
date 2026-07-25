@@ -26,6 +26,7 @@ async function getWeather(){
 
        const response = await fetch(url);
 const data = await response.json();
+        alert(JSON.stringify(data));
 
 console.log("URL:", url);
 console.log("DATA:", data);
