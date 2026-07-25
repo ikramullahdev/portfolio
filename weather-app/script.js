@@ -24,15 +24,16 @@ async function getWeather(){
 
     try{
 
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
+       const response = await fetch(url);
+const data = await response.json();
 
-        if(data.error){
-            alert(data.error.message);
-            return;
-        }
+console.log("URL:", url);
+console.log("DATA:", data);
 
+if (data.error) {
+    alert(data.error.message);
+    return;
+}
         document.querySelector(".weather h2").textContent = data.location.name;
         document.querySelector(".weather h1").textContent = data.current.temp_c + "°C";
         document.querySelector(".weather p").textContent = data.current.condition.text;
