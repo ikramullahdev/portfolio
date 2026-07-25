@@ -1,46 +1,52 @@
-const apiKey = "0e0c49d82292506567079442c105777b";
+const apiKey = "b71130961e324f45983134519262507";
 
 const searchBtn = document.querySelector("button");
 const cityInput = document.querySelector("input");
 
 searchBtn.addEventListener("click", getWeather);
-cityInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
+
+cityInput.addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
         getWeather();
     }
 });
 
-async function getWeather() {
+async function getWeather(){
 
     const city = cityInput.value.trim();
 
-    if (city === "") {
-        alert("Please enter a city name.");
+    if(city === ""){
+        alert("Please enter a city.");
         return;
     }
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
 
-    try {
+    try{
 
         const response = await fetch(url);
+        const data = await response.json();
 
-        if (!response.ok) {
-            alert("City not found!");
+        if(data.error){
+            alert(data.error.message);
             return;
         }
 
-        const data = await response.json();
+        document.querySelector(".weather h2").textContent = data.location.name;
+        document.querySelector(".weather h1").textContent = data.current.temp_c + "°C";
+        document.querySelector(".weather p").textContent = data.current.condition.text;
 
-        document.querySelector(".weather h2").textContent = data.name;
-        document.querySelector(".weather h1").textContent = Math.round(data.main.temp) + "°C";
-        document.querySelector(".weather p").textContent = data.weather[0].description;
-        document.querySelector(".details div:first-child p").textContent = data.main.humidity + "%";
-        document.querySelector(".details div:last-child p").textContent = data.wind.speed + " km/h";
+        document.querySelector(".details div:first-child p").textContent =
+        data.current.humidity + "%";
 
-    } catch (error) {
-        alert("Something went wrong!");
-        console.log(error);
+        document.querySelector(".details div:last-child p").textContent =
+        data.current.wind_kph + " km/h";
+
+    }catch(err){
+
+        console.log(err);
+        alert("Something went wrong.");
+
     }
 
 }
