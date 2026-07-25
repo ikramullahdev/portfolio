@@ -37,7 +37,6 @@ if (data.error) {
 document.querySelector(".weather h1").innerText = data.current.temp_c + "°C";
 document.querySelector(".weather p").innerText = data.current.condition.text;
 
-alert("Updated Successfully");
         document.querySelector(".details div:first-child p").textContent =
         data.current.humidity + "%";
 
