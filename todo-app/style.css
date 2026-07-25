@@ -85,3 +85,42 @@ ul li {
 li span {
     cursor: pointer;
 }
+li {
+    transition: 0.3s ease;
+    animation: slideIn 0.3s ease;
+}
+
+li:hover {
+    transform: translateX(5px);
+}
+
+.delete:hover {
+    background: darkred;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(max-width: 450px){
+
+    .container{
+        width: 90%;
+    }
+
+    .input-box{
+        flex-direction: column;
+    }
+
+    .input-box button{
+        width: 100%;
+    }
+}
