@@ -76,3 +76,12 @@ ul li {
     border-radius: 5px;
     cursor: pointer;
 }
+.completed span {
+    text-decoration: line-through;
+    color: gray;
+    opacity: 0.7;
+}
+
+li span {
+    cursor: pointer;
+}
