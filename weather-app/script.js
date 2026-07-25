@@ -34,11 +34,11 @@ console.log("DATA:", data);
 if (data.error) {
     alert(data.error.message);
     return;
-}
-        document.querySelector(".weather h2").textContent = data.location.name;
-        document.querySelector(".weather h1").textContent = data.current.temp_c + "°C";
-        document.querySelector(".weather p").textContent = data.current.condition.text;
+}document.querySelector(".weather h2").innerText = data.location.name;
+document.querySelector(".weather h1").innerText = data.current.temp_c + "°C";
+document.querySelector(".weather p").innerText = data.current.condition.text;
 
+alert("Updated Successfully");
         document.querySelector(".details div:first-child p").textContent =
         data.current.humidity + "%";
 
