@@ -1,36 +1,39 @@
-console.log("Calculator JS Loaded");
 const display = document.getElementById("display");
+
 
 function append(value){
 
-display.value += value;
+    display.value += value;
 
 }
+
 
 function clearDisplay(){
 
-display.value = "";
+    display.value = "";
 
 }
+
 
 function deleteLast(){
 
-display.value = display.value.slice(0,-1);
+    display.value = display.value.slice(0,-1);
 
 }
+
 
 function calculate(){
 
-try{
+    try{
 
-display.value = eval(display.value);
+        display.value = eval(display.value);
 
-}
+    }
 
-catch{
+    catch{
 
-display.value = "Error";
+        display.value = "Error";
 
-}
+    }
 
 }
