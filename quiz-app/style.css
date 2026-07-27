@@ -483,3 +483,74 @@ body{
     color:white;
 
 }
+/* Premium Result */
+
+#result{
+
+    text-align:center;
+    animation:fadeIn .6s ease;
+
+}
+
+
+#result h2{
+
+    color:#2563eb;
+    font-size:32px;
+
+}
+
+
+#score{
+
+    margin:25px auto;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+    );
+
+    color:white;
+
+    font-size:28px;
+
+    box-shadow:
+    0 10px 30px rgba(37,99,235,.4);
+
+}
+
+
+#result button{
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+
+#result button:hover{
+
+    background:#1d4ed8;
+
+}
