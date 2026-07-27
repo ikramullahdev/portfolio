@@ -1,3 +1,4 @@
+console.log("Calculator JS Loaded");
 const display = document.getElementById("display");
 
 function append(value){
