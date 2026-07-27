@@ -1128,3 +1128,65 @@ body.dark .stat-card p{
     visibility:hidden;
 
 }
+/* ==========================
+   Contact Form
+========================== */
+
+.contact-form{
+
+    margin-top:60px;
+    background:#fff;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+}
+
+.contact-form h3{
+
+    text-align:center;
+    margin-bottom:25px;
+
+}
+
+.contact-form input,
+.contact-form textarea{
+
+    width:100%;
+    padding:15px;
+    margin-bottom:20px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    font-family:Poppins,sans-serif;
+
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+    outline:none;
+    border-color:#2563eb;
+
+}
+
+.contact-form button{
+
+    width:100%;
+
+}
+
+body.dark .contact-form{
+
+    background:#1f1f1f;
+
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea{
+
+    background:#2d2d2d;
+    color:white;
+    border:1px solid #444;
+
+}
