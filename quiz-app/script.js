@@ -1,3 +1,20 @@
+const startBtn = document.getElementById("start-btn");
+const startScreen = document.getElementById("start-screen");
+const quizBox = document.getElementById("quiz-box");
+
+
+quizBox.style.display="none";
+
+
+startBtn.addEventListener("click",()=>{
+
+    startScreen.style.display="none";
+
+    quizBox.style.display="block";
+
+    startQuiz();
+
+});
 const questions = [
 
 {
@@ -634,8 +651,6 @@ function restartQuiz(){
 
     document.getElementById("result").classList.add("hidden");
 
-
-    startQuiz();
 
 }
 
