@@ -311,3 +311,69 @@ body{
     }
 
 }
+#start-screen{
+
+    text-align:center;
+
+}
+
+
+#start-screen h1{
+
+    color:#2563eb;
+
+    font-size:35px;
+
+    margin-bottom:15px;
+
+}
+
+
+#start-screen p{
+
+    color:#64748b;
+
+    margin:10px;
+
+}
+
+
+.info{
+
+    background:#f1f5f9;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin:25px 0;
+
+}
+
+
+#start-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+
+#start-btn:hover{
+
+    background:#1d4ed8;
+
+}
