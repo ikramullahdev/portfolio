@@ -512,6 +512,7 @@ function startQuiz(){
 
 
 
+
 function showQuestion(){
 
     clearInterval(timer);
