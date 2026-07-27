@@ -8,11 +8,23 @@ quizBox.style.display="none";
 
 startBtn.addEventListener("click",()=>{
 
+
+    if(selectedCategory==="all"){
+
+        alert("Please select a category first!");
+
+        return;
+
+    }
+
+
     startScreen.style.display="none";
 
     quizBox.style.display="block";
 
+
     startQuiz();
+
 
 });
 const questions = [
@@ -426,6 +438,32 @@ answer:0
 }
 
 ];
+
+let selectedCategory = "all";
+
+
+const categories = document.querySelectorAll(".category");
+
+
+categories.forEach(button => {
+
+    button.addEventListener("click",()=>{
+
+
+        categories.forEach(btn=>{
+            btn.classList.remove("selected");
+        });
+
+
+        button.classList.add("selected");
+
+
+        selectedCategory = button.dataset.category;
+
+
+    });
+
+});
 
 
 let currentQuestion = 0;
