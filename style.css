@@ -1052,6 +1052,75 @@ body.dark .stat-card p{
     }
 
 }
+/* ==========================
+   Projects Section Fix
+========================== */
+
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(350px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+}
+
+.project-card img{
+    width:100%;
+    height:220px;
+    display:block;
+    object-fit:cover;
+    object-position:top;
+}
+
+.project-content{
+    padding:25px;
+}
+
+.project-content h3{
+    font-size:26px;
+    margin-bottom:15px;
+    color:#0f172a;
+}
+
+.project-content p{
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.tech{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:20px 0;
+}
+
+.tech span{
+    background:#2563eb;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:30px;
+    font-size:14px;
+}
+
+.project-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.project-buttons .btn{
+    margin:0;
+}
 
 #preloader.hide{
 
