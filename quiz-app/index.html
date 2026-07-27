@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Professional Quiz App</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="quiz-container">
+
+
+    <div class="top">
+
+        <h1>Quiz Master</h1>
+
+        <div id="timer">
+            Time: 30s
+        </div>
+
+    </div>
+
+
+    <div class="progress">
+
+        <div id="progress-bar"></div>
+
+    </div>
+
+
+    <div id="quiz-box">
+
+
+        <p id="question-number">
+            Question 1/10
+        </p>
+
+
+        <h2 id="question">
+            Loading Question...
+        </h2>
+
+
+        <div id="options">
+
+
+            <button class="option"></button>
+
+            <button class="option"></button>
+
+            <button class="option"></button>
+
+            <button class="option"></button>
+
+
+        </div>
+
+
+        <button id="next-btn">
+            Next Question
+        </button>
+
+
+    </div>
+
+
+
+    <div id="result" class="hidden">
+
+        <h2>Quiz Completed 🎉</h2>
+
+        <h1 id="score"></h1>
+
+
+        <button onclick="restartQuiz()">
+            Restart Quiz
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
