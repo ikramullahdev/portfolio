@@ -366,11 +366,13 @@ section{
 }
 
 .project-card{
-    background:white;
+    background:#fff;
     border-radius:18px;
     overflow:hidden;
     box-shadow:var(--shadow);
     transition:.3s;
+    max-width:380px;
+    margin:auto;
 }
 
 .project-card:hover{
@@ -381,10 +383,14 @@ section{
     width:100%;
     height:220px;
     object-fit:cover;
+    display:block;
 }
 
-.project-content{
-    padding:25px;
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+    justify-items:center;
 }
 
 .project-content h3{
