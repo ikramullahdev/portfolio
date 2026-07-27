@@ -405,3 +405,31 @@ window.addEventListener("load", () => {
     }
 
 });
+// ==============================
+// EmailJS Contact Form
+// ==============================
+
+// Apni Public Key yahan likho
+emailjs.init("tFlODmWgN7yCvUJJp");
+
+const contactForm = document.getElementById("contact-form");
+
+contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+        "service_1ph2e3i",
+        "template-p2fqybd",
+        this
+    ).then(function () {
+
+        alert("✅ Message Sent Successfully!");
+        contactForm.reset();
+
+    }).catch(function (error) {
+
+        alert("❌ Failed to Send Message");
+        console.log(error);
+
+    });
+});
