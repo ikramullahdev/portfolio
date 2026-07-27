@@ -593,7 +593,6 @@ function startTimer(){
 
 function showResult(){
 
-
     clearInterval(timer);
 
 
@@ -603,8 +602,26 @@ function showResult(){
     document.getElementById("result").classList.remove("hidden");
 
 
+    let percentage = Math.round(
+        (score / questions.length) * 100
+    );
+
+
     document.getElementById("score").innerHTML =
-    `${score} / ${questions.length}`;
+
+    `
+    ${score} / ${questions.length}
+    <br>
+    <span style="font-size:30px">
+    ${percentage}% Score
+    </span>
+
+    <p style="font-size:18px;margin-top:15px;">
+    Correct Answers: ${score}
+    <br>
+    Wrong Answers: ${questions.length - score}
+    </p>
+    `;
 
 
 }
