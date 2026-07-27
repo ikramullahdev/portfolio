@@ -695,7 +695,7 @@ function showResult(){
     clearInterval(timer);
 
 
-    document.querySelector(".quiz-box").classList.add("hidden");
+    document.querySelector(".quiz-box").style.display="none";
 
 
     document.getElementById("result").classList.remove("hidden");
@@ -705,6 +705,51 @@ function showResult(){
         (score / quizQuestions.length) * 100
     );
 
+
+    let message = "";
+
+
+    if(percentage >= 80){
+
+        message = "Excellent Performance 🔥";
+
+    }
+
+    else if(percentage >= 50){
+
+        message = "Good Job 👍";
+
+    }
+
+    else{
+
+        message = "Keep Practicing 💪";
+
+    }
+
+
+    document.getElementById("score").innerHTML =
+    `
+    ${percentage}%
+    `;
+
+
+    document.getElementById("result").innerHTML +=
+    `
+    <h3>${message}</h3>
+
+    <p>
+    Correct Answers: ${score}
+    <br>
+    Wrong Answers: ${quizQuestions.length - score}
+    </p>
+
+    <button onclick="restartQuiz()">
+    Restart Quiz
+    </button>
+    `;
+
+}
 
     document.getElementById("score").innerHTML =
 
