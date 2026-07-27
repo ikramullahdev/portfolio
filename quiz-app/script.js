@@ -439,8 +439,9 @@ answer:0
 
 ];
 
-let selectedCategory = "all";
 
+let selectedCategory = "all";
+let quizQuestions = [];
 
 const categories = document.querySelectorAll(".category");
 
@@ -482,8 +483,28 @@ const progress = document.getElementById("progress-bar");
 
 function startQuiz(){
 
-    currentQuestion=0;
-    score=0;
+    currentQuestion = 0;
+    score = 0;
+
+
+    if(selectedCategory === "web"){
+
+        quizQuestions = questions.slice(0,10);
+
+    }
+
+    else if(selectedCategory === "java"){
+
+        quizQuestions = questions.slice(10,20);
+
+    }
+
+    else if(selectedCategory === "sql"){
+
+        quizQuestions = questions.slice(20,30);
+
+    }
+
 
     showQuestion();
 
@@ -500,11 +521,11 @@ function showQuestion(){
     startTimer();
 
 
-    let q = questions[currentQuestion];
+    let q = quizQuestions[currentQuestion];
 
 
     document.getElementById("question-number").innerHTML =
-    `Question ${currentQuestion+1} / ${questions.length}`;
+    `Question ${currentQuestion+1} / $quizQuestions.length}`;
 
 
     questionText.innerHTML=q.question;
@@ -533,7 +554,7 @@ function showQuestion(){
 
 
     progress.style.width =
-    ((currentQuestion+1)/questions.length)*100+"%";
+    ((currentQuestion+1)/quizQuestions.length)*100+"%";
 
 
     nextBtn.style.display="none";
@@ -547,7 +568,7 @@ function checkAnswer(button,index){
 
 
     let correct =
-    questions[currentQuestion].answer;
+   quizQuestions[currentQuestion].answer;
 
 
     let buttons=document.querySelectorAll(".option");
@@ -589,7 +610,7 @@ nextBtn.onclick=function(){
     currentQuestion++;
 
 
-    if(currentQuestion < questions.length){
+    if(currentQuestion < quizQuestions.length){
 
         showQuestion();
 
@@ -623,7 +644,7 @@ function startTimer(){
             currentQuestion++;
 
 
-            if(currentQuestion < questions.length){
+            if(currentQuestion < quizQuestions.length){
 
                 showQuestion();
 
@@ -658,14 +679,14 @@ function showResult(){
 
 
     let percentage = Math.round(
-        (score / questions.length) * 100
+        (score / quizQuestions.length) * 100
     );
 
 
     document.getElementById("score").innerHTML =
 
     `
-    ${score} / ${questions.length}
+    ${score} / ${quizQuestions.length}
     <br>
     <span style="font-size:30px">
     ${percentage}% Score
@@ -674,7 +695,7 @@ function showResult(){
     <p style="font-size:18px;margin-top:15px;">
     Correct Answers: ${score}
     <br>
-    Wrong Answers: ${questions.length - score}
+    Wrong Answers: ${quizQuestions.length - score}
     </p>
     `;
 
