@@ -524,9 +524,8 @@ function showQuestion(){
 
     let q = quizQuestions[currentQuestion];
 
-
-    document.getElementById("question-number").innerHTML =
-    `Question ${currentQuestion+1} / $quizQuestions.length}`;
+document.getElementById("question-number").innerHTML =
+`Question ${currentQuestion+1} / ${quizQuestions.length}`;
 
 
     questionText.innerHTML=q.question;
@@ -567,17 +566,40 @@ function showQuestion(){
 
 function checkAnswer(button,index){
 
+    let correct = quizQuestions[currentQuestion].answer;
 
-    let correct =
-   quizQuestions[currentQuestion].answer;
-
-
-    let buttons=document.querySelectorAll(".option");
+    let buttons = document.querySelectorAll(".option");
 
 
     buttons.forEach(btn=>{
-        btn.disabled=true;
+
+        btn.disabled = true;
+
     });
+
+
+    if(index === correct){
+
+        button.classList.add("correct");
+
+        score++;
+
+    }
+
+    else{
+
+        button.classList.add("wrong");
+
+        buttons[correct].classList.add("correct");
+
+    }
+
+
+    nextBtn.style.display = "block";
+
+}
+
+
 
 
     if(index===correct){
