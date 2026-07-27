@@ -1,1 +1,197 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
 
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#0f172a,#2563eb);
+
+}
+
+
+.container{
+
+    width:380px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+
+}
+
+
+h1{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    color:#0f172a;
+
+}
+
+
+.balance-box{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+
+.balance-box h2{
+
+    font-size:35px;
+
+    margin-top:10px;
+
+}
+
+
+.income-expense{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+
+.box{
+
+    flex:1;
+
+    padding:15px;
+
+    text-align:center;
+
+    border-radius:12px;
+
+}
+
+
+.income{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+}
+
+
+.expense{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+}
+
+
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin:8px 0;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+
+
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin:10px 0 20px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+
+button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+ul{
+
+    list-style:none;
+
+}
+
+
+li{
+
+    background:#f1f5f9;
+
+    padding:12px;
+
+    margin:10px 0;
+
+    border-radius:8px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+}
+
+
+@media(max-width:450px){
+
+    .container{
+
+        width:90%;
+
+    }
+
+}
