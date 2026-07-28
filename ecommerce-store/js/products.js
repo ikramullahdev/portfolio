@@ -1,10 +1,14 @@
 const products = [
-  {
-    id: 1,
-    name: "Wireless Headphones",
-    price: 99,
-    image: "assets/headphones.jpg"
-  },
+ {
+  id: 1,
+  name: "Wireless Headphones",
+  price: 99,
+  image: "assets/headphones.jpg",
+  rating: 4.8,
+  stock: true,
+  category: "Electronics",
+  description: "Premium wireless headphones with active noise cancellation and 40-hour battery life."
+}
   {
     id: 2,
     name: "Smart Watch",
