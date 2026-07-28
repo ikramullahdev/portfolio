@@ -94,10 +94,49 @@ function addToCart(id){
     cart.push(product);
 
     localStorage.setItem("cart", JSON.stringify(cart));
+  function addToCart(id){
+
+    const product = products.find(item => item.id === id);
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push(product);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();   // 👈 Ye line yahan add karni hai
 
     alert(product.name + " added to cart!");
 
 }
+
+    alert(product.name + " added to cart!");
+
+}
+function updateCartCount(){
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const count = document.getElementById("cart-count");
+
+    if(count){
+        count.innerText = cart.length;
+    }
+
+}
+
+function updateCartCount(){
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const count = document.getElementById("cart-count");
+
+    if(count){
+        count.innerText = cart.length;
+    }
+
+}
+
 function updateCartCount(){
 
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
