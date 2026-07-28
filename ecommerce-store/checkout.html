@@ -1,41 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | NovaShop</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | NovaShop</title>
+
+<link rel="stylesheet" href="css/style.css">
+
 </head>
+
+
 <body>
 
-<section class="checkout">
 
-    <h1>Checkout</h1>
+<header class="header">
 
-    <form id="checkout-form">
+    <div class="logo">
+        <h2>NovaShop</h2>
+    </div>
 
-        <input type="text" placeholder="Full Name" required>
 
-        <input type="email" placeholder="Email Address" required>
+    <nav>
 
-        <input type="text" placeholder="Phone Number" required>
+        <ul class="nav-links">
 
-        <input type="text" placeholder="Shipping Address" required>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
 
-        <input type="text" placeholder="City" required>
+            <li>
+                <a href="products.html">Products</a>
+            </li>
 
-        <input type="text" placeholder="Country" required>
+            <li>
+                <a href="cart.html">Cart</a>
+            </li>
 
-        <button type="submit">
-            Place Order
-        </button>
+        </ul>
 
-    </form>
+    </nav>
+
+
+</header>
+
+
+
+<section class="checkout-section">
+
+
+<div class="checkout-container">
+
+
+<div class="order-summary">
+
+
+<h2>
+Order Summary
+</h2>
+
+
+<div id="checkout-items">
+
+</div>
+
+
+<h3>
+Total:
+<span id="checkout-total">
+$0
+</span>
+</h3>
+
+
+</div>
+
+
+
+<div class="checkout-form">
+
+
+<h2>
+Customer Information
+</h2>
+
+
+<form id="order-form">
+
+
+<input 
+type="text"
+id="name"
+placeholder="Full Name"
+required>
+
+
+
+<input
+type="email"
+id="email"
+placeholder="Email Address"
+required>
+
+
+
+<input
+type="text"
+id="address"
+placeholder="Address"
+required>
+
+
+
+<input
+type="tel"
+id="phone"
+placeholder="Phone Number"
+required>
+
+
+
+<button class="btn" type="submit">
+Place Order
+</button>
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
 
 </section>
 
+
+
 <script src="js/checkout.js"></script>
 
+
 </body>
+
 </html>
