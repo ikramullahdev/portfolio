@@ -268,4 +268,39 @@ border-color:#2563eb;
     font-size:12px;
     font-weight:600;
 }
+/* ================= TOAST ================= */
+
+.toast{
+
+    position:fixed;
+    top:100px;
+    right:30px;
+
+    background:#16a34a;
+    color:#fff;
+
+    padding:15px 25px;
+
+    border-radius:8px;
+
+    font-weight:600;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+
+    opacity:0;
+
+    transform:translateX(100px);
+
+    transition:.4s;
+
+    z-index:9999;
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
 
