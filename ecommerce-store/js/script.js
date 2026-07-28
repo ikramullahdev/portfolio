@@ -88,3 +88,18 @@ if(featuredContainer){
     });
 
 }
+function updateWishlistCount(){
+
+    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    const count = document.getElementById("wishlist-count");
+
+    if(count){
+
+        count.innerText = wishlist.length;
+
+    }
+
+}
+
+updateWishlistCount();
