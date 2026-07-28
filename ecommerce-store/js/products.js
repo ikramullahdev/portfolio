@@ -167,3 +167,12 @@ function showToast(){
     },2000);
 
 }
+function openProduct(id){
+
+    const product = products.find(item => item.id === id);
+
+    localStorage.setItem("selectedProduct", JSON.stringify(product));
+
+    window.location.href = "product.html";
+
+}
