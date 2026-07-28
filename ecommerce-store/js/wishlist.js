@@ -34,6 +34,9 @@ function displayWishlist(){
                 <h3>${product.name}</h3>
 
                 <p class="price">$${product.price}</p>
+                <button onclick="addWishlistToCart(${index})">
+    Add To Cart 🛒
+</button>
 
                 <button onclick="removeWishlist(${index})">
                     Remove ❤️
