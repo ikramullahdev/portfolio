@@ -51,7 +51,7 @@ function display(list) {
 
     container.innerHTML += `
 
-      <div class="product-card">
+      <div class="product-card" onclick="openProduct(${product.id})">
 
         <img src="${product.image}" alt="${product.name}">
 
