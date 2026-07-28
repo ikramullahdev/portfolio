@@ -16,6 +16,27 @@ if (product) {
 
     const btn = document.getElementById("add-cart-btn");
 
+    const wishlistBtn = document.getElementById("wishlist-btn");
+
+
+wishlistBtn.addEventListener("click", function(){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+
+    wishlist.push(product);
+
+
+    localStorage.setItem(
+        "wishlist",
+        JSON.stringify(wishlist)
+    );
+
+
+    alert(product.name + " added to wishlist ❤️");
+
+});
+
 
     btn.addEventListener("click", function () {
 
