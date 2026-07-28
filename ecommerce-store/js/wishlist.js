@@ -70,3 +70,20 @@ function removeWishlist(index){
     displayWishlist();
 
 }
+function addWishlistToCart(index){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+
+    cart.push(wishlist[index]);
+
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+
+    alert(wishlist[index].name + " added to cart 🛒");
+
+}
