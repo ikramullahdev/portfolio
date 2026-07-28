@@ -106,7 +106,7 @@ function addToCart(id){
 
     updateCartCount();   // 👈 Ye line yahan add karni hai
 
-    alert(product.name + " added to cart!");
+    showToast();
 
 }
 
