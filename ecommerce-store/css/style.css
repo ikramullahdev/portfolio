@@ -512,3 +512,21 @@ border-color:#2563eb;
 }
 
 }
+/* ================= WISHLIST BUTTON ================= */
+
+.wishlist-btn{
+
+    margin-top:15px;
+
+    background:#ef4444;
+
+    color:white;
+
+}
+
+
+.wishlist-btn:hover{
+
+    background:#dc2626;
+
+}
