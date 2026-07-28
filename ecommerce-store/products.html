@@ -2,76 +2,78 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | NovaShop</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
 
-<title>Products | NovaShop</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
 
-<header class="header">
+    <!-- Header -->
+    <header class="header">
 
-<div class="logo">
-<h2>NovaShop</h2>
-</div>
+        <div class="logo">
+            <h2>NovaShop</h2>
+        </div>
 
-<nav>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
 
-<ul class="nav-links">
+        <div class="icons">
 
-<li><a href="index.html">Home</a></li>
+            <i class="fas fa-search"></i>
 
-<li><a href="products.html">Products</a></li>
+            <i class="fas fa-heart"></i>
 
-<li><a href="cart.html">Cart</a></li>
+            <div class="cart-icon">
 
-<li><a href="contact.html">Contact</a></li>
+                <a href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
 
-</ul>
+                <span id="cart-count">0</span>
 
-</nav>
+            </div>
 
-<div class="icons">
+        </div>
 
-<i class="fas fa-search"></i>
+    </header>
 
-<i class="fas fa-heart"></i>
+    <!-- Products Section -->
+    <section class="products-page">
 
-<i class="fas fa-shopping-cart"></i>
+        <h1>Our Products</h1>
 
-</div>
+        <input
+            type="text"
+            id="search"
+            placeholder="Search Products...">
 
-</header>
+        <div class="products-container" id="products">
 
+        </div>
 
-<section class="products-page">
+    </section>
 
-<h1>Our Products</h1>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        ✅ Product added to cart
+    </div>
 
-<input
-type="text"
-id="search"
-placeholder="Search Products...">
+    <!-- JavaScript -->
+    <script src="js/products.js"></script>
 
-<div class="products-container"
-id="products">
-
-</div>
-
-</section>
-
-<script src="js/products.js"></script>
-<div id="toast" class="toast">
-    ✅ Product added to cart
-</div>
 </body>
 
 </html>
