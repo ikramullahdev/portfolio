@@ -98,3 +98,16 @@ function addToCart(id){
     alert(product.name + " added to cart!");
 
 }
+function updateCartCount(){
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const count = document.getElementById("cart-count");
+
+    if(count){
+        count.innerText = cart.length;
+    }
+
+}
+
+updateCartCount();
