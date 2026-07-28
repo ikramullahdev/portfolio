@@ -8,86 +8,121 @@ const products = [
   stock: true,
   category: "Electronics",
   description: "Premium wireless headphones with active noise cancellation and 40-hour battery life."
-}
-  {
-    id: 2,
-    name: "Smart Watch",
-    price: 149,
-    image: "assets/smartwatch.jpg"
-  },
-  {
-    id: 3,
-    name: "Gaming Mouse",
-    price: 59,
-    image: "assets/mouse.jpg"
-  },
-  {
-    id: 4,
-    name: "Bluetooth Speaker",
-    price: 89,
-    image: "assets/speaker.jpg"
-  },
-  {
-    id: 5,
-    name: "Laptop Backpack",
-    price: 79,
-    image: "assets/backpack.jpg"
-  },
-  {
-    id: 6,
-    name: "Mechanical Keyboard",
-    price: 129,
-    image: "assets/keyboard.jpg"
-  }
+ },
+ {
+  id: 2,
+  name: "Smart Watch",
+  price: 149,
+  image: "assets/smartwatch.jpg",
+  rating: 4.7,
+  stock: true,
+  category: "Electronics",
+  description: "Smart watch with fitness tracking, notifications and health monitoring features."
+ },
+ {
+  id: 3,
+  name: "Gaming Mouse",
+  price: 59,
+  image: "assets/mouse.jpg",
+  rating: 4.6,
+  stock: true,
+  category: "Gaming",
+  description: "High precision gaming mouse with fast response and comfortable design."
+ },
+ {
+  id: 4,
+  name: "Bluetooth Speaker",
+  price: 89,
+  image: "assets/speaker.jpg",
+  rating: 4.8,
+  stock: true,
+  category: "Electronics",
+  description: "Portable Bluetooth speaker with powerful sound and long battery life."
+ },
+ {
+  id: 5,
+  name: "Laptop Backpack",
+  price: 79,
+  image: "assets/backpack.jpg",
+  rating: 4.5,
+  stock: true,
+  category: "Accessories",
+  description: "Durable laptop backpack with multiple storage compartments."
+ },
+ {
+  id: 6,
+  name: "Mechanical Keyboard",
+  price: 129,
+  image: "assets/keyboard.jpg",
+  rating: 4.9,
+  stock: true,
+  category: "Gaming",
+  description: "Mechanical keyboard with RGB lighting and premium switches."
+ }
 ];
+
 
 const container = document.getElementById("products");
 
-function display(list) {
 
-  container.innerHTML = "";
+function display(list){
 
-  list.forEach(product => {
+    if(!container) return;
 
-    container.innerHTML += `
+    container.innerHTML = "";
 
-      <div class="product-card" onclick="openProduct(${product.id})">
+    list.forEach(product => {
 
-        <img src="${product.image}" alt="${product.name}">
+        container.innerHTML += `
 
-        <div class="product-info">
+        <div class="product-card" onclick="openProduct(${product.id})">
 
-          <h3>${product.name}</h3>
+            <img src="${product.image}" alt="${product.name}">
 
-          <p class="price">$${product.price}</p>
+            <div class="product-info">
 
-          <button onclick="addToCart(${product.id})">
-            Add to Cart
-          </button>
+                <h3>${product.name}</h3>
+
+                <p class="price">$${product.price}</p>
+
+                <button onclick="event.stopPropagation(); addToCart(${product.id})">
+                    Add to Cart
+                </button>
+
+            </div>
 
         </div>
 
-      </div>
+        `;
 
-    `;
-
-  });
+    });
 
 }
 
+
 display(products);
 
-document.getElementById("search").addEventListener("keyup", function(e){
 
-  const value = e.target.value.toLowerCase();
 
-  const filtered = products.filter(product =>
-      product.name.toLowerCase().includes(value)
-  );
+const search = document.getElementById("search");
 
-  display(filtered);
+if(search){
+
+search.addEventListener("keyup", function(e){
+
+    const value = e.target.value.toLowerCase();
+
+    const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(value)
+    );
+
+    display(filtered);
 
 });
+
+}
+
+
 
 function addToCart(id){
 
@@ -98,36 +133,14 @@ function addToCart(id){
     cart.push(product);
 
     localStorage.setItem("cart", JSON.stringify(cart));
-  function addToCart(id){
 
-    const product = products.find(item => item.id === id);
-
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    cart.push(product);
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    updateCartCount();   // 👈 Ye line yahan add karni hai
+    updateCartCount();
 
     showToast();
 
 }
 
-    alert(product.name + " added to cart!");
 
-}
-function updateCartCount(){
-
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    const count = document.getElementById("cart-count");
-
-    if(count){
-        count.innerText = cart.length;
-    }
-
-}
 
 function updateCartCount(){
 
@@ -141,37 +154,39 @@ function updateCartCount(){
 
 }
 
-function updateCartCount(){
-
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    const count = document.getElementById("cart-count");
-
-    if(count){
-        count.innerText = cart.length;
-    }
-
-}
 
 updateCartCount();
+
+
+
 function showToast(){
 
     const toast = document.getElementById("toast");
 
-    toast.classList.add("show");
+    if(toast){
 
-    setTimeout(()=>{
+        toast.classList.add("show");
 
-        toast.classList.remove("show");
+        setTimeout(()=>{
 
-    },2000);
+            toast.classList.remove("show");
+
+        },2000);
+
+    }
 
 }
+
+
+
 function openProduct(id){
 
     const product = products.find(item => item.id === id);
 
-    localStorage.setItem("selectedProduct", JSON.stringify(product));
+    localStorage.setItem(
+        "selectedProduct",
+        JSON.stringify(product)
+    );
 
     window.location.href = "product.html";
 
