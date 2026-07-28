@@ -1,20 +1,69 @@
-const wishlistBtn = document.getElementById("wishlist-btn");
+const wishlistContainer = document.getElementById("wishlist-container");
 
-if(wishlistBtn){
 
-    wishlistBtn.addEventListener("click", function(){
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-        wishlist.push(product);
+function displayWishlist(){
 
-        localStorage.setItem(
-            "wishlist",
-            JSON.stringify(wishlist)
-        );
+    wishlistContainer.innerHTML = "";
 
-        alert(product.name + " added to wishlist ❤️");
+
+    if(wishlist.length === 0){
+
+        wishlistContainer.innerHTML = `
+        <h2>
+        No items in wishlist ❤️
+        </h2>
+        `;
+
+        return;
+    }
+
+
+    wishlist.forEach((product,index)=>{
+
+        wishlistContainer.innerHTML += `
+
+        <div class="product-card">
+
+            <img src="${product.image}" alt="${product.name}">
+
+            <div class="product-info">
+
+                <h3>${product.name}</h3>
+
+                <p class="price">$${product.price}</p>
+
+                <button onclick="removeWishlist(${index})">
+                    Remove ❤️
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
 
     });
+
+}
+
+
+displayWishlist();
+
+
+function removeWishlist(index){
+
+    wishlist.splice(index,1);
+
+
+    localStorage.setItem(
+        "wishlist",
+        JSON.stringify(wishlist)
+    );
+
+
+    displayWishlist();
 
 }
