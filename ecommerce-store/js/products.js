@@ -3,37 +3,37 @@ const products = [
     id: 1,
     name: "Wireless Headphones",
     price: 99,
-    image: "https://picsum.photos/400?1"
+    image: "assets/headphones.jpg"
   },
   {
     id: 2,
     name: "Smart Watch",
     price: 149,
-    image: "https://picsum.photos/400?2"
+    image: "assets/smartwatch.jpg"
   },
   {
     id: 3,
     name: "Gaming Mouse",
     price: 59,
-    image: "https://picsum.photos/400?3"
+    image: "assets/mouse.jpg"
   },
   {
     id: 4,
     name: "Bluetooth Speaker",
     price: 89,
-    image: "https://picsum.photos/400?4"
+    image: "assets/speaker.jpg"
   },
   {
     id: 5,
     name: "Laptop Backpack",
     price: 79,
-    image: "https://picsum.photos/400?5"
+    image: "assets/backpack.jpg"
   },
   {
     id: 6,
     name: "Mechanical Keyboard",
     price: 129,
-    image: "https://picsum.photos/400?6"
+    image: "assets/keyboard.jpg"
   }
 ];
 
