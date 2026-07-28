@@ -1,53 +1,62 @@
 const products = [
-
-{
-    name:"Wireless Headphones",
-    price:"$99",
-    image:"https://picsum.photos/400/400?random=1"
-},
-
-{
-    name:"Smart Watch",
-    price:"$149",
-    image:"https://picsum.photos/400/400?random=2"
-},
-
-{
-    name:"Gaming Mouse",
-    price:"$59",
-    image:"https://picsum.photos/400/400?random=3"
-},
-
-{
-    name:"Bluetooth Speaker",
-    price:"$89",
-    image:"https://picsum.photos/400/400?random=4"
-}
-
+    {
+        id: 1,
+        name: "Wireless Headphones",
+        price: 99,
+        image: "https://picsum.photos/400/400?random=1"
+    },
+    {
+        id: 2,
+        name: "Smart Watch",
+        price: 149,
+        image: "https://picsum.photos/400/400?random=2"
+    },
+    {
+        id: 3,
+        name: "Gaming Mouse",
+        price: 59,
+        image: "https://picsum.photos/400/400?random=3"
+    },
+    {
+        id: 4,
+        name: "Bluetooth Speaker",
+        price: 89,
+        image: "https://picsum.photos/400/400?random=4"
+    }
 ];
 
 const container = document.getElementById("products-container");
 
-products.forEach(product => {
+function displayProducts() {
+    container.innerHTML = "";
 
-container.innerHTML += `
+    products.forEach(product => {
+        container.innerHTML += `
+        <div class="product-card">
+            <img src="${product.image}" alt="${product.name}">
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p class="price">$${product.price}</p>
+                <button onclick="addToCart(${product.id})">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+        `;
+    });
+}
 
-<div class="product-card">
+displayProducts();
 
-<img src="${product.image}" alt="${product.name}">
+function addToCart(id) {
 
-<div class="product-info">
+    const product = products.find(item => item.id === id);
 
-<h3>${product.name}</h3>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-<p class="price">${product.price}</p>
+    cart.push(product);
 
-<button>Add to Cart</button>
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-</div>
-
-</div>
-
-`;
-
-});
+    alert(product.name + " added to cart!");
+}
