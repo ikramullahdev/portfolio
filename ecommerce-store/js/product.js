@@ -17,7 +17,8 @@ if (product) {
     const btn = document.getElementById("add-cart-btn");
 
 const wishlistBtn = document.getElementById("wishlist-btn");
-console.log(wishlistBtn);
+
+console.log("Wishlist Button:", wishlistBtn);
 
 if(wishlistBtn){
 
