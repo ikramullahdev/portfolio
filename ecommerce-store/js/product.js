@@ -16,26 +16,30 @@ if (product) {
 
     const btn = document.getElementById("add-cart-btn");
 
-    const wishlistBtn = document.getElementById("wishlist-btn");
+const wishlistBtn = document.getElementById("wishlist-btn");
 
 
-wishlistBtn.addEventListener("click", function(){
+if(wishlistBtn){
 
-    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    wishlistBtn.addEventListener("click", function(){
 
-
-    wishlist.push(product);
-
-
-    localStorage.setItem(
-        "wishlist",
-        JSON.stringify(wishlist)
-    );
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
 
-    alert(product.name + " added to wishlist ❤️");
+        wishlist.push(product);
 
-});
+
+        localStorage.setItem(
+            "wishlist",
+            JSON.stringify(wishlist)
+        );
+
+
+        alert(product.name + " added to wishlist ❤️");
+
+    });
+
+}
 
 
     btn.addEventListener("click", function () {
