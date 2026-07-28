@@ -185,3 +185,49 @@ body{
 .product-info button:hover{
     background:#1d4ed8;
 }
+/* ================= PRODUCTS PAGE ================= */
+
+.products-page{
+
+padding:130px 8% 80px;
+
+}
+
+.products-page h1{
+
+text-align:center;
+
+margin-bottom:30px;
+
+font-size:45px;
+
+}
+
+#search{
+
+width:100%;
+
+max-width:450px;
+
+display:block;
+
+margin:0 auto 40px;
+
+padding:15px;
+
+font-size:16px;
+
+border-radius:10px;
+
+border:1px solid #ddd;
+
+outline:none;
+
+}
+
+#search:focus{
+
+border-color:#2563eb;
+
+}
+
