@@ -230,4 +230,42 @@ outline:none;
 border-color:#2563eb;
 
 }
+/* ================= CART BADGE ================= */
+
+.cart-icon{
+    position:relative;
+    display:inline-block;
+}
+
+.cart-icon a{
+    color:#222;
+    text-decoration:none;
+}
+
+.cart-icon i{
+    font-size:22px;
+}
+
+#cart-count{
+
+    position:absolute;
+
+    top:-10px;
+    right:-12px;
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    background:#ef4444;
+    color:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:12px;
+    font-weight:600;
+}
 
