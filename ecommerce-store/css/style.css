@@ -601,20 +601,65 @@ border-color:#2563eb;
     background:#555;
 
 }
-/* ================= MOBILE RESPONSIVE ================= */
+/* ================= FINAL MOBILE RESPONSIVE ================= */
 
-@media (max-width: 768px){
+.menu-toggle{
+    display:none;
+}
+
+
+@media(max-width:768px){
 
     .header{
-        flex-direction: column;
-        padding:15px;
+
+        position:fixed;
+        height:auto;
+        min-height:70px;
+        padding:15px 5%;
+        flex-direction:row;
+        flex-wrap:wrap;
+        background:#fff;
+
+    }
+
+
+    .logo h2{
+
+        font-size:24px;
+
+    }
+
+
+    .menu-toggle{
+
+        display:block;
+        font-size:25px;
+        cursor:pointer;
+
+    }
+
+
+    nav{
+
+        display:none;
+        width:100%;
+
+    }
+
+
+    nav.active{
+
+        display:block;
+
     }
 
 
     .nav-links{
 
-        flex-direction: column;
+        flex-direction:column;
         gap:15px;
+        background:#fff;
+        padding:20px;
         text-align:center;
 
     }
@@ -622,14 +667,16 @@ border-color:#2563eb;
 
     .icons{
 
-        margin-top:15px;
+        margin-top:0;
+        gap:15px;
+
     }
 
 
     .hero{
 
+        padding:120px 20px 60px;
         height:auto;
-        padding:60px 20px;
 
     }
 
@@ -643,7 +690,7 @@ border-color:#2563eb;
 
     .hero-content p{
 
-        font-size:16px;
+        font-size:15px;
 
     }
 
@@ -652,87 +699,28 @@ border-color:#2563eb;
 
         grid-template-columns:1fr;
 
-        padding:10px;
+    }
+
+
+    .product-details{
+
+        grid-template-columns:1fr;
 
     }
 
 
-    .product-card{
+    .checkout-container{
 
-        width:100%;
-
-    }
-
-
-    #search{
-
-        width:90%;
+        grid-template-columns:1fr;
 
     }
 
 
+    #search,
     #sort{
 
         width:90%;
 
-    }
-
-
-    .category-btn{
-
-        margin:5px 2px;
-
-    }
-
-}
-/* MOBILE HEADER FIX */
-
-@media(max-width:768px){
-
-    .header{
-        position: relative;
-        flex-wrap: wrap;
-        background:white;
-        z-index:1000;
-    }
-
-
-    nav{
-        display:none;
-        width:100%;
-    }
-
-
-    nav.active{
-        display:block;
-    }
-
-
-    .nav-links{
-        background:white;
-        padding:20px;
-        width:100%;
-        text-align:center;
-    }
-
-
-    .icons{
-        display:flex;
-        align-items:center;
-        gap:15px;
-    }
-
-
-    .hero{
-        margin-top:20px;
-        position:relative;
-        z-index:1;
-    }
-
-
-    .hero-content h1{
-        font-size:30px;
-        line-height:1.2;
     }
 
 }
