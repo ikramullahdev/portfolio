@@ -146,7 +146,37 @@ if(sort){
     });
 
 }
+// ================= CATEGORY FILTER =================
 
+const categoryButtons = document.querySelectorAll(".category-btn");
+
+
+categoryButtons.forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        const category = this.dataset.category;
+
+
+        if(category === "all"){
+
+            display(products);
+
+        }
+
+        else{
+
+            const filtered = products.filter(product =>
+                product.category === category
+            );
+
+            display(filtered);
+
+        }
+
+    });
+
+});
 // ================= CART =================
 
 function addToCart(id){
