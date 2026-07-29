@@ -111,3 +111,87 @@ window.location.href="orders.html";
 
 
 }
+// ================= ORDER TRACKING =================
+
+
+const tracking =
+document.getElementById("order-tracking");
+
+
+if(tracking && selectedOrder){
+
+
+let status = selectedOrder.status;
+
+
+
+tracking.innerHTML = `
+
+
+<div class="tracking-box">
+
+
+<h2>
+Order Tracking
+</h2>
+
+
+
+<div class="steps">
+
+
+<div class="step active">
+
+🟢
+
+<p>
+Processing
+</p>
+
+</div>
+
+
+
+<div class="line"></div>
+
+
+
+<div class="step ${status==="Shipped" || status==="Delivered" ? "active":""}">
+
+📦
+
+<p>
+Shipped
+</p>
+
+</div>
+
+
+
+<div class="line"></div>
+
+
+
+<div class="step ${status==="Delivered" ? "active":""}">
+
+✅
+
+<p>
+Delivered
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+
+}
