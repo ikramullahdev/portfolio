@@ -1,4 +1,4 @@
-const products = [
+let products = [
  {
   id: 1,
   name: "Wireless Headphones",
@@ -61,6 +61,21 @@ const products = [
  }
 ];
 
+// ================= ADMIN PRODUCTS =================
+
+
+const adminProducts =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+
+products = [
+
+    ...products,
+
+    ...adminProducts
+
+];
 const container = document.getElementById("products");
 
 function display(list){
