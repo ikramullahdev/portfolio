@@ -29,7 +29,8 @@ orders.forEach(order=>{
 
 ordersContainer.innerHTML += `
 
-<div class="product-card">
+<div class="product-card"
+onclick="openOrder('${order.id}')">
 
 
 <div class="product-info">
