@@ -601,3 +601,87 @@ border-color:#2563eb;
     background:#555;
 
 }
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px){
+
+    .header{
+        flex-direction: column;
+        padding:15px;
+    }
+
+
+    .nav-links{
+
+        flex-direction: column;
+        gap:15px;
+        text-align:center;
+
+    }
+
+
+    .icons{
+
+        margin-top:15px;
+    }
+
+
+    .hero{
+
+        height:auto;
+        padding:60px 20px;
+
+    }
+
+
+    .hero-content h1{
+
+        font-size:32px;
+
+    }
+
+
+    .hero-content p{
+
+        font-size:16px;
+
+    }
+
+
+    .products-container{
+
+        grid-template-columns:1fr;
+
+        padding:10px;
+
+    }
+
+
+    .product-card{
+
+        width:100%;
+
+    }
+
+
+    #search{
+
+        width:90%;
+
+    }
+
+
+    #sort{
+
+        width:90%;
+
+    }
+
+
+    .category-btn{
+
+        margin:5px 2px;
+
+    }
+
+}
