@@ -234,7 +234,7 @@ Number(document.getElementById("product-price").value),
 
 
 image:
-document.getElementById("product-image").value,
+preview.src,
 
 
 category:
