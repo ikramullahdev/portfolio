@@ -40,15 +40,11 @@ function displayOrders(){
         adminOrders.innerHTML += `
 
 
-      <div class="product-card">
+        <div class="product-card">
 
 
-<img src="${product.image}" 
-alt="${product.name}"
-style="width:100%;height:200px;object-fit:cover;">
+        <div class="product-info">
 
-
-<div class="product-info">
 
         <h3>
         Order ID: ${order.id}
@@ -73,17 +69,17 @@ style="width:100%;height:200px;object-fit:cover;">
 
 
         <button onclick="updateStatus('${order.id}','Processing')">
-        Processing
+        📦 Processing
         </button>
 
 
         <button onclick="updateStatus('${order.id}','Shipped')">
-        Shipped
+        🚚 Shipped
         </button>
 
 
         <button onclick="updateStatus('${order.id}','Delivered')">
-        Delivered
+        ✅ Delivered
         </button>
 
 
@@ -101,7 +97,6 @@ style="width:100%;height:200px;object-fit:cover;">
 
 
 }
-
 
 
 
