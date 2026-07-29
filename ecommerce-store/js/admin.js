@@ -6,7 +6,7 @@ document.getElementById("admin-orders");
 let orders =
 JSON.parse(localStorage.getItem("orders")) || [];
 
-
+let filteredOrders = [...orders];
 
 
 function displayOrders(){
@@ -34,7 +34,7 @@ function displayOrders(){
 
 
 
-    orders.forEach(order=>{
+    filteredOrders.forEach(order=>{
 
 
         adminOrders.innerHTML += `
@@ -81,6 +81,13 @@ function displayOrders(){
         <button onclick="updateStatus('${order.id}','Delivered')">
         ✅ Delivered
         </button>
+
+
+        <button onclick="deleteOrder('${order.id}')">
+
+🗑 Delete Order
+
+</button>
 
 
 
@@ -570,5 +577,119 @@ document.getElementById("update-product-btn").style.display =
 
 });
 
+
+}
+// ================= DELETE ORDER =================
+
+
+function deleteOrder(id){
+
+
+let confirmDelete =
+confirm("Delete this order?");
+
+
+
+if(!confirmDelete){
+
+return;
+
+}
+
+
+
+orders =
+orders.filter(order=>order.id !== id);
+
+
+
+localStorage.setItem(
+"orders",
+JSON.stringify(orders)
+);
+
+
+
+filteredOrders = [...orders];
+
+
+displayOrders();
+
+
+loadAnalytics();
+
+
+}
+// ================= ORDER SEARCH =================
+
+
+const orderSearch =
+document.getElementById("order-search");
+
+
+const orderFilter =
+document.getElementById("order-status-filter");
+
+
+
+function filterOrders(){
+
+
+let value =
+orderSearch.value.toLowerCase();
+
+
+
+let status =
+orderFilter.value;
+
+
+
+filteredOrders =
+orders.filter(order=>{
+
+
+let matchSearch =
+order.id.toString().includes(value);
+
+
+
+let matchStatus =
+status === "all" ||
+order.status === status;
+
+
+
+return matchSearch && matchStatus;
+
+
+});
+
+
+
+displayOrders();
+
+
+}
+
+
+
+if(orderSearch){
+
+orderSearch.addEventListener(
+"keyup",
+filterOrders
+);
+
+}
+
+
+
+if(orderFilter){
+
+orderFilter.addEventListener(
+"change",
+filterOrders
+);
 
 }
