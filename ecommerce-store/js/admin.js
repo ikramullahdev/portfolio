@@ -40,11 +40,15 @@ function displayOrders(){
         adminOrders.innerHTML += `
 
 
-        <div class="product-card">
+      <div class="product-card">
 
 
-        <div class="product-info">
+<img src="${product.image}" 
+alt="${product.name}"
+style="width:100%;height:200px;object-fit:cover;">
 
+
+<div class="product-info">
 
         <h3>
         Order ID: ${order.id}
@@ -359,6 +363,19 @@ Delete
 function deleteProduct(id){
 
 
+const confirmDelete =
+confirm("Are you sure you want to delete this product?");
+
+
+
+if(!confirmDelete){
+
+    return;
+
+}
+
+
+
 let products =
 JSON.parse(localStorage.getItem("products")) || [];
 
@@ -376,14 +393,16 @@ JSON.stringify(products)
 
 
 
+alert("Product Deleted Successfully");
+
+
 displayAdminProducts();
+
+
+loadAnalytics();
 
 
 }
-
-
-
-displayAdminProducts();
 // ================= IMAGE PREVIEW =================
 
 
