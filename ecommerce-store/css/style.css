@@ -922,3 +922,133 @@ body.dark #average-rating{
     color:#ddd;
 
 }
+/* ================= ORDER TRACKING ================= */
+
+
+.tracking-box{
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+.steps{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-top:30px;
+
+}
+
+
+
+.step{
+
+    text-align:center;
+
+    opacity:.4;
+
+}
+
+
+
+.step.active{
+
+    opacity:1;
+
+    color:#2563eb;
+
+}
+
+
+
+.step p{
+
+    margin-top:10px;
+
+}
+
+
+
+.line{
+
+    width:80px;
+
+    height:3px;
+
+    background:#ddd;
+
+    margin:0 20px;
+
+}
+
+
+
+body.dark .tracking-box{
+
+    background:#1f2937;
+
+    color:white;
+
+}
+
+
+
+@media(max-width:768px){
+
+    .steps{
+
+        flex-direction:column;
+
+    }
+
+
+    .line{
+
+        width:3px;
+
+        height:50px;
+
+    }
+
+}
+/* ================= ADMIN DASHBOARD ================= */
+
+
+#admin-orders button{
+
+    margin:5px;
+
+    padding:10px 15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+#admin-orders button:hover{
+
+    background:#1d4ed8;
+
+}
