@@ -217,7 +217,11 @@ addProductBtn.addEventListener("click",()=>{
 let products =
 JSON.parse(localStorage.getItem("products")) || [];
 
+const updateProductBtn =
+document.getElementById("update-product-btn");
 
+
+let editProductId = null;
 
 const product = {
 
@@ -319,6 +323,13 @@ Price: $${product.price}
 <p>
 Category: ${product.category}
 </p>
+
+
+<button onclick="editProduct(${product.id})">
+
+Edit
+
+</button>
 
 
 <button onclick="deleteProduct(${product.id})">
