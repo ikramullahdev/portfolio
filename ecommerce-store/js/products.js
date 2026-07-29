@@ -61,9 +61,7 @@ const products = [
  }
 ];
 
-
 const container = document.getElementById("products");
-
 
 function display(list){
 
@@ -99,30 +97,57 @@ function display(list){
 
 }
 
-
 display(products);
 
-
+// ================= SEARCH =================
 
 const search = document.getElementById("search");
 
 if(search){
 
-search.addEventListener("keyup", function(e){
+    search.addEventListener("keyup", function(e){
 
-    const value = e.target.value.toLowerCase();
+        const value = e.target.value.toLowerCase();
 
-    const filtered = products.filter(product =>
-        product.name.toLowerCase().includes(value)
-    );
+        const filtered = products.filter(product =>
+            product.name.toLowerCase().includes(value)
+        );
 
-    display(filtered);
+        display(filtered);
 
-});
+    });
 
 }
 
+// ================= SORT =================
 
+const sort = document.getElementById("sort");
+
+if(sort){
+
+    sort.addEventListener("change", function(){
+
+        let sorted = [...products];
+
+        if(this.value === "low"){
+            sorted.sort((a,b) => a.price - b.price);
+        }
+
+        else if(this.value === "high"){
+            sorted.sort((a,b) => b.price - a.price);
+        }
+
+        else if(this.value === "name"){
+            sorted.sort((a,b) => a.name.localeCompare(b.name));
+        }
+
+        display(sorted);
+
+    });
+
+}
+
+// ================= CART =================
 
 function addToCart(id){
 
@@ -140,8 +165,6 @@ function addToCart(id){
 
 }
 
-
-
 function updateCartCount(){
 
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -154,10 +177,9 @@ function updateCartCount(){
 
 }
 
-
 updateCartCount();
 
-
+// ================= TOAST =================
 
 function showToast(){
 
@@ -177,7 +199,7 @@ function showToast(){
 
 }
 
-
+// ================= PRODUCT PAGE =================
 
 function openProduct(id){
 
