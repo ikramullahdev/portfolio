@@ -200,3 +200,176 @@ orders.length;
 
 
 loadAnalytics();
+// ================= PRODUCT MANAGEMENT =================
+
+
+const addProductBtn =
+document.getElementById("add-product-btn");
+
+
+
+if(addProductBtn){
+
+
+addProductBtn.addEventListener("click",()=>{
+
+
+let products =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+
+const product = {
+
+
+id: Date.now(),
+
+
+name:
+document.getElementById("product-name").value,
+
+
+price:
+Number(document.getElementById("product-price").value),
+
+
+image:
+document.getElementById("product-image").value,
+
+
+category:
+document.getElementById("product-category").value
+
+
+};
+
+
+
+
+products.push(product);
+
+
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+
+alert("Product Added Successfully");
+
+
+
+displayAdminProducts();
+
+
+
+});
+
+
+}
+
+
+
+
+function displayAdminProducts(){
+
+
+const box =
+document.getElementById("admin-products");
+
+
+
+if(!box) return;
+
+
+
+let products =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+
+box.innerHTML="";
+
+
+
+products.forEach(product=>{
+
+
+box.innerHTML += `
+
+
+<div class="product-card">
+
+
+<div class="product-info">
+
+
+<h3>
+${product.name}
+</h3>
+
+
+<p>
+Price: $${product.price}
+</p>
+
+
+<p>
+Category: ${product.category}
+</p>
+
+
+<button onclick="deleteProduct(${product.id})">
+
+Delete
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+function deleteProduct(id){
+
+
+let products =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+
+products =
+products.filter(product=>product.id !== id);
+
+
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+
+displayAdminProducts();
+
+
+}
+
+
+
+displayAdminProducts();
