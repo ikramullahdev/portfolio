@@ -94,7 +94,63 @@ function loadReviews(){
 
 
     });
+// Calculate Average Rating
 
+const ratingElement = document.getElementById("average-rating");
+const starsElement = document.getElementById("average-stars");
+
+
+if(productReviews.length > 0){
+
+
+    let total = 0;
+
+
+    productReviews.forEach(review=>{
+
+        total += review.rating;
+
+    });
+
+
+
+    let average = total / productReviews.length;
+
+
+    average = average.toFixed(1);
+
+
+
+    if(ratingElement){
+
+        ratingElement.innerText =
+        `(${average} - ${productReviews.length} Reviews)`;
+
+    }
+
+
+
+    if(starsElement){
+
+        starsElement.innerText =
+        "⭐".repeat(Math.round(average));
+
+    }
+
+
+}
+else{
+
+
+    if(ratingElement){
+
+        ratingElement.innerText =
+        "(No Reviews)";
+
+    }
+
+
+}
 
 }
 
