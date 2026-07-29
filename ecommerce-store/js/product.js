@@ -42,7 +42,123 @@ if(wishlistBtn){
 
 }
 
+// ================= REVIEWS =================
 
+
+const reviewBtn = document.getElementById("submit-review");
+
+
+function loadReviews(){
+
+    const product = JSON.parse(
+        localStorage.getItem("selectedProduct")
+    );
+
+
+    const reviews =
+    JSON.parse(localStorage.getItem("reviews")) || [];
+
+
+    const list = document.getElementById("reviews-list");
+
+
+    if(!list) return;
+
+
+    list.innerHTML="";
+
+
+    const productReviews = reviews.filter(
+        review => review.id === product.id
+    );
+
+
+    productReviews.forEach(review=>{
+
+
+        list.innerHTML += `
+
+        <div class="review-card">
+
+            <div class="review-stars">
+                ${"⭐".repeat(review.rating)}
+            </div>
+
+            <p>
+                ${review.text}
+            </p>
+
+        </div>
+
+        `;
+
+
+    });
+
+
+}
+
+
+
+if(reviewBtn){
+
+    reviewBtn.addEventListener("click",()=>{
+
+
+        const product =
+        JSON.parse(localStorage.getItem("selectedProduct"));
+
+
+        const rating =
+        document.getElementById("rating").value;
+
+
+        const text =
+        document.getElementById("review-text").value;
+
+
+        if(text.trim()===""){
+
+            alert("Please write a review");
+
+            return;
+
+        }
+
+
+        let reviews =
+        JSON.parse(localStorage.getItem("reviews")) || [];
+
+
+        reviews.push({
+
+            id:product.id,
+
+            rating:Number(rating),
+
+            text:text
+
+        });
+
+
+        localStorage.setItem(
+            "reviews",
+            JSON.stringify(reviews)
+        );
+
+
+        document.getElementById("review-text").value="";
+
+
+        loadReviews();
+
+
+    });
+
+}
+
+
+loadReviews();
     btn.addEventListener("click", function () {
 
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
