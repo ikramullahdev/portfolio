@@ -67,3 +67,22 @@ Status: ${order.status}
 
 
 }
+function openOrder(id){
+
+    const orders =
+    JSON.parse(localStorage.getItem("orders")) || [];
+
+
+    const order =
+    orders.find(order=>order.id === id);
+
+
+    localStorage.setItem(
+        "selectedOrder",
+        JSON.stringify(order)
+    );
+
+
+    window.location.href="order-details.html";
+
+}
