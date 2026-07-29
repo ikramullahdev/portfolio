@@ -118,3 +118,54 @@ if(menuToggle && nav){
     });
 
 }
+// ================= DARK MODE =================
+
+const themeToggle = document.getElementById("theme-toggle");
+
+
+if(themeToggle){
+
+    const savedTheme = localStorage.getItem("theme");
+
+
+    if(savedTheme === "dark"){
+
+        document.body.classList.add("dark");
+
+        themeToggle.classList.remove("fa-moon");
+
+        themeToggle.classList.add("fa-sun");
+
+    }
+
+
+    themeToggle.addEventListener("click",()=>{
+
+
+        document.body.classList.toggle("dark");
+
+
+        if(document.body.classList.contains("dark")){
+
+            localStorage.setItem("theme","dark");
+
+            themeToggle.classList.remove("fa-moon");
+
+            themeToggle.classList.add("fa-sun");
+
+        }
+
+        else{
+
+            localStorage.setItem("theme","light");
+
+            themeToggle.classList.remove("fa-sun");
+
+            themeToggle.classList.add("fa-moon");
+
+        }
+
+
+    });
+
+}
