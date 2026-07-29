@@ -35,17 +35,14 @@
             <i class="fas fa-search"></i>
 
             <a href="wishlist.html">
-    <i class="fas fa-heart"></i>
-</a>
+                <i class="fas fa-heart"></i>
+            </a>
 
             <div class="cart-icon">
-
                 <a href="cart.html">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
-
                 <span id="cart-count">0</span>
-
             </div>
 
         </div>
@@ -57,12 +54,23 @@
 
         <h1>Our Products</h1>
 
+        <!-- Search Box -->
         <input
-           <input
-    type="text"
-    id="search-input"
-    placeholder="Search Products...">
+            type="text"
+            id="search"
+            placeholder="Search Products...">
 
+        <!-- Sort Dropdown -->
+        <div class="sort-container">
+            <select id="sort">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="name">Name (A-Z)</option>
+            </select>
+        </div>
+
+        <!-- Products -->
         <div class="products-container" id="products">
 
         </div>
