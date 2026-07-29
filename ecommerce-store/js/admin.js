@@ -693,3 +693,146 @@ filterOrders
 );
 
 }
+// ================= CUSTOMER MANAGEMENT =================
+
+
+function loadCustomers(){
+
+
+const customerBox =
+document.getElementById("admin-customers");
+
+
+
+if(!customerBox) return;
+
+
+
+let orders =
+JSON.parse(localStorage.getItem("orders")) || [];
+
+
+
+customerBox.innerHTML = "";
+
+
+
+if(orders.length === 0){
+
+
+customerBox.innerHTML = `
+
+<h3>
+No Customers Available
+</h3>
+
+`;
+
+
+return;
+
+}
+
+
+
+
+let customers = {};
+
+
+
+orders.forEach(order=>{
+
+
+let email =
+order.email || "Guest Customer";
+
+
+let name =
+order.name || "Guest";
+
+
+
+if(!customers[email]){
+
+
+customers[email] = {
+
+name:name,
+
+email:email,
+
+orders:0,
+
+spent:0
+
+};
+
+
+}
+
+
+
+customers[email].orders += 1;
+
+
+customers[email].spent += Number(order.total);
+
+
+
+});
+
+
+
+
+
+Object.values(customers).forEach(customer=>{
+
+
+customerBox.innerHTML += `
+
+
+<div class="product-card">
+
+
+<div class="product-info">
+
+
+<h3>
+${customer.name}
+</h3>
+
+
+<p>
+Email: ${customer.email}
+</p>
+
+
+<p>
+Total Orders: ${customer.orders}
+</p>
+
+
+<p>
+Total Spent: $${customer.spent.toFixed(2)}
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+
+}
+
+
+
+loadCustomers();
