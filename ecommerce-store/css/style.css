@@ -724,3 +724,86 @@ border-color:#2563eb;
     }
 
 }
+/* ================= DARK MODE ================= */
+
+body.dark{
+
+    background:#111827;
+    color:#fff;
+
+}
+
+
+body.dark .header{
+
+    background:#1f2937;
+
+}
+
+
+body.dark .nav-links a{
+
+    color:#fff;
+
+}
+
+
+body.dark .featured-products{
+
+    background:#111827;
+
+}
+
+
+body.dark .section-title,
+body.dark .products-page h1{
+
+    color:#fff;
+
+}
+
+
+body.dark .product-card{
+
+    background:#1f2937;
+    color:#fff;
+
+}
+
+
+body.dark .product-info h3{
+
+    color:#fff;
+
+}
+
+
+body.dark #search,
+body.dark #sort{
+
+    background:#374151;
+    color:#fff;
+    border-color:#555;
+
+}
+
+
+body.dark .category-btn{
+
+    background:#374151;
+
+}
+
+
+body.dark .menu-toggle{
+
+    color:#fff;
+
+}
+
+
+#theme-toggle{
+
+    cursor:pointer;
+
+}
