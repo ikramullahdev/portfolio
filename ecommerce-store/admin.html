@@ -2,9 +2,7 @@
 <html lang="en">
 
 <head>
-  
 
-  
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +18,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 </head>
 
+
+
 <script>
 
 if(localStorage.getItem("adminLogin") !== "true"){
@@ -29,6 +29,9 @@ if(localStorage.getItem("adminLogin") !== "true"){
 }
 
 </script>
+
+
+
 <body>
 
 
@@ -37,33 +40,47 @@ if(localStorage.getItem("adminLogin") !== "true"){
 
 <div class="logo">
 
-<h2>NovaShop Admin</h2>
+<h2>
+NovaShop Admin
+</h2>
 
 </div>
+
 
 
 <nav>
 
 <ul class="nav-links">
 
+
 <li>
-<a href="index.html">Store</a>
+<a href="index.html">
+Store
+</a>
 </li>
 
 
+
 <li>
-<a href="orders.html">Orders</a>
+<a href="orders.html">
+Orders
+</a>
 </li>
 
 
+
 <li>
-<a href="#" onclick="logout()">Logout</a>
+<a href="#" onclick="logout()">
+Logout
+</a>
 </li>
 
 
 </ul>
 
 </nav>
+
+
 </header>
 
 
@@ -76,6 +93,11 @@ if(localStorage.getItem("adminLogin") !== "true"){
 <h1>
 Admin Dashboard
 </h1>
+
+
+
+
+<!-- ANALYTICS -->
 
 
 <div class="dashboard-cards">
@@ -109,6 +131,7 @@ Total Revenue
 
 
 
+
 <div class="admin-card">
 
 <h2 id="total-products">
@@ -120,6 +143,7 @@ Total Products
 </p>
 
 </div>
+
 
 
 
@@ -140,13 +164,94 @@ Customers
 
 
 
+
+
+
+<!-- PRODUCT MANAGEMENT -->
+
+
+<div class="product-management">
+
+
+<h2>
+Manage Products
+</h2>
+
+
+
+<input 
+type="text"
+id="product-name"
+placeholder="Product Name">
+
+
+
+<input 
+type="number"
+id="product-price"
+placeholder="Product Price">
+
+
+
+<input 
+type="text"
+id="product-image"
+placeholder="Image Path (assets/image.jpg)">
+
+
+
+<input 
+type="text"
+id="product-category"
+placeholder="Category">
+
+
+
+<button id="add-product-btn">
+
+Add Product
+
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- ADMIN PRODUCTS LIST -->
+
+
+<div id="admin-products">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ORDERS -->
+
+
+<h2 style="margin-top:50px;">
+Manage Orders
+</h2>
+
+
+
 <div id="admin-orders">
+
 
 </div>
 
 
 
 </section>
+
 
 
 
