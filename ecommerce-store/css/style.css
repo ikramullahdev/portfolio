@@ -890,3 +890,35 @@ body.dark .review-card{
     color:white;
 
 }
+/* ================= AVERAGE RATING ================= */
+
+.rating{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+
+#average-stars{
+
+    color:#f59e0b;
+    font-size:22px;
+
+}
+
+
+#average-rating{
+
+    color:#666;
+    font-size:15px;
+
+}
+
+
+body.dark #average-rating{
+
+    color:#ddd;
+
+}
