@@ -1152,3 +1152,43 @@ body.dark .tracking-box{
     cursor:pointer;
 
 }
+/* ADMIN BUTTONS */
+
+#admin-products button{
+
+    margin:5px;
+
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+#admin-products button:first-of-type{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+#admin-products button:last-of-type{
+
+    background:#ef4444;
+
+    color:white;
+
+}
+
+
+#admin-products button:hover{
+
+    opacity:.85;
+
+}
