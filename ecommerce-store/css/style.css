@@ -1045,7 +1045,56 @@ body.dark .tracking-box{
     cursor:pointer;
 
 }
+/* ================= ADMIN CARDS ================= */
 
+
+.dashboard-cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin:40px 0;
+
+}
+
+
+
+.admin-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+.admin-card h2{
+
+    color:#2563eb;
+
+    font-size:35px;
+
+}
+
+
+
+.admin-card p{
+
+    margin-top:10px;
+
+    font-weight:600;
+
+}
 
 #admin-orders button:hover{
 
