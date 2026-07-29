@@ -435,3 +435,126 @@ reader.readAsDataURL(file);
 
 
 }
+// ================= EDIT PRODUCT =================
+
+
+function editProduct(id){
+
+
+let products =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+
+const product =
+products.find(product=>product.id === id);
+
+
+
+if(product){
+
+
+document.getElementById("product-name").value =
+product.name;
+
+
+document.getElementById("product-price").value =
+product.price;
+
+
+document.getElementById("product-category").value =
+product.category;
+
+
+
+editProductId = id;
+
+
+
+document.getElementById("add-product-btn").style.display =
+"none";
+
+
+document.getElementById("update-product-btn").style.display =
+"block";
+
+
+}
+
+
+}
+
+
+
+
+// ================= UPDATE PRODUCT =================
+
+
+if(updateProductBtn){
+
+
+updateProductBtn.addEventListener("click",()=>{
+
+
+let products =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+
+products = products.map(product=>{
+
+
+if(product.id === editProductId){
+
+
+product.name =
+document.getElementById("product-name").value;
+
+
+product.price =
+Number(document.getElementById("product-price").value);
+
+
+product.category =
+document.getElementById("product-category").value;
+
+
+
+}
+
+
+return product;
+
+
+});
+
+
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+
+
+alert("Product Updated Successfully");
+
+
+
+displayAdminProducts();
+
+
+
+document.getElementById("add-product-btn").style.display =
+"block";
+
+
+document.getElementById("update-product-btn").style.display =
+"none";
+
+
+
+});
+
+
+}
