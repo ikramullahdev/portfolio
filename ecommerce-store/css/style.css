@@ -524,10 +524,51 @@ border-color:#2563eb;
     color:white;
 
 }
+/* ================= SORT DROPDOWN ================= */
+
+.sort-container{
+    text-align:center;
+    margin:20px 0;
+}
+
+
+#sort{
+    width:220px;
+    padding:12px 15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    background:white;
+    font-size:16px;
+    cursor:pointer;
+    outline:none;
+}
+
+
+#sort:hover{
+    border-color:#333;
+}
 
 
 .wishlist-btn:hover{
 
     background:#dc2626;
 
+}
+/* ================= SEARCH BOX ================= */
+
+#search{
+    display:block;
+    width:320px;
+    max-width:90%;
+    margin:20px auto;
+    padding:12px 15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+    outline:none;
+}
+
+
+#search:focus{
+    border-color:#000;
 }
