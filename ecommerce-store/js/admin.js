@@ -1034,9 +1034,47 @@ document.getElementById("customer-details");
 
 if(!box) return;
 
+
+
 if(customerOrders.length === 0){
 
+
 box.innerHTML = `
+
+<h3>
+No Orders Found
+</h3>
+
+`;
+
+return;
+
+}
+
+
+
+let customer =
+customerOrders[0];
+
+
+
+let totalSpent = 0;
+
+
+
+customerOrders.forEach(order=>{
+
+
+totalSpent += Number(order.total);
+
+
+});
+
+
+
+
+box.innerHTML = `
+
 
 <div class="customer-profile">
 
@@ -1054,6 +1092,7 @@ box.innerHTML = `
 
 <div>
 
+
 <h2>
 ${customer.name || "Customer"}
 </h2>
@@ -1068,6 +1107,8 @@ ${customer.email || "No Email"}
 
 
 </div>
+
+
 
 
 
@@ -1133,6 +1174,7 @@ $${totalSpent.toFixed(2)}
 
 
 
+
 <button 
 class="close-btn"
 onclick="closeCustomerDetails()">
@@ -1143,13 +1185,17 @@ Close
 
 
 <h2 class="history-title">
+
 Order History
+
 </h2>
 
 
 </div>
 
+
 `;
+
 
 
 
@@ -1158,7 +1204,7 @@ Order History
 customerOrders.forEach(order=>{
 
 
-let statusClass = 
+let statusClass =
 order.status.toLowerCase();
 
 
@@ -1177,6 +1223,7 @@ box.innerHTML += `
 </h3>
 
 
+
 <span class="status ${statusClass}">
 ${order.status}
 </span>
@@ -1186,8 +1233,6 @@ ${order.status}
 
 
 
-<div class="order-details">
-
 
 <p>
 📅 Date:
@@ -1195,12 +1240,12 @@ ${order.date}
 </p>
 
 
+
 <p>
 💰 Amount:
-<strong>
 $${order.total}
-</strong>
 </p>
+
 
 
 <p>
@@ -1208,8 +1253,6 @@ $${order.total}
 ${order.items.length}
 </p>
 
-
-</div>
 
 
 
@@ -1232,19 +1275,6 @@ View Order
 
 }
 
-
-
-
-
-function closeCustomerDetails(){
-
-
-document.getElementById(
-"customer-details"
-).innerHTML = "";
-
-
-}
 // ================= VIEW ORDER DETAILS =================
 
 
