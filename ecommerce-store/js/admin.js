@@ -1502,3 +1502,85 @@ $${item.price}
 
 });
 }
+// ================= PRINT INVOICE =================
+
+function printInvoice(id){
+
+    let orders =
+    JSON.parse(localStorage.getItem("orders")) || [];
+
+
+    let order =
+    orders.find(order => order.id === id);
+
+
+    if(!order){
+
+        alert("Order not found");
+
+        return;
+
+    }
+
+
+    let printWindow =
+    window.open("", "_blank");
+
+
+    printWindow.document.write(`
+
+    <html>
+
+    <head>
+
+    <title>NovaShop Invoice</title>
+
+    </head>
+
+
+    <body>
+
+    <h1>NovaShop Invoice</h1>
+
+
+    <p>
+    Order ID: ${order.id}
+    </p>
+
+
+    <p>
+    Date: ${order.date}
+    </p>
+
+
+    <p>
+    Customer:
+    ${order.name || "Guest Customer"}
+    </p>
+
+
+    <p>
+    Email:
+    ${order.email || "No Email"}
+    </p>
+
+
+    <h3>
+    Total: $${order.total}
+    </h3>
+
+
+    </body>
+
+    </html>
+
+    `);
+
+
+    printWindow.document.close();
+
+
+    printWindow.print();
+
+
+}
