@@ -1028,8 +1028,9 @@ JSON.parse(localStorage.getItem("orders")) || [];
 
 let customerOrders =
 orders.filter(order =>
-order.email === email
+(order.email || "guest@customer.com") === email
 );
+
 
 
 
