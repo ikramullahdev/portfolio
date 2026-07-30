@@ -868,52 +868,50 @@ filterOrders
 
 
 
+// ================= CUSTOMER MANAGEMENT =================
+
+
 function loadCustomers(){
 
 
-
-const customerBox =
-document.getElementById("admin-customers");
-
+const customerList =
+document.getElementById("customer-list");
 
 
-if(!customerBox) return;
+
+if(!customerList) return;
 
 
 
 let orders =
-JSON.parse(
-localStorage.getItem("orders")
-)
-||
-[];
+JSON.parse(localStorage.getItem("orders")) || [];
 
 
 
-
-customerBox.innerHTML = "";
-
+customerList.innerHTML = "";
 
 
 
 if(orders.length === 0){
 
 
+customerList.innerHTML = `
 
-customerBox.innerHTML = `
+<tr>
 
-<h3>
+<td colspan="5">
+
 No Customers Available
-</h3>
+
+</td>
+
+</tr>
 
 `;
 
 return;
 
-
 }
-
-
 
 
 
@@ -921,30 +919,22 @@ let customers = {};
 
 
 
-
 orders.forEach(order=>{
 
 
-
 let email =
-order.email ||
-"guest@customer.com";
-
+order.email || "guest@customer.com";
 
 
 let name =
-order.name ||
-"Guest Customer";
-
+order.name || "Guest Customer";
 
 
 
 if(!customers[email]){
 
 
-
 customers[email] = {
-
 
 name:name,
 
@@ -954,9 +944,7 @@ orders:0,
 
 spent:0
 
-
 };
-
 
 
 }
@@ -966,9 +954,7 @@ spent:0
 customers[email].orders += 1;
 
 
-
-customers[email].spent +=
-Number(order.total);
+customers[email].spent += Number(order.total);
 
 
 
@@ -977,70 +963,53 @@ Number(order.total);
 
 
 
+Object.values(customers).forEach(customer=>{
 
 
-Object.values(customers)
-.forEach(customer=>{
+customerList.innerHTML += `
 
 
+<tr>
 
-customerBox.innerHTML += `
-
-
-
-<div class="product-card">
-
-
-
-<div class="product-info">
-
-
-
-<h3>
+<td>
 ${customer.name}
-</h3>
+</td>
 
 
-
-<p>
-Email:
+<td>
 ${customer.email}
-</p>
+</td>
 
 
-
-<p>
-Total Orders:
+<td>
 ${customer.orders}
-</p>
+</td>
 
 
-
-<p>
-Total Spending:
+<td>
 $${customer.spent.toFixed(2)}
-</p>
+</td>
 
 
+<td>
 
-</div>
+<button>
+View
+</button>
+
+</td>
 
 
-
-</div>
-
+</tr>
 
 
 `;
 
 
-
 });
 
 
-
 }
-
 
 
 
