@@ -1260,3 +1260,138 @@ document.getElementById(
 
 
 }
+// ================= VIEW ORDER DETAILS =================
+
+
+function viewOrder(id){
+
+
+let orders =
+JSON.parse(localStorage.getItem("orders")) || [];
+
+
+
+let order =
+orders.find(order=>order.id === id);
+
+
+
+let box =
+document.getElementById("order-details");
+
+
+
+if(!box) return;
+
+
+
+if(!order){
+
+
+box.innerHTML = `
+
+<h3>
+Order Not Found
+</h3>
+
+`;
+
+return;
+
+}
+
+
+
+box.innerHTML = `
+
+
+<div class="order-details-box">
+
+
+<h2>
+Order Details
+</h2>
+
+
+<p>
+Order ID:
+${order.id}
+</p>
+
+
+<p>
+Date:
+${order.date}
+</p>
+
+
+<p>
+Status:
+<b>
+${order.status}
+</b>
+</p>
+
+
+
+<h3>
+Products
+</h3>
+
+
+
+</div>
+
+
+`;
+
+
+
+
+
+order.items.forEach(item=>{
+
+
+box.innerHTML += `
+
+
+<div class="product-card">
+
+
+<img 
+src="${item.image}"
+width="80"
+>
+
+
+
+<h3>
+${item.name}
+</h3>
+
+
+<p>
+Quantity:
+${item.quantity}
+</p>
+
+
+<p>
+Price:
+$${item.price}
+</p>
+
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+}
