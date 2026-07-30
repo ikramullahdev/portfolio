@@ -107,7 +107,7 @@ ${order.email || "No Email"}
 ${order.items ? order.items.length : 0}
 </p>
 
-
+<select class="order-status-select"
 <select onchange="updateStatus('${order.id}',this.value)">
 
 
