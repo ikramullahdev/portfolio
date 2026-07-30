@@ -711,7 +711,7 @@ if(!customerBox) return;
 let orders =
 JSON.parse(localStorage.getItem("orders")) || [];
 
-
+console.log("Orders Data:", orders);
 
 customerBox.innerHTML = "";
 
