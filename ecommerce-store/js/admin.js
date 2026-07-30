@@ -1173,41 +1173,73 @@ Order History
 customerOrders.forEach(order=>{
 
 
+let statusClass = 
+order.status.toLowerCase();
+
+
+
 box.innerHTML += `
 
 
-<div class="product-card">
+<div class="order-history-card">
+
+
+<div class="order-top">
 
 
 <h3>
-Order ID:
-${order.id}
+🧾 ${order.id}
 </h3>
 
 
+<span class="status ${statusClass}">
+${order.status}
+</span>
+
+
+</div>
+
+
+
+<div class="order-details">
+
+
 <p>
-Date:
+📅 Date:
 ${order.date}
 </p>
 
 
 <p>
-Amount:
+💰 Amount:
+<strong>
 $${order.total}
+</strong>
 </p>
 
 
 <p>
-Status:
-<b>${order.status}</b>
+📦 Items:
+${order.items.length}
 </p>
 
 
 </div>
 
 
-`;
 
+<button onclick="viewOrder('${order.id}')">
+
+View Order
+
+</button>
+
+
+
+</div>
+
+
+`;
 
 
 });
