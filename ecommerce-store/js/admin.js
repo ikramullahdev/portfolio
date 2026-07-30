@@ -1034,27 +1034,9 @@ document.getElementById("customer-details");
 
 if(!box) return;
 
-
-
-box.innerHTML = "";
-
-
-
-let totalSpent = 0;
-
-
-customerOrders.forEach(order=>{
-
-
-totalSpent += Number(order.total);
-
-
-});
-
-
+if(customerOrders.length === 0){
 
 box.innerHTML = `
-
 
 <div class="customer-profile">
 
@@ -1078,7 +1060,7 @@ ${customer.name || "Customer"}
 
 
 <p>
-${customer.email}
+${customer.email || "No Email"}
 </p>
 
 
@@ -1086,7 +1068,6 @@ ${customer.email}
 
 
 </div>
-
 
 
 
@@ -1148,7 +1129,6 @@ $${totalSpent.toFixed(2)}
 </div>
 
 
-
 </div>
 
 
@@ -1162,17 +1142,12 @@ Close
 </button>
 
 
-
 <h2 class="history-title">
-
 Order History
-
 </h2>
 
 
-
 </div>
-
 
 `;
 
