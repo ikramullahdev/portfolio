@@ -1,156 +1,207 @@
+// ================= ADMIN GLOBAL =================
+
+
 const adminOrders =
 document.getElementById("admin-orders");
-
 
 
 let orders =
 JSON.parse(localStorage.getItem("orders")) || [];
 
+
 let filteredOrders = [...orders];
+
+
+// Product variables
+
+const addProductBtn =
+document.getElementById("add-product-btn");
+
+
+const updateProductBtn =
+document.getElementById("update-product-btn");
+
+
+let editProductId = null;
+
+
+
+// ================= DISPLAY ORDERS =================
 
 
 function displayOrders(){
 
 
-    adminOrders.innerHTML = "";
+if(!adminOrders) return;
+
+
+adminOrders.innerHTML = "";
 
 
 
-    if(orders.length === 0){
+if(filteredOrders.length === 0){
 
 
-        adminOrders.innerHTML = `
+adminOrders.innerHTML = `
 
-        <h3>
-        No orders available
-        </h3>
+<h3>
+No orders available
+</h3>
 
-        `;
-
-        return;
-
-    }
+`;
 
 
-
-
-    filteredOrders.forEach(order=>{
-
-
-        adminOrders.innerHTML += `
-
-
-        <div class="product-card">
-
-
-        <div class="product-info">
-
-
-        <h3>
-        Order ID: ${order.id}
-        </h3>
-
-
-        <p>
-        Date: ${order.date}
-        </p>
-
-
-        <p>
-        Total: $${order.total}
-        </p>
-
-
-        <p>
-        Status:
-        <b>${order.status}</b>
-        </p>
-
-
-
-        <button onclick="updateStatus('${order.id}','Processing')">
-        📦 Processing
-        </button>
-
-
-        <button onclick="updateStatus('${order.id}','Shipped')">
-        🚚 Shipped
-        </button>
-
-
-        <button onclick="updateStatus('${order.id}','Delivered')">
-        ✅ Delivered
-        </button>
-
-
-        <button onclick="deleteOrder('${order.id}')">
-
-🗑 Delete Order
-
-</button>
-
-
-
-        </div>
-
-
-        </div>
-
-
-        `;
-
-
-    });
+return;
 
 
 }
 
+
+
+filteredOrders.forEach(order=>{
+
+
+adminOrders.innerHTML += `
+
+
+<div class="product-card">
+
+
+<div class="product-info">
+
+
+<h3>
+Order ID: ${order.id}
+</h3>
+
+
+<p>
+Date: ${order.date}
+</p>
+
+
+<p>
+Total: $${order.total}
+</p>
+
+
+<p>
+Status:
+<b>${order.status}</b>
+</p>
+
+
+
+<button onclick="updateStatus('${order.id}','Processing')">
+📦 Processing
+</button>
+
+
+<button onclick="updateStatus('${order.id}','Shipped')">
+🚚 Shipped
+</button>
+
+
+<button onclick="updateStatus('${order.id}','Delivered')">
+✅ Delivered
+</button>
+
+
+
+<button onclick="deleteOrder('${order.id}')">
+🗑 Delete Order
+</button>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+
+// ================= UPDATE ORDER STATUS =================
 
 
 function updateStatus(id,status){
 
 
-    orders = orders.map(order=>{
+orders =
+orders.map(order=>{
 
 
-        if(order.id === id){
+if(order.id === id){
 
-            order.status = status;
+order.status = status;
 
-        }
-
-
-        return order;
+}
 
 
-    });
+return order;
 
 
-
-    localStorage.setItem(
-        "orders",
-        JSON.stringify(orders)
-    );
+});
 
 
 
-    displayOrders();
+localStorage.setItem(
+"orders",
+JSON.stringify(orders)
+);
+
+
+
+filteredOrders = [...orders];
+
+
+displayOrders();
+
+
+loadAnalytics();
 
 
 }
+
 
 
 
 displayOrders();
 
+
+
+
+
+// ================= LOGOUT =================
+
+
 function logout(){
 
-    localStorage.removeItem("adminLogin");
 
-    window.location.href="admin-login.html";
+localStorage.removeItem("adminLogin");
+
+
+window.location.href =
+"admin-login.html";
+
 
 }
-// ================= ADMIN ANALYTICS =================
+
+
+
+
+
+// ================= ANALYTICS =================
 
 
 function loadAnalytics(){
@@ -158,7 +209,6 @@ function loadAnalytics(){
 
 let orders =
 JSON.parse(localStorage.getItem("orders")) || [];
-
 
 
 let products =
@@ -173,11 +223,10 @@ let revenue = 0;
 orders.forEach(order=>{
 
 
-    revenue += Number(order.total);
+revenue += Number(order.total);
 
 
 });
-
 
 
 
@@ -192,13 +241,23 @@ document.getElementById("total-revenue").innerText =
 
 
 document.getElementById("total-products").innerText =
-products.length || 6;
+products.length;
+
+
+
+let customers =
+new Set(
+orders.map(order =>
+order.email ||
+order.name ||
+order.id
+)
+);
 
 
 
 document.getElementById("total-customers").innerText =
-orders.length;
-
+customers.size;
 
 
 }
@@ -206,28 +265,32 @@ orders.length;
 
 
 loadAnalytics();
-// ================= PRODUCT MANAGEMENT =================
 
 
-const addProductBtn =
-document.getElementById("add-product-btn");
+
+
+
+// ================= ADD PRODUCT =================
 
 
 
 if(addProductBtn){
 
 
+
 addProductBtn.addEventListener("click",()=>{
+
 
 
 let products =
 JSON.parse(localStorage.getItem("products")) || [];
 
-const updateProductBtn =
-document.getElementById("update-product-btn");
 
 
-let editProductId = null;
+const preview =
+document.getElementById("image-preview");
+
+
 
 const product = {
 
@@ -240,11 +303,14 @@ document.getElementById("product-name").value,
 
 
 price:
-Number(document.getElementById("product-price").value),
+Number(
+document.getElementById("product-price").value
+),
 
 
 image:
-preview.src,
+preview ? preview.src : "",
+
 
 
 category:
@@ -252,7 +318,6 @@ document.getElementById("product-category").value
 
 
 };
-
 
 
 
@@ -270,17 +335,17 @@ JSON.stringify(products)
 alert("Product Added Successfully");
 
 
-
 displayAdminProducts();
 
+
+loadAnalytics();
 
 
 });
 
 
 }
-
-
+// ================= DISPLAY ADMIN PRODUCTS =================
 
 
 function displayAdminProducts(){
@@ -300,7 +365,7 @@ JSON.parse(localStorage.getItem("products")) || [];
 
 
 
-box.innerHTML="";
+box.innerHTML = "";
 
 
 
@@ -331,6 +396,7 @@ Category: ${product.category}
 </p>
 
 
+
 <button onclick="editProduct(${product.id})">
 
 Edit
@@ -338,11 +404,13 @@ Edit
 </button>
 
 
+
 <button onclick="deleteProduct(${product.id})">
 
 Delete
 
 </button>
+
 
 
 </div>
@@ -354,6 +422,7 @@ Delete
 `;
 
 
+
 });
 
 
@@ -362,17 +431,27 @@ Delete
 
 
 
+
+displayAdminProducts();
+
+
+
+
+
+// ================= DELETE PRODUCT =================
+
+
 function deleteProduct(id){
 
 
-const confirmDelete =
-confirm("Are you sure you want to delete this product?");
+let confirmDelete =
+confirm("Delete this product?");
 
 
 
 if(!confirmDelete){
 
-    return;
+return;
 
 }
 
@@ -398,6 +477,7 @@ JSON.stringify(products)
 alert("Product Deleted Successfully");
 
 
+
 displayAdminProducts();
 
 
@@ -405,61 +485,16 @@ loadAnalytics();
 
 
 }
-// ================= IMAGE PREVIEW =================
-
-
-const imageInput =
-document.getElementById("product-image");
-
-
-const preview =
-document.getElementById("image-preview");
 
 
 
-if(imageInput){
 
 
-imageInput.addEventListener("change",function(){
-
-
-const file = this.files[0];
-
-
-
-if(file){
-
-
-const reader = new FileReader();
-
-
-
-reader.onload=function(e){
-
-
-preview.src = e.target.result;
-
-preview.style.display="block";
-
-
-};
-
-
-
-reader.readAsDataURL(file);
-
-
-}
-
-
-});
-
-
-}
 // ================= EDIT PRODUCT =================
 
 
 function editProduct(id){
+
 
 
 let products =
@@ -467,20 +502,25 @@ JSON.parse(localStorage.getItem("products")) || [];
 
 
 
-const product =
-products.find(product=>product.id === id);
+let product =
+products.find(
+product=>product.id === id
+);
 
 
 
 if(product){
 
 
+
 document.getElementById("product-name").value =
 product.name;
 
 
+
 document.getElementById("product-price").value =
 product.price;
+
 
 
 document.getElementById("product-category").value =
@@ -492,18 +532,29 @@ editProductId = id;
 
 
 
-document.getElementById("add-product-btn").style.display =
+if(addProductBtn){
+
+addProductBtn.style.display =
 "none";
 
+}
 
-document.getElementById("update-product-btn").style.display =
+
+
+if(updateProductBtn){
+
+updateProductBtn.style.display =
 "block";
 
-
 }
 
 
 }
+
+
+
+}
+
 
 
 
@@ -511,10 +562,13 @@ document.getElementById("update-product-btn").style.display =
 // ================= UPDATE PRODUCT =================
 
 
+
 if(updateProductBtn){
 
 
+
 updateProductBtn.addEventListener("click",()=>{
+
 
 
 let products =
@@ -522,18 +576,25 @@ JSON.parse(localStorage.getItem("products")) || [];
 
 
 
-products = products.map(product=>{
+products =
+products.map(product=>{
+
 
 
 if(product.id === editProductId){
+
 
 
 product.name =
 document.getElementById("product-name").value;
 
 
+
 product.price =
-Number(document.getElementById("product-price").value);
+Number(
+document.getElementById("product-price").value
+);
+
 
 
 product.category =
@@ -544,7 +605,9 @@ document.getElementById("product-category").value;
 }
 
 
+
 return product;
+
 
 
 });
@@ -566,12 +629,82 @@ displayAdminProducts();
 
 
 
-document.getElementById("add-product-btn").style.display =
+addProductBtn.style.display =
 "block";
 
 
-document.getElementById("update-product-btn").style.display =
+
+updateProductBtn.style.display =
 "none";
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+// ================= IMAGE PREVIEW =================
+
+
+
+const imageInput =
+document.getElementById("product-image");
+
+
+
+const preview =
+document.getElementById("image-preview");
+
+
+
+if(imageInput){
+
+
+
+imageInput.addEventListener("change",function(){
+
+
+
+let file =
+this.files[0];
+
+
+
+if(file){
+
+
+
+let reader =
+new FileReader();
+
+
+
+reader.onload=function(e){
+
+
+preview.src =
+e.target.result;
+
+
+preview.style.display =
+"block";
+
+
+}
+
+
+
+reader.readAsDataURL(file);
+
+
+
+}
 
 
 
@@ -599,7 +732,9 @@ return;
 
 
 orders =
-orders.filter(order=>order.id !== id);
+orders.filter(
+order=>order.id !== id
+);
 
 
 
@@ -619,12 +754,22 @@ displayOrders();
 loadAnalytics();
 
 
+loadCustomers();
+
+
 }
-// ================= ORDER SEARCH =================
+
+
+
+
+
+// ================= ORDER SEARCH FILTER =================
+
 
 
 const orderSearch =
 document.getElementById("order-search");
+
 
 
 const orderFilter =
@@ -632,16 +777,25 @@ document.getElementById("order-status-filter");
 
 
 
+
 function filterOrders(){
 
 
-let value =
-orderSearch.value.toLowerCase();
+
+let searchValue =
+orderSearch ?
+orderSearch.value.toLowerCase()
+:
+"";
 
 
 
 let status =
-orderFilter.value;
+orderFilter ?
+orderFilter.value
+:
+"all";
+
 
 
 
@@ -649,18 +803,22 @@ filteredOrders =
 orders.filter(order=>{
 
 
-let matchSearch =
-order.id.toString().includes(value);
+
+let searchMatch =
+order.id
+.toString()
+.includes(searchValue);
 
 
 
-let matchStatus =
+let statusMatch =
 status === "all" ||
 order.status === status;
 
 
 
-return matchSearch && matchStatus;
+return searchMatch && statusMatch;
+
 
 
 });
@@ -670,33 +828,48 @@ return matchSearch && matchStatus;
 displayOrders();
 
 
+
 }
 
 
 
+
+
 if(orderSearch){
+
 
 orderSearch.addEventListener(
 "keyup",
 filterOrders
 );
 
+
 }
 
 
 
+
 if(orderFilter){
+
 
 orderFilter.addEventListener(
 "change",
 filterOrders
 );
 
+
 }
+
+
+
+
+
 // ================= CUSTOMER MANAGEMENT =================
 
 
+
 function loadCustomers(){
+
 
 
 const customerBox =
@@ -709,15 +882,22 @@ if(!customerBox) return;
 
 
 let orders =
-JSON.parse(localStorage.getItem("orders")) || [];
+JSON.parse(
+localStorage.getItem("orders")
+)
+||
+[];
 
-console.log("Orders Data:", orders);
+
+
 
 customerBox.innerHTML = "";
 
 
 
+
 if(orders.length === 0){
+
 
 
 customerBox.innerHTML = `
@@ -728,10 +908,11 @@ No Customers Available
 
 `;
 
-
 return;
 
+
 }
+
 
 
 
@@ -740,22 +921,30 @@ let customers = {};
 
 
 
+
 orders.forEach(order=>{
 
 
+
 let email =
-order.email || "Guest Customer";
+order.email ||
+"guest@customer.com";
+
 
 
 let name =
-order.name || "Guest";
+order.name ||
+"Guest Customer";
+
 
 
 
 if(!customers[email]){
 
 
+
 customers[email] = {
+
 
 name:name,
 
@@ -765,7 +954,9 @@ orders:0,
 
 spent:0
 
+
 };
+
 
 
 }
@@ -775,7 +966,9 @@ spent:0
 customers[email].orders += 1;
 
 
-customers[email].spent += Number(order.total);
+
+customers[email].spent +=
+Number(order.total);
 
 
 
@@ -785,16 +978,22 @@ customers[email].spent += Number(order.total);
 
 
 
-Object.values(customers).forEach(customer=>{
+
+Object.values(customers)
+.forEach(customer=>{
+
 
 
 customerBox.innerHTML += `
 
 
+
 <div class="product-card">
 
 
+
 <div class="product-info">
+
 
 
 <h3>
@@ -802,18 +1001,24 @@ ${customer.name}
 </h3>
 
 
+
 <p>
-Email: ${customer.email}
+Email:
+${customer.email}
 </p>
 
 
+
 <p>
-Total Orders: ${customer.orders}
+Total Orders:
+${customer.orders}
 </p>
 
 
+
 <p>
-Total Spent: $${customer.spent.toFixed(2)}
+Total Spending:
+$${customer.spent.toFixed(2)}
 </p>
 
 
@@ -821,10 +1026,13 @@ Total Spent: $${customer.spent.toFixed(2)}
 </div>
 
 
+
 </div>
+
 
 
 `;
+
 
 
 });
@@ -832,6 +1040,7 @@ Total Spent: $${customer.spent.toFixed(2)}
 
 
 }
+
 
 
 
