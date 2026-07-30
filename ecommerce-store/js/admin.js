@@ -1348,9 +1348,65 @@ box.innerHTML = `
 <div class="order-details-box">
 
 
+<div class="order-header">
+
+
 <h2>
-Order Details
+🧾 Order Details
 </h2>
+
+
+<button onclick="printInvoice('${order.id}')">
+
+🖨 Print Invoice
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="customer-order-info">
+
+
+<h3>
+Customer Information
+</h3>
+
+
+<p>
+👤 Name:
+${order.name || "Guest Customer"}
+</p>
+
+
+<p>
+📧 Email:
+${order.email || "No Email"}
+</p>
+
+
+<p>
+📞 Phone:
+${order.phone || "No Phone"}
+</p>
+
+
+<p>
+📍 Address:
+${order.address || "No Address"}
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="order-summary-box">
 
 
 <p>
@@ -1367,10 +1423,19 @@ ${order.date}
 
 <p>
 Status:
-<b>
-${order.status}
-</b>
+<b>${order.status}</b>
 </p>
+
+
+<p>
+Total:
+<strong>
+$${order.total}
+</strong>
+</p>
+
+
+</div>
 
 
 
@@ -1389,7 +1454,8 @@ Products
 
 
 
-order.items.forEach(item=>{
+(order.items || []).forEach(item=>{
+
 
 
 box.innerHTML += `
@@ -1399,10 +1465,13 @@ box.innerHTML += `
 
 
 <img 
-src="${item.image}"
+src="${item.image || ''}"
 width="80"
 >
 
+
+
+<div class="product-info">
 
 
 <h3>
@@ -1412,7 +1481,7 @@ ${item.name}
 
 <p>
 Quantity:
-${item.quantity}
+${item.quantity || 1}
 </p>
 
 
@@ -1422,6 +1491,8 @@ $${item.price}
 </p>
 
 
+</div>
+
 
 </div>
 
@@ -1429,9 +1500,5 @@ $${item.price}
 `;
 
 
-
 });
-
-
-
 }
