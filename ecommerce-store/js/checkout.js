@@ -156,27 +156,37 @@ orderForm.addEventListener("submit", function(e){
 
 
 
-    const order = {
+   const order = {
 
 
-        id: "NS" + Date.now(),
+    id: "NS" + Date.now(),
 
 
-        date: new Date().toLocaleDateString(),
+    date: new Date().toLocaleDateString(),
 
 
-        total: total.toFixed(2),
+    total: total.toFixed(2),
 
 
-        status: "Processing",
+    status: "Processing",
 
 
-        items: cart
+    name:
+    document.getElementById("customer-name").value,
 
 
+    email:
+    document.getElementById("customer-email").value,
 
-    };
 
+    address:
+    document.getElementById("customer-address").value,
+
+
+    items: cart
+
+
+};
 
 
 
