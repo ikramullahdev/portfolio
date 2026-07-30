@@ -1053,8 +1053,11 @@ totalSpent += Number(order.total);
 
 
 
-box.innerHTML = `
+let customer =
+customerOrders[0];
 
+
+box.innerHTML = `
 
 <div class="product-card">
 
@@ -1065,8 +1068,26 @@ Customer Details
 
 
 <p>
+Name:
+${customer.name || "Not Available"}
+</p>
+
+
+<p>
 Email:
-${email}
+${customer.email || "Not Available"}
+</p>
+
+
+<p>
+Phone:
+${customer.phone || "Not Available"}
+</p>
+
+
+<p>
+Address:
+${customer.address || "Not Available"}
 </p>
 
 
@@ -1082,18 +1103,13 @@ $${totalSpent.toFixed(2)}
 </p>
 
 
+
 <button onclick="closeCustomerDetails()">
 Close
 </button>
 
 
 </div>
-
-
-<h3>
-Orders History
-</h3>
-
 
 `;
 
