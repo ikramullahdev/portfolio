@@ -156,7 +156,7 @@ orderForm.addEventListener("submit", function(e){
 
 
 
-   const order = {
+  const order = {
 
 
     id: "NS" + Date.now(),
@@ -172,22 +172,26 @@ orderForm.addEventListener("submit", function(e){
 
 
     name:
-    document.getElementById("customer-name").value,
+    document.getElementById("name").value,
 
 
     email:
-    document.getElementById("customer-email").value,
+    document.getElementById("email").value,
 
 
     address:
-    document.getElementById("customer-address").value,
+    document.getElementById("address").value,
+
+
+    phone:
+    document.getElementById("phone").value,
 
 
     items: cart
 
 
-};
 
+};
 
 
 
