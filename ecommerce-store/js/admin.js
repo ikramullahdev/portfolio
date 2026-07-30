@@ -1059,59 +1059,113 @@ customerOrders[0];
 
 box.innerHTML = `
 
-<div class="product-card">
+<div class="customer-profile">
 
+
+<div class="profile-header">
+
+<div class="avatar">
+👤
+</div>
+
+
+<div>
 
 <h2>
-Customer Details
+${customer.name || "Customer"}
 </h2>
 
-
 <p>
-Name:
-${customer.name || "Not Available"}
+${customer.email}
 </p>
 
+</div>
+
+
+</div>
+
+
+
+<div class="customer-info">
+
+
+<div class="info-box">
+
+<h4>
+📞 Phone
+</h4>
 
 <p>
-Email:
-${customer.email || "Not Available"}
-</p>
-
-
-<p>
-Phone:
 ${customer.phone || "Not Available"}
 </p>
 
+</div>
+
+
+
+<div class="info-box">
+
+<h4>
+📍 Address
+</h4>
 
 <p>
-Address:
 ${customer.address || "Not Available"}
 </p>
 
+</div>
+
+
+
+<div class="info-box">
+
+<h4>
+🛒 Orders
+</h4>
 
 <p>
-Total Orders:
 ${customerOrders.length}
 </p>
 
+</div>
+
+
+
+<div class="info-box">
+
+<h4>
+💰 Spending
+</h4>
 
 <p>
-Total Spending:
 $${totalSpent.toFixed(2)}
 </p>
 
+</div>
 
 
-<button onclick="closeCustomerDetails()">
+</div>
+
+
+
+<button class="close-btn"
+onclick="closeCustomerDetails()">
+
 Close
+
 </button>
+
+
+
+<h2 class="history-title">
+Order History
+</h2>
 
 
 </div>
 
 `;
+
 
 
 
