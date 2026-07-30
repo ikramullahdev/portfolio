@@ -993,7 +993,7 @@ $${customer.spent.toFixed(2)}
 
 <td>
 
-<button>
+<button onclick="viewCustomer('${customer.email}')">
 View
 </button>
 
@@ -1014,3 +1014,124 @@ View
 
 
 loadCustomers();
+
+// ================= VIEW CUSTOMER =================
+
+
+function viewCustomer(email){
+
+
+let orders =
+JSON.parse(localStorage.getItem("orders")) || [];
+
+
+
+let customerOrders =
+orders.filter(order =>
+order.email === email
+);
+
+
+
+let box =
+document.getElementById("customer-details");
+
+
+
+if(!box) return;
+
+
+
+box.innerHTML = "";
+
+
+
+if(customerOrders.length === 0){
+
+
+box.innerHTML = `
+
+<h3>
+No Orders Found
+</h3>
+
+`;
+
+return;
+
+}
+
+
+
+
+box.innerHTML = `
+
+<div class="product-card">
+
+<h2>
+Customer Details
+</h2>
+
+
+<p>
+Email:
+${email}
+</p>
+
+
+<h3>
+Orders History
+</h3>
+
+
+</div>
+
+`;
+
+
+
+
+customerOrders.forEach(order=>{
+
+
+box.innerHTML += `
+
+
+<div class="product-card">
+
+
+<p>
+Order ID:
+${order.id}
+</p>
+
+
+<p>
+Date:
+${order.date}
+</p>
+
+
+<p>
+Total:
+$${order.total}
+</p>
+
+
+<p>
+Status:
+<b>${order.status}</b>
+</p>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
