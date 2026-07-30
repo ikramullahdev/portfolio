@@ -90,6 +90,22 @@ Status:
 <b>${order.status}</b>
 </p>
 
+<p>
+👤 Customer:
+${order.name || "Guest Customer"}
+</p>
+
+
+<p>
+📧 Email:
+${order.email || "No Email"}
+</p>
+
+
+<p>
+📦 Items:
+${order.items ? order.items.length : 0}
+</p>
 
 
 <button onclick="updateStatus('${order.id}','Processing')">
