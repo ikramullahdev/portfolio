@@ -1355,6 +1355,10 @@ box.innerHTML = `
 🧾 Order Details
 </h2>
 
+<button style="background:red;color:white;padding:10px;">
+TEST PRINT BUTTON
+</button>
+
 
 <button onclick="printInvoice('${order.id}')">
 
