@@ -1053,20 +1053,21 @@ totalSpent += Number(order.total);
 
 
 
-let customer =
-customerOrders[0];
-
-
 box.innerHTML = `
+
 
 <div class="customer-profile">
 
 
 <div class="profile-header">
 
+
 <div class="avatar">
-👤
+
+<i class="fa-solid fa-user"></i>
+
 </div>
+
 
 
 <div>
@@ -1075,14 +1076,17 @@ box.innerHTML = `
 ${customer.name || "Customer"}
 </h2>
 
+
 <p>
 ${customer.email}
 </p>
 
+
 </div>
 
 
 </div>
+
 
 
 
@@ -1144,11 +1148,13 @@ $${totalSpent.toFixed(2)}
 </div>
 
 
+
 </div>
 
 
 
-<button class="close-btn"
+<button 
+class="close-btn"
 onclick="closeCustomerDetails()">
 
 Close
@@ -1158,11 +1164,15 @@ Close
 
 
 <h2 class="history-title">
+
 Order History
+
 </h2>
 
 
+
 </div>
+
 
 `;
 
