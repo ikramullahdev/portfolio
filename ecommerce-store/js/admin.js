@@ -1029,7 +1029,7 @@ orders.filter(order =>
 
 let box =
 document.getElementById("customer-details");
-.innerHTML = "";
+
 
 
 if(!box) return;
