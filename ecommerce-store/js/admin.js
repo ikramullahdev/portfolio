@@ -108,19 +108,28 @@ ${order.items ? order.items.length : 0}
 </p>
 
 
-<button onclick="updateStatus('${order.id}','Processing')">
-📦 Processing
-</button>
+<select onchange="updateStatus('${order.id}',this.value)">
 
 
-<button onclick="updateStatus('${order.id}','Shipped')">
-🚚 Shipped
-</button>
+<option value="Processing"
+${order.status === "Processing" ? "selected" : ""}>
+Processing
+</option>
 
 
-<button onclick="updateStatus('${order.id}','Delivered')">
-✅ Delivered
-</button>
+<option value="Shipped"
+${order.status === "Shipped" ? "selected" : ""}>
+Shipped
+</option>
+
+
+<option value="Delivered"
+${order.status === "Delivered" ? "selected" : ""}>
+Delivered
+</option>
+
+
+</select>
 
 
 
