@@ -862,12 +862,6 @@ filterOrders
 
 
 
-
-
-// ================= CUSTOMER MANAGEMENT =================
-
-
-
 // ================= CUSTOMER MANAGEMENT =================
 
 
@@ -1033,7 +1027,6 @@ orders.filter(order =>
 
 
 
-
 let box =
 document.getElementById("customer-details");
 
@@ -1047,27 +1040,24 @@ box.innerHTML = "";
 
 
 
-if(customerOrders.length === 0){
+let totalSpent = 0;
 
 
-box.innerHTML = `
+customerOrders.forEach(order=>{
 
-<h3>
-No Orders Found
-</h3>
 
-`;
+totalSpent += Number(order.total);
 
-return;
 
-}
-
+});
 
 
 
 box.innerHTML = `
+
 
 <div class="product-card">
+
 
 <h2>
 Customer Details
@@ -1080,12 +1070,30 @@ ${email}
 </p>
 
 
+<p>
+Total Orders:
+${customerOrders.length}
+</p>
+
+
+<p>
+Total Spending:
+$${totalSpent.toFixed(2)}
+</p>
+
+
+<button onclick="closeCustomerDetails()">
+Close
+</button>
+
+
+</div>
+
+
 <h3>
 Orders History
 </h3>
 
-
-</div>
 
 `;
 
@@ -1101,10 +1109,10 @@ box.innerHTML += `
 <div class="product-card">
 
 
-<p>
+<h3>
 Order ID:
 ${order.id}
-</p>
+</h3>
 
 
 <p>
@@ -1114,7 +1122,7 @@ ${order.date}
 
 
 <p>
-Total:
+Amount:
 $${order.total}
 </p>
 
@@ -1131,8 +1139,22 @@ Status:
 `;
 
 
+
 });
 
 
 }
 
+
+
+
+
+function closeCustomerDetails(){
+
+
+document.getElementById(
+"customer-details"
+).innerHTML = "";
+
+
+}
