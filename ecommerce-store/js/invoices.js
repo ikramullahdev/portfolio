@@ -37,13 +37,9 @@ function renderInvoices() {
         <tr>
 
             <td>${invoice.id}</td>
-
             <td>${invoice.customer}</td>
-
             <td>${invoice.date}</td>
-
             <td>$${invoice.amount}</td>
-
             <td>${invoice.status}</td>
 
             <td>
@@ -62,7 +58,9 @@ function renderInvoices() {
 
             </td>
 
-        </tr>`;
+        </tr>
+        `;
+
     });
 
 }
@@ -101,44 +99,205 @@ Date : ${invoice.date}`
 
 }
 
+// ================= PROFESSIONAL PRINT =================
+
 function printInvoiceByInvoice(index){
 
     const invoices = getInvoices();
 
     const invoice = invoices[index];
 
+    let productsHTML = "";
+
+    (invoice.items || []).forEach(item=>{
+
+        productsHTML += `
+        <tr>
+            <td>${item.name}</td>
+            <td>${item.quantity || 1}</td>
+            <td>$${item.price}</td>
+            <td>$${((item.quantity || 1) * item.price).toFixed(2)}</td>
+        </tr>
+        `;
+
+    });
+
     const win = window.open("", "_blank");
 
     win.document.write(`
-        <html>
-        <head>
-            <title>NovaShop Invoice</title>
-        </head>
-        <body>
 
-        <h1>NovaShop</h1>
+<!DOCTYPE html>
 
-        <hr>
+<html>
 
-        <h2>Invoice</h2>
+<head>
 
-        <p><strong>Invoice:</strong> ${invoice.id}</p>
+<title>${invoice.id}</title>
 
-        <p><strong>Customer:</strong> ${invoice.customer}</p>
+<style>
 
-        <p><strong>Date:</strong> ${invoice.date}</p>
+body{
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+padding:40px;
+}
 
-        <p><strong>Amount:</strong> $${invoice.amount}</p>
+.invoice{
+max-width:900px;
+margin:auto;
+background:#fff;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
 
-        <p><strong>Status:</strong> ${invoice.status}</p>
+.header{
+display:flex;
+justify-content:space-between;
+border-bottom:3px solid #2563eb;
+padding-bottom:20px;
+}
 
-        </body>
-        </html>
-    `);
+.logo{
+font-size:34px;
+font-weight:bold;
+color:#2563eb;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:30px;
+}
+
+th{
+background:#2563eb;
+color:#fff;
+padding:12px;
+}
+
+td{
+padding:12px;
+border:1px solid #ddd;
+}
+
+.total{
+text-align:right;
+margin-top:30px;
+}
+
+.status{
+display:inline-block;
+padding:8px 18px;
+background:#22c55e;
+color:#fff;
+border-radius:20px;
+margin-top:10px;
+}
+
+.footer{
+margin-top:40px;
+text-align:center;
+color:#777;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="invoice">
+
+<div class="header">
+
+<div class="logo">
+
+NovaShop
+
+</div>
+
+<div>
+
+<h2>TAX INVOICE</h2>
+
+<p>${invoice.id}</p>
+
+<p>${invoice.date}</p>
+
+</div>
+
+</div>
+
+<br>
+
+<h3>Customer Information</h3>
+
+<p><strong>${invoice.customer}</strong></p>
+
+<p>${invoice.email || ""}</p>
+
+<p>${invoice.phone || ""}</p>
+
+<p>${invoice.address || ""}</p>
+
+<table>
+
+<tr>
+
+<th>Product</th>
+
+<th>Qty</th>
+
+<th>Price</th>
+
+<th>Total</th>
+
+</tr>
+
+${productsHTML}
+
+</table>
+
+<div class="total">
+
+<h2>Total : $${invoice.amount}</h2>
+
+<div class="status">
+
+${invoice.status}
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<p>Thank you for shopping with NovaShop ❤️</p>
+
+<p>This is a computer generated invoice.</p>
+
+</div>
+
+</div>
+
+<script>
+
+window.onload=function(){
+
+window.print();
+
+}
+
+</script>
+
+</body>
+
+</html>
+
+`);
 
     win.document.close();
-
-    win.print();
 
 }
 
