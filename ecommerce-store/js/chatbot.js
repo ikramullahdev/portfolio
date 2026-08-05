@@ -1,3 +1,6 @@
+// ================= NOVABOT =================
+
+
 const toggle =
 document.getElementById("chat-toggle");
 
@@ -19,6 +22,10 @@ document.getElementById("chat-messages");
 
 
 
+// OPEN / CLOSE CHAT
+
+if(toggle){
+
 toggle.onclick=function(){
 
 windowBox.style.display =
@@ -30,13 +37,17 @@ windowBox.style.display==="block"
 
 };
 
+}
 
 
-send.onclick=function(){
+
+// SEND MESSAGE
+
+function sendMessage(){
 
 
 let text =
-input.value.toLowerCase();
+input.value.trim().toLowerCase();
 
 
 if(text==="") return;
@@ -45,54 +56,244 @@ if(text==="") return;
 
 messages.innerHTML +=
 
-`<p><b>You:</b> ${text}</p>`;
+`
+<p class="user-msg">
+<b>You:</b> ${text}
+</p>
+`;
+
+
+
+input.value="";
+
+
+
+botReply(text);
+
+
+}
+
+
+
+
+// ENTER KEY
+
+if(input){
+
+input.addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+
+sendMessage();
+
+}
+
+});
+
+}
+
+
+
+
+if(send){
+
+send.onclick=sendMessage;
+
+}
+
+
+
+
+// BOT RESPONSE
+
+function botReply(text){
+
 
 
 let reply="";
 
 
-if(text.includes("delivery")){
 
-reply="Delivery usually takes 3-5 working days.";
+if(text.includes("hello") || text.includes("hi")){
+
+
+reply =
+"Hello 👋 Welcome to NovaShop. How can I help you today?";
+
 
 }
+
+
+else if(text.includes("product") || text.includes("item")){
+
+
+reply =
+"You can explore our latest products from the Products page 🛒";
+
+
+}
+
+
+
+else if(text.includes("cart")){
+
+
+reply =
+"You can add products to cart and checkout anytime.";
+
+
+}
+
+
+
+else if(text.includes("delivery")){
+
+
+reply =
+"Delivery usually takes 3-5 working days 🚚";
+
+
+}
+
+
 
 else if(text.includes("order")){
 
-reply="You can place an order from cart and checkout.";
+
+reply =
+"You can check your order status from the Orders page.";
+
 
 }
+
+
 
 else if(text.includes("return")){
 
-reply="Our return policy allows easy product returns.";
+
+reply =
+"Our return policy allows easy product returns within the allowed period.";
+
 
 }
 
-else if(text.includes("price")){
 
-reply="You can see product prices on the product page.";
+
+else if(text.includes("price") || text.includes("cost")){
+
+
+reply =
+"Product prices are displayed on every product card.";
+
 
 }
+
+
+
+else if(text.includes("thank")){
+
+
+reply =
+"You're welcome 😊 Happy shopping with NovaShop!";
+
+
+}
+
+
 
 else{
 
-reply="Sorry, I can help with products, orders, delivery and returns.";
+
+reply =
+"I can help you with products, orders, delivery, returns and shopping assistance 🤖";
+
 
 }
 
 
 
-messages.innerHTML +=
-
-`<p><b>NovaBot:</b> ${reply}</p>`;
+showBot(reply);
 
 
-input.value="";
+
+}
+
+
+
+
+// BOT TYPING EFFECT
+
+function showBot(text){
+
+
+let typing =
+
+`
+<p>
+<b>NovaBot:</b> Typing...
+</p>
+`;
+
+messages.innerHTML += typing;
 
 
 messages.scrollTop =
 messages.scrollHeight;
 
 
-};
+
+setTimeout(()=>{
+
+
+messages.lastElementChild.innerHTML =
+
+`
+<b>NovaBot:</b> ${text}
+`;
+
+
+
+// VOICE
+
+speak(text);
+
+
+
+messages.scrollTop =
+messages.scrollHeight;
+
+
+
+},1000);
+
+
+
+}
+
+
+
+
+// TEXT TO SPEECH
+
+function speak(text){
+
+
+if("speechSynthesis" in window){
+
+
+let speech =
+new SpeechSynthesisUtterance(text);
+
+
+speech.lang="en-US";
+
+speech.rate=1;
+
+
+window.speechSynthesis.speak(speech);
+
+
+}
+
+
+}
