@@ -61,10 +61,20 @@ img.className="product";
 img.style.left=Math.random()*90+"%";
 
 
-img.style.animationDelay=Math.random()*3+"s";
+img.style.width =
+(50 + Math.random()*70) + "px";
+
+
+img.style.animationDuration =
+(3 + Math.random()*3) + "s";
+
+
+img.style.animationDelay =
+Math.random()*3+"s";
 
 
 container.appendChild(img);
+
 
 
 }
