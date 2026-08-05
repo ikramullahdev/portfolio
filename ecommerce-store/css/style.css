@@ -2381,3 +2381,90 @@ transform:scale(1);
 
 
 }
+/* ================= FLOATING HERO PRODUCTS ================= */
+
+
+.hero{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+.floating-products img{
+
+position:absolute;
+
+width:80px;
+
+border-radius:15px;
+
+box-shadow:0 10px 25px #0005;
+
+animation:floatProduct 5s infinite ease-in-out;
+
+}
+
+
+
+.floating-products img:nth-child(1){
+
+top:20px;
+
+left:10%;
+
+}
+
+
+
+.floating-products img:nth-child(2){
+
+top:80px;
+
+right:15%;
+
+}
+
+
+
+.floating-products img:nth-child(3){
+
+bottom:30px;
+
+left:20%;
+
+}
+
+
+
+.floating-products img:nth-child(4){
+
+bottom:40px;
+
+right:25%;
+
+}
+
+
+
+@keyframes floatProduct{
+
+
+0%,100%{
+
+transform:translateY(0) rotate(0deg);
+
+}
+
+
+50%{
+
+transform:translateY(-30px) rotate(10deg);
+
+}
+
+
+}
