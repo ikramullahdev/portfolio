@@ -124,12 +124,38 @@ reply =
 }
 
 
-else if(text.includes("product") || text.includes("item")){
+else if(
+text.includes("product") ||
+text.includes("item") ||
+text.includes("show")
+){
 
+let products =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+if(products.length > 0){
 
 reply =
-"You can explore our latest products from the Products page 🛒";
+"I found these products: ";
 
+
+products.slice(0,3).forEach(product=>{
+
+reply += product.name + " $" + product.price + ", ";
+
+});
+
+
+reply += " You can view them on the Products page.";
+
+}
+else{
+
+reply =
+"Please visit our Products page to explore items.";
+
+}
 
 }
 
