@@ -2224,3 +2224,46 @@ function loadRecentOrders(){
 
 
 }
+// ================= DARK MODE =================
+
+const darkToggle =
+document.getElementById("dark-toggle");
+
+
+if(darkToggle){
+
+
+    if(localStorage.getItem("darkMode") === "true"){
+
+        document.body.classList.add("dark-mode");
+
+        darkToggle.innerHTML="☀️ Light";
+
+    }
+
+
+
+    darkToggle.addEventListener("click",()=>{
+
+
+        document.body.classList.toggle("dark-mode");
+
+
+        let active =
+        document.body.classList.contains("dark-mode");
+
+
+        localStorage.setItem(
+            "darkMode",
+            active
+        );
+
+
+        darkToggle.innerHTML =
+        active ? "☀️ Light" : "🌙 Dark";
+
+
+    });
+
+
+}
