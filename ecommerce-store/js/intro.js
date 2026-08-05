@@ -112,10 +112,9 @@ clearInterval(loading);
 setTimeout(()=>{
 
 
-sessionStorage.setItem("introDone","true");
+sessionStorage.setItem("introRunning","done");
 
 window.location.href="index.html";
-
 
 
 
