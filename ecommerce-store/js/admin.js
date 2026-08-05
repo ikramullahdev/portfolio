@@ -1505,85 +1505,311 @@ $${item.price}
 
 });
 }
-// ================= PRINT INVOICE =================
+// ================= PRINT PROFESSIONAL INVOICE =================
 
 function printInvoice(id){
 
-    let orders =
-    JSON.parse(localStorage.getItem("orders")) || [];
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-
-    let order =
-    orders.find(order => order.id === id);
-
+    let order = orders.find(order => order.id === id);
 
     if(!order){
 
-        alert("Order not found");
+        alert("Order not found!");
 
         return;
 
     }
 
+    let productsHTML = "";
 
-    let printWindow =
-    window.open("", "_blank");
+    (order.items || []).forEach(item=>{
 
+        productsHTML += `
+        <tr>
+            <td>${item.name}</td>
+            <td>${item.quantity || 1}</td>
+            <td>$${item.price}</td>
+            <td>$${((item.quantity || 1) * item.price).toFixed(2)}</td>
+        </tr>
+        `;
 
-    printWindow.document.write(`
+    });
 
-    <html>
+    const win = window.open("", "_blank");
 
-    <head>
+    win.document.write(`
 
-    <title>NovaShop Invoice</title>
+<!DOCTYPE html>
 
-    </head>
+<html>
 
+<head>
 
-    <body>
+<title>Invoice - ${order.id}</title>
 
-    <h1>NovaShop Invoice</h1>
+<style>
 
+body{
 
-    <p>
-    Order ID: ${order.id}
-    </p>
+    font-family:Arial,sans-serif;
 
+    background:#f4f4f4;
 
-    <p>
-    Date: ${order.date}
-    </p>
+    padding:40px;
 
+}
 
-    <p>
-    Customer:
-    ${order.name || "Guest Customer"}
-    </p>
+.invoice{
 
+    max-width:900px;
 
-    <p>
-    Email:
-    ${order.email || "No Email"}
-    </p>
+    margin:auto;
 
+    background:white;
 
-    <h3>
-    Total: $${order.total}
-    </h3>
+    padding:40px;
 
+    border-radius:10px;
 
-    </body>
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
 
-    </html>
+}
 
-    `);
+.header{
 
+    display:flex;
 
-    printWindow.document.close();
+    justify-content:space-between;
 
+    align-items:center;
 
-    printWindow.print();
+    border-bottom:3px solid #2563eb;
 
+    padding-bottom:20px;
+
+}
+
+.logo{
+
+    font-size:34px;
+
+    color:#2563eb;
+
+    font-weight:bold;
+
+}
+
+.invoice-title{
+
+    text-align:right;
+
+}
+
+.invoice-title h2{
+
+    margin:0;
+
+    color:#2563eb;
+
+}
+
+.info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:35px;
+
+}
+
+.info div{
+
+    width:48%;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:35px;
+
+}
+
+table th{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px;
+
+}
+
+table td{
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+}
+
+.total{
+
+    margin-top:30px;
+
+    text-align:right;
+
+}
+
+.total h2{
+
+    color:#2563eb;
+
+}
+
+.status{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    background:#22c55e;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:20px;
+
+}
+
+.footer{
+
+    margin-top:50px;
+
+    text-align:center;
+
+    color:#777;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="invoice">
+
+<div class="header">
+
+<div class="logo">
+
+NovaShop
+
+</div>
+
+<div class="invoice-title">
+
+<h2>TAX INVOICE</h2>
+
+<p>Invoice : ${order.id}</p>
+
+<p>Date : ${order.date}</p>
+
+</div>
+
+</div>
+
+<div class="info">
+
+<div>
+
+<h3>Customer</h3>
+
+<p><strong>${order.name}</strong></p>
+
+<p>${order.email}</p>
+
+<p>${order.phone}</p>
+
+<p>${order.address}</p>
+
+</div>
+
+<div>
+
+<h3>Order Details</h3>
+
+<p>Order ID : ${order.id}</p>
+
+<p>Status : ${order.status}</p>
+
+</div>
+
+</div>
+
+<table>
+
+<tr>
+
+<th>Product</th>
+
+<th>Qty</th>
+
+<th>Price</th>
+
+<th>Total</th>
+
+</tr>
+
+${productsHTML}
+
+</table>
+
+<div class="total">
+
+<h2>Total : $${order.total}</h2>
+
+<div class="status">
+
+PAID
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<p>Thank you for shopping with NovaShop ❤️</p>
+
+<p>This is a computer generated invoice.</p>
+
+</div>
+
+</div>
+
+<script>
+
+window.onload = function(){
+
+    window.print();
+
+}
+
+</script>
+
+</body>
+
+</html>
+
+`);
+
+    win.document.close();
 
 }
