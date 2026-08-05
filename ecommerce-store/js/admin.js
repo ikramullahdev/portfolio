@@ -108,8 +108,7 @@ ${order.items ? order.items.length : 0}
 </p>
 
 <select class="order-status-select"
-<select onchange="updateStatus('${order.id}',this.value)">
-
+onchange="updateStatus('${order.id}',this.value)">
 
 <option value="Processing"
 ${order.status === "Processing" ? "selected" : ""}>
