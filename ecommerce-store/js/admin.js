@@ -290,6 +290,7 @@ customers.size;
 
 loadAnalytics();
 loadSalesChart();
+loadTopProducts();
 
 
 
@@ -1975,5 +1976,98 @@ function loadSalesChart(){
         }
 
     });
+
+}
+// ================= TOP SELLING PRODUCTS =================
+
+function loadTopProducts(){
+
+    const box = document.getElementById("top-products");
+
+    if(!box) return;
+
+
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+
+    let products = {};
+
+
+    orders.forEach(order=>{
+
+
+        (order.items || []).forEach(item=>{
+
+
+            if(!products[item.name]){
+
+                products[item.name] = {
+
+                    qty:0,
+
+                    revenue:0
+
+                };
+
+            }
+
+
+            products[item.name].qty += Number(item.quantity || 1);
+
+
+            products[item.name].revenue += 
+            Number(item.price) * Number(item.quantity || 1);
+
+
+        });
+
+
+    });
+
+
+
+    let sorted = Object.entries(products)
+
+    .sort((a,b)=> b[1].qty - a[1].qty)
+
+    .slice(0,5);
+
+
+
+    box.innerHTML="";
+
+
+    if(sorted.length===0){
+
+        box.innerHTML="<p>No sales data available</p>";
+
+        return;
+
+    }
+
+
+
+    sorted.forEach(product=>{
+
+
+        box.innerHTML += `
+
+
+        <div class="top-product">
+
+            <h3>${product[0]}</h3>
+
+            <span>
+            ${product[1].qty} Sold
+            </span>
+
+        </div>
+
+
+        `;
+
+
+    });
+
 
 }
