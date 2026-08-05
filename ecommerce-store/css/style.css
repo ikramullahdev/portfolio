@@ -2117,3 +2117,52 @@ font-weight:bold;
     font-weight:bold;
 
 }
+.dark-mode{
+
+    background:#111827;
+
+    color:white;
+
+}
+
+
+.dark-mode .admin-card,
+.dark-mode .analytics-card,
+.dark-mode .product-card,
+.dark-mode .customer-details{
+
+    background:#1f2937;
+
+    color:white;
+
+}
+
+
+.dark-mode table{
+
+    color:white;
+
+}
+
+
+.dark-mode input,
+.dark-mode select{
+
+    background:#374151;
+
+    color:white;
+
+}
+
+
+#dark-toggle{
+
+    padding:8px 15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
