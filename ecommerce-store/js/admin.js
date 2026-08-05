@@ -1301,215 +1301,143 @@ View Order
 
 // ================= VIEW ORDER DETAILS =================
 
-
 function viewOrder(id){
 
+    let orders =
+    JSON.parse(localStorage.getItem("orders")) || [];
 
-let orders =
-JSON.parse(localStorage.getItem("orders")) || [];
+    let order =
+    orders.find(order => order.id === id);
 
+    let box =
+    document.getElementById("order-details");
 
+    if(!box) return;
 
-let order =
-orders.find(order=>order.id === id);
+    if(!order){
 
+        box.innerHTML = `
+        <h3>Order Not Found</h3>
+        `;
 
+        return;
+    }
 
-let box =
-document.getElementById("order-details");
-
-
-
-if(!box) return;
-
-
-
-if(!order){
-
-
-box.innerHTML = `
-
-<h3>
-Order Not Found
-</h3>
-
-`;
-
-return;
-
-}
-
-
-
-box.innerHTML = `
-
+    box.innerHTML = `
 
 <div class="order-details-box">
 
-
 <div class="order-header">
 
-
-<h2>
-🧾 Order Details
-</h2>
-
-<button style="background:red;color:white;padding:10px;">
-TEST PRINT BUTTON
-</button>
-
+<h2>🧾 Order Details</h2>
 
 <button onclick="printInvoice('${order.id}')">
-
 🖨 Print Invoice
-
 </button>
 
 <button onclick="downloadInvoice('${order.id}')">
-
 📄 Download PDF
-
 </button>
 
-
 </div>
-
-
-
 
 <div class="customer-order-info">
 
+<h3>Customer Information</h3>
 
-<h3>
-Customer Information
-</h3>
+<p>👤 Name: ${order.name || "Guest Customer"}</p>
 
+<p>📧 Email: ${order.email || "No Email"}</p>
 
-<p>
-👤 Name:
-${order.name || "Guest Customer"}
-</p>
+<p>📞 Phone: ${order.phone || "No Phone"}</p>
 
-
-<p>
-📧 Email:
-${order.email || "No Email"}
-</p>
-
-
-<p>
-📞 Phone:
-${order.phone || "No Phone"}
-</p>
-
-
-<p>
-📍 Address:
-${order.address || "No Address"}
-</p>
-
+<p>📍 Address: ${order.address || "No Address"}</p>
 
 </div>
-
-
-
-
 
 <div class="order-summary-box">
 
+<p><strong>Order ID:</strong> ${order.id}</p>
 
-<p>
-Order ID:
-${order.id}
-</p>
+<p><strong>Date:</strong> ${order.date}</p>
 
+<div class="order-status">
 
-<p>
-Date:
-${order.date}
-</p>
+<h3>Order Status</h3>
 
+<div class="status-timeline">
 
-<p>
-Status:
-<b>${order.status}</b>
-</p>
+<div class="step ${order.status=="Processing" || order.status=="Shipped" || order.status=="Delivered" ? "active" : ""}">
 
+<div class="circle">1</div>
 
-<p>
-Total:
-<strong>
-$${order.total}
-</strong>
-</p>
-
+<p>Processing</p>
 
 </div>
 
+<div class="line"></div>
 
+<div class="step ${order.status=="Shipped" || order.status=="Delivered" ? "active" : ""}">
 
-<h3>
+<div class="circle">2</div>
+
+<p>Shipped</p>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step ${order.status=="Delivered" ? "active" : ""}">
+
+<div class="circle">3</div>
+
+<p>Delivered</p>
+
+</div>
+
+</div>
+
+</div>
+
+<p style="margin-top:20px;">
+<strong>Total:</strong>
+$${order.total}
+</p>
+
+</div>
+
+<h3 style="margin-top:30px;">
 Products
 </h3>
 
-
-
-</div>
-
-
 `;
 
+    (order.items || []).forEach(item=>{
 
-
-
-
-(order.items || []).forEach(item=>{
-
-
-
-box.innerHTML += `
-
+        box.innerHTML += `
 
 <div class="product-card">
 
-
-<img 
+<img
 src="${item.image || ''}"
-width="80"
->
-
-
+width="80">
 
 <div class="product-info">
 
+<h3>${item.name}</h3>
 
-<h3>
-${item.name}
-</h3>
+<p>Quantity: ${item.quantity || 1}</p>
 
-
-<p>
-Quantity:
-${item.quantity || 1}
-</p>
-
-
-<p>
-Price:
-$${item.price}
-</p>
-
+<p>Price: $${item.price}</p>
 
 </div>
 
-
 </div>
-
 
 `;
 
+    });
 
-});
 }
 // ================= PRINT PROFESSIONAL INVOICE =================
 
