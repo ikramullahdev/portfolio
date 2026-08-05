@@ -2064,3 +2064,40 @@ color:#dc2626;
 font-weight:bold;
 
 }
+.recent-order{
+
+    background:#f8fafc;
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    border-radius:10px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.recent-order span{
+
+    font-weight:bold;
+
+}
+
+
+.order-status{
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+}
