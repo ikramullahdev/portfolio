@@ -273,27 +273,37 @@ messages.scrollHeight;
 
 
 
-// TEXT TO SPEECH
+// ================= NOVABOT VOICE =================
 
 function speak(text){
 
-
-if("speechSynthesis" in window){
-
-
-let speech =
-new SpeechSynthesisUtterance(text);
+    let voices = speechSynthesis.getVoices();
 
 
-speech.lang="en-US";
-
-speech.rate=1;
+    let msg = new SpeechSynthesisUtterance(text);
 
 
-window.speechSynthesis.speak(speech);
+    let englishVoice = voices.find(voice =>
+        voice.lang.includes("en")
+    );
 
 
-}
+    if(englishVoice){
 
+        msg.voice = englishVoice;
+
+    }
+
+
+    msg.volume = 1;
+
+    msg.rate = 0.9;
+
+    msg.pitch = 1;
+
+
+    speechSynthesis.cancel();
+
+    speechSynthesis.speak(msg);
 
 }
