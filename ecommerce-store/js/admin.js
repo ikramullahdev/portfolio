@@ -2267,3 +2267,85 @@ if(darkToggle){
 
 
 }
+// ================= NOTIFICATIONS =================
+
+function loadNotifications(){
+
+    const count =
+    document.getElementById("notification-count");
+
+
+    const box =
+    document.getElementById("notification-box");
+
+
+    if(!count || !box) return;
+
+
+    let notifications=[];
+
+
+    let orders =
+    JSON.parse(localStorage.getItem("orders")) || [];
+
+
+    let products =
+    JSON.parse(localStorage.getItem("products")) || [];
+
+
+
+    orders.forEach(order=>{
+
+        if(order.status==="Processing"){
+
+            notifications.push(
+                `📦 New pending order: ${order.id}`
+            );
+
+        }
+
+    });
+
+
+
+    products.forEach(product=>{
+
+        if(Number(product.stock)<=5){
+
+            notifications.push(
+                `⚠️ Low stock: ${product.name}`
+            );
+
+        }
+
+    });
+
+
+
+    count.innerText =
+    notifications.length;
+
+
+
+    box.innerHTML="";
+
+
+    notifications.forEach(note=>{
+
+
+        box.innerHTML += `
+
+        <div class="notification-item">
+        ${note}
+        </div>
+
+        `;
+
+
+    });
+
+
+}
+
+
+loadNotifications();
