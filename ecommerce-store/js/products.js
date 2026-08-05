@@ -113,6 +113,8 @@ function display(list){
 }
 
 display(products);
+let currentProducts = [...products];
+
 
 // ================= SEARCH =================
 
@@ -124,11 +126,12 @@ if(search){
 
         const value = e.target.value.toLowerCase();
 
-        const filtered = products.filter(product =>
-            product.name.toLowerCase().includes(value)
-        );
+      currentProducts = products.filter(product =>
+    product.name.toLowerCase().includes(value)
+);
 
-        display(filtered);
+display(currentProducts);
+
 
     });
 
@@ -142,7 +145,8 @@ if(sort){
 
     sort.addEventListener("change", function(){
 
-        let sorted = [...products];
+   let sorted = [...currentProducts];
+
 
         if(this.value === "low"){
             sorted.sort((a,b) => a.price - b.price);
@@ -173,19 +177,21 @@ categoryButtons.forEach(button => {
         const category = this.dataset.category;
 
 
-        if(category === "all"){
+     if(category === "all"){
 
-            display(products);
+    currentProducts = [...products];
 
-        }
+    display(currentProducts);
+
+}
 
         else{
 
-            const filtered = products.filter(product =>
-                product.category === category
-            );
+           currentProducts = products.filter(product =>
+    product.category === category
+);
 
-            display(filtered);
+display(currentProducts);
 
         }
 
