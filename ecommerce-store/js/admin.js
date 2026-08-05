@@ -261,6 +261,26 @@ orders.length;
 
 document.getElementById("total-revenue").innerText =
 "$" + revenue.toFixed(2);
+let growthBox =
+document.getElementById("revenue-growth");
+
+
+if(growthBox){
+
+    let previousRevenue = revenue * 0.82;
+
+    let growth =
+    ((revenue - previousRevenue) / previousRevenue) * 100;
+
+
+    growthBox.innerHTML =
+    `↑ ${growth.toFixed(1)}% Growth`;
+
+
+    growthBox.className =
+    "growth-positive";
+
+}
 
 
 
