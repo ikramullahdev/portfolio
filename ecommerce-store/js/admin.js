@@ -289,6 +289,7 @@ customers.size;
 
 
 loadAnalytics();
+loadSalesChart();
 
 
 
@@ -1850,5 +1851,64 @@ function downloadInvoice(id){
     );
 
     doc.save(`Invoice-${order.id}.pdf`);
+
+}
+// ================= SALES CHART =================
+
+function loadSalesChart(){
+
+    const canvas = document.getElementById("salesChart");
+
+    if(!canvas) return;
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    const monthlySales = new Array(12).fill(0);
+
+    orders.forEach(order=>{
+
+        if(!order.date) return;
+
+        const month = new Date(order.date).getMonth();
+
+        if(month >= 0 && !isNaN(month)){
+            monthlySales[month] += Number(order.total || 0);
+        }
+
+    });
+
+    new Chart(canvas,{
+
+        type:"bar",
+
+        data:{
+            labels:[
+                "Jan","Feb","Mar","Apr","May","Jun",
+                "Jul","Aug","Sep","Oct","Nov","Dec"
+            ],
+
+            datasets:[{
+                label:"Revenue ($)",
+                data:monthlySales,
+                backgroundColor:"#2563eb",
+                borderRadius:8
+            }]
+        },
+
+        options:{
+            responsive:true,
+            plugins:{
+                legend:{
+                    display:false
+                }
+            },
+            scales:{
+                y:{
+                    beginAtZero:true
+                }
+            }
+        }
+
+    });
 
 }
