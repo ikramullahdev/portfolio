@@ -237,19 +237,15 @@ function heroTyping(){
 
 
 heroTyping();
-// ================= QUICK VIEW =================
+// ================= QUICK VIEW + CART =================
 
-
-const modal =
-document.getElementById("product-modal");
-
-
-const closeModal =
-document.getElementById("close-modal");
-
+let selectedProduct = null;
 
 
 function openProduct(product){
+
+
+selectedProduct = product;
 
 
 document.getElementById("modal-image").src =
@@ -271,15 +267,64 @@ modal.style.display="flex";
 
 
 
-if(closeModal){
+// ADD TO CART FROM MODAL
 
-closeModal.onclick=function(){
+const modalCart =
+document.getElementById("modal-cart");
+
+
+if(modalCart){
+
+
+modalCart.onclick=function(){
+
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+
+
+cart.push({
+
+name:selectedProduct.name,
+
+price:selectedProduct.price,
+
+image:selectedProduct.image,
+
+quantity:1
+
+});
+
+
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+
+
+alert("Product added to cart 🛒");
+
+
 
 modal.style.display="none";
 
-}
+
+
+if(typeof updateCartCount === "function"){
+
+updateCartCount();
 
 }
+
+
+};
+
+
+}
+
 // CLOSE MODAL OUTSIDE CLICK
 
 window.onclick=function(e){
