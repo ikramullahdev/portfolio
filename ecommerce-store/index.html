@@ -4,13 +4,20 @@
 <head>
 <script>
 
-if(sessionStorage.getItem("introDone") !== "true"){
+if(document.referrer === "" || !document.referrer.includes("intro.html")){
 
-    window.location.href="intro.html";
+    if(!sessionStorage.getItem("introRunning")){
+
+        sessionStorage.setItem("introRunning","yes");
+
+        window.location.href="intro.html";
+
+    }
 
 }
 
 </script>
+
 
 
 
