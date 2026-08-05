@@ -203,3 +203,32 @@ cards.forEach(card=>{
 observer.observe(card);
 
 });
+// ================= HERO TYPING =================
+
+let heroText = "Discover Amazing Products";
+
+let heroIndex = 0;
+
+
+function heroTyping(){
+
+    const box = document.getElementById("hero-text");
+
+
+    if(!box) return;
+
+
+    if(heroIndex < heroText.length){
+
+        box.innerHTML += heroText[heroIndex];
+
+        heroIndex++;
+
+        setTimeout(heroTyping,80);
+
+    }
+
+}
+
+
+heroTyping();
