@@ -291,8 +291,67 @@ customers.size;
 loadAnalytics();
 loadSalesChart();
 loadTopProducts();
+loadLowStock();
+
+// ================= LOW STOCK ALERT =================
+
+function loadLowStock(){
+
+    const box =
+    document.getElementById("low-stock-products");
 
 
+    if(!box) return;
+
+
+    let products =
+    JSON.parse(localStorage.getItem("products")) || [];
+
+
+    let low =
+    products.filter(product =>
+    Number(product.stock) <= 5
+    );
+
+
+    box.innerHTML="";
+
+
+    if(low.length===0){
+
+        box.innerHTML =
+        "<p>All products have good stock ✅</p>";
+
+        return;
+
+    }
+
+
+
+    low.forEach(product=>{
+
+
+        box.innerHTML += `
+
+        <div class="low-stock">
+
+            <span>
+            ${product.name}
+            </span>
+
+            <span>
+            Stock: ${product.stock}
+            </span>
+
+        </div>
+
+        `;
+
+
+    });
+
+
+}
 
 
 
