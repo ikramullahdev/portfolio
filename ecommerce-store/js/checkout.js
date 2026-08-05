@@ -151,6 +151,8 @@ orderForm.addEventListener("submit", function(e){
 
     let orders =
     JSON.parse(localStorage.getItem("orders")) || [];
+    let invoices =
+JSON.parse(localStorage.getItem("invoices")) || [];
 
 
 
@@ -197,6 +199,31 @@ orderForm.addEventListener("submit", function(e){
 
 
     orders.push(order);
+    const invoice = {
+
+    id: "INV-" + Date.now(),
+
+    orderId: order.id,
+
+    customer: order.name,
+
+    email: order.email,
+
+    phone: order.phone,
+
+    address: order.address,
+
+    amount: order.total,
+
+    date: order.date,
+
+    status: "Paid",
+
+    items: order.items
+
+};
+
+invoices.push(invoice);
 
 
 
@@ -210,7 +237,13 @@ orderForm.addEventListener("submit", function(e){
 
     );
 
+localStorage.setItem(
 
+    "invoices",
+
+    JSON.stringify(invoices)
+
+);
 
 
 
