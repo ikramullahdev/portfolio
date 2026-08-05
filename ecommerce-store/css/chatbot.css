@@ -109,3 +109,22 @@ border:none;
 padding:12px;
 
 }
+#voice-btn{
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+border-radius:50%;
+
+width:40px;
+
+height:40px;
+
+cursor:pointer;
+
+font-size:18px;
+
+}
