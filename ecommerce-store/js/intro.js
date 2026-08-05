@@ -100,7 +100,10 @@ clearInterval(loading);
 setTimeout(()=>{
 
 
+sessionStorage.setItem("introShown","true");
+
 window.location.href="index.html";
+
 
 
 },1000);
