@@ -2166,3 +2166,116 @@ font-weight:bold;
     cursor:pointer;
 
 }
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+
+.header{
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+.nav-links{
+
+    flex-direction:column;
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+
+
+.dashboard-cards{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.analytics-card{
+
+    padding:15px;
+
+    overflow:hidden;
+
+}
+
+
+
+.analytics-card canvas{
+
+    max-width:100%;
+
+}
+
+
+
+.customer-table{
+
+    display:block;
+
+    overflow-x:auto;
+
+    white-space:nowrap;
+
+}
+
+
+
+.product-management input,
+.product-management button{
+
+    width:100%;
+
+    margin-top:10px;
+
+}
+
+
+
+.product-card{
+
+    flex-direction:column;
+
+}
+
+
+
+.order-filter{
+
+    flex-direction:column;
+
+}
+
+
+
+.order-filter input,
+.order-filter select{
+
+    width:100%;
+
+}
+
+
+
+.recent-order,
+.top-product{
+
+    flex-direction:column;
+
+    gap:10px;
+
+    align-items:flex-start;
+
+}
+
+
+}
