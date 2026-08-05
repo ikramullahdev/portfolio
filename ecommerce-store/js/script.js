@@ -169,3 +169,37 @@ if(themeToggle){
     });
 
 }
+// ================= SCROLL ANIMATION =================
+
+
+const cards =
+document.querySelectorAll(".product-card");
+
+
+
+const observer =
+new IntersectionObserver((entries)=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+}
+
+
+});
+
+
+});
+
+
+
+cards.forEach(card=>{
+
+observer.observe(card);
+
+});
