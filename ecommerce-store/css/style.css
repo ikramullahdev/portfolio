@@ -2012,3 +2012,36 @@ font-weight:600;
 .analytics-card canvas{
     width:100% !important;
 }
+.top-product{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#f8fafc;
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    border-radius:10px;
+
+}
+
+
+.top-product h3{
+
+    margin:0;
+
+    color:#2563eb;
+
+}
+
+
+.top-product span{
+
+    font-weight:bold;
+
+    color:#16a34a;
+
+}
