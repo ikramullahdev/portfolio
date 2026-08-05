@@ -350,7 +350,30 @@ Invoice Management
 <button id="add-invoice-btn" class="btn">
     + Add Invoice
 </button>
+<div id="invoice-modal" class="invoice-modal" style="display:none;">
 
+    <div class="invoice-box">
+
+        <h2>Create Invoice</h2>
+
+        <input type="text" id="invoice-customer" placeholder="Customer Name">
+
+        <input type="number" id="invoice-amount" placeholder="Amount">
+
+        <select id="invoice-status">
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+        </select>
+
+        <br><br>
+
+        <button id="save-invoice">Save Invoice</button>
+
+        <button id="close-invoice">Cancel</button>
+
+    </div>
+
+</div>
 <table class="customer-table" style="margin-top:20px;">
 
     <thead>
