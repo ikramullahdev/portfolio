@@ -43,6 +43,8 @@ let images=[
 
 
 let container=document.querySelector(".rain-container");
+console.log("Rain container:", container);
+
 
 
 
