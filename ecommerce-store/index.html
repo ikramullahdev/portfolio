@@ -4,13 +4,14 @@
 <head>
 <script>
 
-if(!sessionStorage.getItem("skipIntro")){
+if(sessionStorage.getItem("introDone") !== "true"){
 
-window.location.href="intro.html";
+    window.location.href="intro.html";
 
 }
 
 </script>
+
 
 
 <meta charset="UTF-8">
