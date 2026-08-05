@@ -197,3 +197,46 @@ box-shadow:
 0 0 30px #fff5;
 
 }
+/* ================= LOGO REVEAL ================= */
+
+.logo{
+
+font-size:50px;
+
+color:white;
+
+opacity:0;
+
+transform:scale(.5);
+
+animation:logoShow 1.5s ease forwards;
+
+animation-delay:4s;
+
+text-shadow:
+0 0 20px #2563eb;
+
+}
+
+
+
+@keyframes logoShow{
+
+0%{
+
+opacity:0;
+
+transform:scale(.5);
+
+}
+
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
