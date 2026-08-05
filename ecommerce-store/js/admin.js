@@ -1752,40 +1752,103 @@ window.onload = function(){
 
 function downloadInvoice(id){
 
-    const invoice = document.querySelector(".invoice");
+    const { jsPDF } = window.jspdf;
 
-    if(!invoice){
+    const doc = new jsPDF();
 
-        alert("Please open the invoice first.");
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
+    let order = orders.find(order => order.id === id);
+
+    if(!order){
+        alert("Order not found!");
         return;
-
     }
 
-    html2pdf()
-    .set({
+    let y = 20;
 
-        margin:0.5,
+    // Header
+    doc.setFontSize(22);
+    doc.setTextColor(37,99,235);
+    doc.text("NovaShop",20,y);
 
-        filename:`Invoice-${id}.pdf`,
+    doc.setFontSize(18);
+    doc.setTextColor(0,0,0);
+    doc.text("TAX INVOICE",140,y);
 
-        image:{
-            type:'jpeg',
-            quality:1
-        },
+    y += 15;
 
-        html2canvas:{
-            scale:2
-        },
+    // Invoice Info
+    doc.setFontSize(12);
 
-        jsPDF:{
-            unit:'in',
-            format:'a4',
-            orientation:'portrait'
-        }
+    doc.text("Invoice ID: " + order.id,20,y);
+    doc.text("Date: " + order.date,140,y);
 
-    })
-    .from(invoice)
-    .save();
+    y += 12;
+
+    doc.text("Customer: " + (order.name || "Guest"),20,y);
+    y += 8;
+
+    doc.text("Email: " + (order.email || "-"),20,y);
+    y += 8;
+
+    doc.text("Phone: " + (order.phone || "-"),20,y);
+    y += 8;
+
+    doc.text("Address: " + (order.address || "-"),20,y);
+
+    y += 18;
+
+    // Products Heading
+    doc.setFontSize(14);
+    doc.text("Products",20,y);
+
+    y += 10;
+
+    doc.setFontSize(12);
+
+    (order.items || []).forEach(item=>{
+
+        doc.text(
+            `${item.name}   Qty:${item.quantity || 1}   Price:$${item.price}`,
+            20,
+            y
+        );
+
+        y += 8;
+
+    });
+
+    y += 10;
+
+    doc.setFontSize(15);
+
+    doc.text(
+        "Total: $" + order.total,
+        20,
+        y
+    );
+
+    y += 10;
+
+    doc.text(
+        "Status: " + order.status,
+        20,
+        y
+    );
+
+    y += 20;
+
+    doc.setFontSize(11);
+
+    doc.setTextColor(120);
+
+    doc.text(
+        "Thank you for shopping with NovaShop!",
+        20,
+        y
+    );
+
+    doc.save(`Invoice-${order.id}.pdf`);
 
 }
