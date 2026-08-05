@@ -232,3 +232,46 @@ function heroTyping(){
 
 
 heroTyping();
+// ================= QUICK VIEW =================
+
+
+const modal =
+document.getElementById("product-modal");
+
+
+const closeModal =
+document.getElementById("close-modal");
+
+
+
+function openProduct(product){
+
+
+document.getElementById("modal-image").src =
+product.image;
+
+
+document.getElementById("modal-name").innerText =
+product.name;
+
+
+document.getElementById("modal-price").innerText =
+"$" + product.price;
+
+
+modal.style.display="flex";
+
+
+}
+
+
+
+if(closeModal){
+
+closeModal.onclick=function(){
+
+modal.style.display="none";
+
+}
+
+}
