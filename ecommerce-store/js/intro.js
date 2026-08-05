@@ -112,7 +112,7 @@ clearInterval(loading);
 setTimeout(()=>{
 
 
-sessionStorage.setItem("introShown","true");
+sessionStorage.setItem("skipIntro","true");
 
 window.location.href="index.html";
 
