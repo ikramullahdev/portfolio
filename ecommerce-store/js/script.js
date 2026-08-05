@@ -280,3 +280,18 @@ modal.style.display="none";
 }
 
 }
+// CLOSE MODAL OUTSIDE CLICK
+
+window.onclick=function(e){
+
+    const modal =
+    document.getElementById("product-modal");
+
+
+    if(e.target === modal){
+
+        modal.style.display="none";
+
+    }
+
+}
