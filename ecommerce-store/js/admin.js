@@ -1508,6 +1508,7 @@ $${item.price}
 // ================= PRINT PROFESSIONAL INVOICE =================
 
 function printInvoice(id){
+     alert("NEW PRINT FUNCTION");
 
     let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
