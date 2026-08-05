@@ -292,6 +292,7 @@ loadAnalytics();
 loadSalesChart();
 loadTopProducts();
 loadLowStock();
+loadRecentOrders();
 
 // ================= LOW STOCK ALERT =================
 
@@ -2127,6 +2128,74 @@ function loadTopProducts(){
 
         </div>
 
+
+        `;
+
+
+    });
+
+
+}
+// ================= RECENT ORDERS =================
+
+function loadRecentOrders(){
+
+    const box =
+    document.getElementById("recent-orders");
+
+
+    if(!box) return;
+
+
+    let orders =
+    JSON.parse(localStorage.getItem("orders")) || [];
+
+
+    let recent =
+    orders.slice(-5).reverse();
+
+
+    box.innerHTML="";
+
+
+    if(recent.length === 0){
+
+        box.innerHTML =
+        "<p>No recent orders</p>";
+
+        return;
+
+    }
+
+
+
+    recent.forEach(order=>{
+
+
+        box.innerHTML += `
+
+        <div class="recent-order">
+
+            <span>
+            ${order.id}
+            </span>
+
+
+            <span>
+            ${order.name || "Guest"}
+            </span>
+
+
+            <span>
+            $${order.total}
+            </span>
+
+
+            <span class="order-status">
+            ${order.status}
+            </span>
+
+        </div>
 
         `;
 
