@@ -105,21 +105,14 @@ bar.style.width=progress+"%";
 
 if(progress>=100){
 
-
 clearInterval(loading);
 
 
 setTimeout(()=>{
 
-
-sessionStorage.setItem("introRunning","done");
-
-window.location.href="index.html";
-
-
+window.location.replace("index.html");
 
 },1000);
-
 
 
 }
