@@ -332,6 +332,11 @@ price:
 Number(
 document.getElementById("product-price").value
 ),
+    
+stock:
+Number(
+document.getElementById("product-stock").value
+),
 
 
 image:
