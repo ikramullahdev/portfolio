@@ -1912,3 +1912,68 @@ function loadSalesChart(){
     });
 
 }
+// ================= SALES CHART =================
+
+function loadSalesChart(){
+
+    const canvas = document.getElementById("salesChart");
+
+    if(!canvas) return;
+
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+
+    const monthlySales = new Array(12).fill(0);
+
+
+    orders.forEach(order=>{
+
+        if(!order.date) return;
+
+
+        let month = new Date(order.date).getMonth();
+
+
+        if(!isNaN(month)){
+
+            monthlySales[month] += Number(order.total || 0);
+
+        }
+
+    });
+
+
+    new Chart(canvas,{
+
+        type:"bar",
+
+        data:{
+
+            labels:[
+                "Jan","Feb","Mar","Apr",
+                "May","Jun","Jul","Aug",
+                "Sep","Oct","Nov","Dec"
+            ],
+
+            datasets:[{
+
+                label:"Revenue ($)",
+
+                data:monthlySales,
+
+                backgroundColor:"#2563eb"
+
+            }]
+
+        },
+
+        options:{
+
+            responsive:true
+
+        }
+
+    });
+
+}
