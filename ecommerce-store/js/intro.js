@@ -30,14 +30,15 @@ typing();
 
 let images=[
 
-"images/backpack.jpg",
-"images/headphones.jpg",
-"images/keyboard.jpg",
-"images/mouse.jpg",
-"images/smartwatch.jpg",
-"images/speaker.jpg"
+"assets/backpack.jpg",
+"assets/headphones.jpg",
+"assets/keyboard.jpg",
+"assets/mouse.jpg",
+"assets/smartwatch.jpg",
+"assets/speaker.jpg"
 
 ];
+
 
 
 
