@@ -71,14 +71,14 @@ if(featuredContainer){
                     $${product.price}
                 </p>
 
+                <button
+                class="btn quick-view"
+                onclick='openProduct(${JSON.stringify(product)})'>
+                Quick View
+                </button>
 
-               <button 
-class="btn quick-view"
-onclick='openProduct(${JSON.stringify(product)})'>
 
-Quick View
-
-</button>
+ 
 
 
 
