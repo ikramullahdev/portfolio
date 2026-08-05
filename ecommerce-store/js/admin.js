@@ -1365,6 +1365,12 @@ TEST PRINT BUTTON
 
 </button>
 
+<button onclick="downloadInvoice('${order.id}')">
+
+📄 Download PDF
+
+</button>
+
 
 </div>
 
@@ -1812,5 +1818,46 @@ window.onload = function(){
 `);
 
     win.document.close();
+
+}
+// ================= DOWNLOAD PDF =================
+
+function downloadInvoice(id){
+
+    const invoice = document.querySelector(".invoice");
+
+    if(!invoice){
+
+        alert("Please open the invoice first.");
+
+        return;
+
+    }
+
+    html2pdf()
+    .set({
+
+        margin:0.5,
+
+        filename:`Invoice-${id}.pdf`,
+
+        image:{
+            type:'jpeg',
+            quality:1
+        },
+
+        html2canvas:{
+            scale:2
+        },
+
+        jsPDF:{
+            unit:'in',
+            format:'a4',
+            orientation:'portrait'
+        }
+
+    })
+    .from(invoice)
+    .save();
 
 }
