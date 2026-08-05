@@ -1782,3 +1782,73 @@ cursor:pointer;
     margin:10px 0;
 
 }
+/* ===========================
+   PROFESSIONAL INVOICE
+=========================== */
+
+.invoice{
+    max-width:900px;
+    margin:40px auto;
+    background:#fff;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.invoice .header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:3px solid #2563eb;
+    padding-bottom:20px;
+}
+
+.invoice .logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.invoice .info{
+    display:flex;
+    justify-content:space-between;
+    margin:30px 0;
+}
+
+.invoice table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:25px;
+}
+
+.invoice table th,
+.invoice table td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:left;
+}
+
+.invoice table th{
+    background:#2563eb;
+    color:#fff;
+}
+
+.invoice .total{
+    text-align:right;
+    margin-top:30px;
+}
+
+.invoice .status{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:20px;
+    background:#22c55e;
+    color:#fff;
+    margin-top:10px;
+}
+
+.invoice .footer{
+    margin-top:40px;
+    text-align:center;
+    color:#777;
+}
