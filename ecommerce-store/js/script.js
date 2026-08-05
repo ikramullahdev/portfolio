@@ -72,9 +72,14 @@ if(featuredContainer){
                 </p>
 
 
-                <a href="products.html" class="btn">
-                    View Products
-                </a>
+               <button 
+class="btn quick-view"
+onclick='openProduct(${JSON.stringify(product)})'>
+
+Quick View
+
+</button>
+
 
 
             </div>
