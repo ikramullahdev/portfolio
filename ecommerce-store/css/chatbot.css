@@ -128,3 +128,159 @@ cursor:pointer;
 font-size:18px;
 
 }
+/* ================= NOVABOT PREMIUM ================= */
+
+#chat-toggle{
+    box-shadow:0 10px 25px rgba(37,99,235,.35);
+    transition:.3s;
+    z-index:9999;
+}
+
+#chat-toggle:hover{
+    transform:scale(1.1) rotate(10deg);
+}
+
+#chat-window{
+    height:520px;
+    display:none;
+    flex-direction:column;
+    animation:chatOpen .3s ease;
+}
+
+@keyframes chatOpen{
+
+from{
+    opacity:0;
+    transform:translateY(30px) scale(.95);
+}
+
+to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+}
+
+.chat-header{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    letter-spacing:.5px;
+}
+
+.chat-status{
+    padding:10px 15px;
+    background:#eef4ff;
+    color:#2563eb;
+    font-size:13px;
+    border-bottom:1px solid #ddd;
+}
+
+#chat-messages{
+    flex:1;
+    background:#f8fafc;
+    line-height:1.7;
+}
+
+.bot-message{
+    background:white;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.user-message{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+    border-radius:12px;
+    margin:10px 0;
+    text-align:right;
+}
+
+.chat-input{
+    padding:10px;
+    gap:8px;
+    align-items:center;
+}
+
+.chat-input input{
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+}
+
+.chat-input input:focus{
+    border-color:#2563eb;
+}
+
+.chat-input button{
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.chat-input button:hover{
+    background:#1d4ed8;
+}
+
+.quick-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    padding:12px;
+    border-top:1px solid #eee;
+}
+
+.quick-actions button{
+    border:none;
+    background:#eef4ff;
+    color:#2563eb;
+    padding:8px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:.3s;
+    font-size:13px;
+}
+
+.quick-actions button:hover{
+    background:#2563eb;
+    color:white;
+}
+
+.typing{
+    display:inline-block;
+    color:#666;
+    font-style:italic;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+
+0%{
+opacity:.3;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:.3;
+}
+
+}
+
+@media(max-width:768px){
+
+#chat-window{
+
+width:95%;
+right:2.5%;
+bottom:90px;
+
+}
+
+}
