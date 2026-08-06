@@ -409,3 +409,12 @@ alert("Voice not detected");
 
 
 }
+// ================= QUICK ACTIONS =================
+
+function quickAsk(text){
+
+    input.value = text;
+
+    sendMessage();
+
+}
