@@ -340,3 +340,51 @@ window.onclick=function(e){
     }
 
 }
+// ================= USER SESSION =================
+
+function loadUserSession(){
+
+    const currentUser =
+    JSON.parse(localStorage.getItem("currentUser"));
+
+    const loginLink =
+    document.getElementById("login-link");
+
+    const profileBox =
+    document.getElementById("user-profile");
+
+    if(currentUser){
+
+        if(loginLink){
+
+            loginLink.style.display = "none";
+
+        }
+
+        if(profileBox){
+
+            profileBox.innerHTML = `
+
+            <span class="user-name">
+
+            👋 ${currentUser.name}
+
+            </span>
+
+            <button
+            onclick="userLogout()"
+            class="logout-btn">
+
+            Logout
+
+            </button>
+
+            `;
+
+        }
+
+    }
+
+}
+
+loadUserSession();
