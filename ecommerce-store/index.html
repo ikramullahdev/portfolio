@@ -255,32 +255,46 @@ NovaBot 🤖
 
 <div id="chat-messages">
 
-<p>
-Bot: Welcome to NovaShop! How can I help you?
-</p>
+<div class="bot-message">
+    👋 Hello! I'm <b>NovaBot</b>.
+
+    <br><br>
+
+    I can help you with:
+
+    <br>📦 Order Status
+    <br>🛒 Products
+    <br>💳 Payment
+    <br>🚚 Shipping
+    <br>📞 Contact
+</div>
 
 </div>
 
 
 <div class="chat-input">
 
-<input 
+<input
 id="user-message"
 placeholder="Ask something...">
 
+<button id="voice-btn">🎤</button>
 
-<button id="voice-btn">
-🎤
-</button>
-
-
-<button id="send-message">
-Send
-</button>
-
+<button id="send-message">Send</button>
 
 </div>
 
+<div class="quick-actions">
+
+    <button onclick="quickAsk('Show Products')">🛒 Products</button>
+
+    <button onclick="quickAsk('Track Order')">📦 Track Order</button>
+
+    <button onclick="quickAsk('Payment')">💳 Payment</button>
+
+    <button onclick="quickAsk('Contact')">📞 Contact</button>
+
+</div>
 
 </div>
 
