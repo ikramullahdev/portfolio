@@ -413,18 +413,12 @@ if (copyBtn) {
 // Preloader
 // ==========================
 
-window.addEventListener("load", () => {
+window.addEventListener("load", function () {
 
     const preloader = document.getElementById("preloader");
 
     if (preloader) {
-
-        setTimeout(() => {
-
-            preloader.classList.add("hide");
-
-        }, 1200);
-
+        preloader.classList.add("hide");
     }
 
 });
