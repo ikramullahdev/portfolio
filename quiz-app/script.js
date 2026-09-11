@@ -600,33 +600,6 @@ function checkAnswer(button,index){
 }
 
 
-
-
-    if(index===correct){
-
-        button.classList.add("correct");
-
-        score++;
-
-    }
-
-    else{
-
-        button.classList.add("wrong");
-
-        buttons[correct].classList.add("correct");
-
-    }
-
-
-    nextBtn.style.display="block";
-
-
-}
-
-
-
-
 nextBtn.onclick=function(){
 
 
@@ -689,7 +662,6 @@ function startTimer(){
 
 
 
-
 function showResult(){
 
     clearInterval(timer);
@@ -729,21 +701,27 @@ function showResult(){
 
 
     document.getElementById("score").innerHTML =
-    `
-    ${percentage}%
-    `;
+    `${score} / ${quizQuestions.length}
+    <br>
+    <span style="font-size:30px">
+    ${percentage}% Score
+    </span>`;
 
 
-    document.getElementById("result").innerHTML +=
-    `
+    let resultContent = document.getElementById("result");
+    resultContent.innerHTML = `
+    <h2>Quiz Completed 🎉</h2>
+    <div id="score">${score} / ${quizQuestions.length}
+    <br>
+    <span style="font-size:30px">
+    ${percentage}% Score
+    </span></div>
     <h3>${message}</h3>
-
     <p>
     Correct Answers: ${score}
     <br>
     Wrong Answers: ${quizQuestions.length - score}
     </p>
-
     <button onclick="restartQuiz()">
     Restart Quiz
     </button>
@@ -751,36 +729,26 @@ function showResult(){
 
 }
 
-    document.getElementById("score").innerHTML =
-
-    `
-    ${score} / ${quizQuestions.length}
-    <br>
-    <span style="font-size:30px">
-    ${percentage}% Score
-    </span>
-
-    <p style="font-size:18px;margin-top:15px;">
-    Correct Answers: ${score}
-    <br>
-    Wrong Answers: ${quizQuestions.length - score}
-    </p>
-    `;
-
-
-}
-
-
 
 function restartQuiz(){
 
-    document.querySelector(".quiz-box").classList.remove("hidden");
+    document.querySelector(".quiz-box").style.display="block";
 
     document.getElementById("result").classList.add("hidden");
+    
+    document.getElementById("result").innerHTML = `
+    <h2>Quiz Completed 🎉</h2>
+    <h1 id="score"></h1>
+    <button onclick="restartQuiz()">
+    Restart Quiz
+    </button>
+    `;
 
+    startScreen.style.display="block";
+    
+    selectedCategory = "all";
+    categories.forEach(btn=>{
+        btn.classList.remove("selected");
+    });
 
 }
-
-
-
-startQuiz();
