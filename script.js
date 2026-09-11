@@ -1,16 +1,8 @@
-// ==========================
-// Typing Animation
-// ==========================
-
-// ==========================
-// Typing Animation
-// ==========================
-
 const words = [
+    "Data Science Student",
     "Database Administrator",
-    "Java Developer",
     "Web Developer",
-    "Software Engineer"
+    "Python Developer"
 ];
 
 let wordIndex = 0;
@@ -50,21 +42,18 @@ function typeEffect() {
 
             wordIndex = (wordIndex + 1) % words.length;
 
-            // Next word immediately start
-            typing.textContent = words[wordIndex].charAt(0);
-            charIndex = 1;
-
         }
 
     }
 
     setTimeout(typeEffect, isDeleting ? 50 : 100);
-
 }
 
 typeEffect();
+
+
 // ==========================
-// Premium Skill Animation
+// Skill Progress Animation
 // ==========================
 
 window.addEventListener("load", () => {
@@ -77,26 +66,24 @@ window.addEventListener("load", () => {
 
         document.querySelectorAll(".percent").forEach(counter => {
 
-            let target = parseInt(counter.dataset.target);
+            const target = parseInt(counter.dataset.target);
             let count = 0;
 
-            let timer = setInterval(() => {
+            const timer = setInterval(() => {
 
                 count++;
 
-                counter.innerHTML = count + "%";
+                counter.textContent = count + "%";
 
-                if(count >= target){
-
+                if (count >= target) {
                     clearInterval(timer);
-
                 }
 
-            },20);
+            }, 20);
 
         });
 
-    },500);
+    }, 500);
 
 });
 
@@ -106,27 +93,36 @@ window.addEventListener("load", () => {
 // ==========================
 
 const revealItems = document.querySelectorAll(
-".about-container, .skill-card, .progress-box, .project-card, .certificate-card, .contact-card"
+    ".about-container, .skill-card, .progress-box, .project-card, .certificate-card, .contact-card"
 );
 
-const revealObserver = new IntersectionObserver((entries) => {
+if ("IntersectionObserver" in window) {
 
-    entries.forEach(entry => {
+    const revealObserver = new IntersectionObserver((entries) => {
 
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    revealItems.forEach(item => {
+
+        item.classList.add("hidden");
+        revealObserver.observe(item);
 
     });
 
-}, { threshold: 0.15 });
-
-revealItems.forEach(item => {
-
-    item.classList.add("hidden");
-    revealObserver.observe(item);
-
-});
+}
 
 
 // ==========================
@@ -140,6 +136,7 @@ if (themeBtn) {
     if (localStorage.getItem("theme") === "dark") {
 
         document.body.classList.add("dark");
+
         themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
 
     }
@@ -151,11 +148,13 @@ if (themeBtn) {
         if (document.body.classList.contains("dark")) {
 
             localStorage.setItem("theme", "dark");
+
             themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
 
         } else {
 
             localStorage.setItem("theme", "light");
+
             themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
 
         }
@@ -190,117 +189,126 @@ if (scrollBtn) {
     scrollBtn.addEventListener("click", () => {
 
         window.scrollTo({
-
             top: 0,
             behavior: "smooth"
-
         });
 
     });
 
 }
+
+
 // ==========================
 // Animated Counter
 // ==========================
 
 const counters = document.querySelectorAll(".counter");
 
-const counterObserver = new IntersectionObserver((entries) => {
+if ("IntersectionObserver" in window && counters.length > 0) {
 
-    entries.forEach(entry => {
+    const counterObserver = new IntersectionObserver((entries) => {
 
-        if(entry.isIntersecting){
+        entries.forEach(entry => {
 
-            const counter = entry.target;
-            const target = +counter.getAttribute("data-target");
+            if (entry.isIntersecting) {
 
-            let count = 0;
+                const counter = entry.target;
+                const target = parseInt(counter.dataset.target);
 
-            const updateCounter = () => {
+                let count = 0;
 
-                const increment = Math.ceil(target / 100);
+                const updateCounter = () => {
 
-                if(count < target){
+                    const increment = Math.ceil(target / 100);
 
-                    count += increment;
+                    if (count < target) {
 
-                    if(count > target){
+                        count += increment;
 
-                        count = target;
+                        if (count > target) {
+                            count = target;
+                        }
+
+                        counter.textContent = count;
+
+                        setTimeout(updateCounter, 20);
+
+                    } else {
+
+                        counter.textContent = target;
 
                     }
 
-                    counter.innerText = count;
+                };
 
-                    setTimeout(updateCounter,20);
+                updateCounter();
 
-                }else{
+                counterObserver.unobserve(counter);
 
-                    counter.innerText = target;
+            }
 
-                }
+        });
 
-            };
+    }, {
+        threshold: 0.5
+    });
 
-            updateCounter();
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
 
-            counterObserver.unobserve(counter);
+}
+
+
+// ==========================
+// Particles Background
+// ==========================
+
+if (typeof particlesJS !== "undefined" &&
+    document.getElementById("particles-js")) {
+
+    particlesJS("particles-js", {
+
+        particles: {
+
+            number: {
+                value: 70
+            },
+
+            color: {
+                value: "#2563eb"
+            },
+
+            shape: {
+                type: "circle"
+            },
+
+            opacity: {
+                value: 0.5
+            },
+
+            size: {
+                value: 3
+            },
+
+            move: {
+                enable: true,
+                speed: 2
+            },
+
+            line_linked: {
+                enable: true,
+                color: "#2563eb",
+                opacity: 0.3
+            }
 
         }
 
     });
 
-},{
-    threshold:0.5
-});
+}
 
-counters.forEach(counter=>{
 
-    counterObserver.observe(counter);
-
-});
-// ==========================
-// Particles Background
-// ==========================
-
-particlesJS("particles-js", {
-
-    particles: {
-
-        number: {
-            value: 70
-        },
-
-        color: {
-            value: "#2563eb"
-        },
-
-        shape: {
-            type: "circle"
-        },
-
-        opacity: {
-            value: 0.5
-        },
-
-        size: {
-            value: 3
-        },
-
-        move: {
-            enable: true,
-            speed: 2
-        },
-
-        line_linked: {
-            enable: true,
-            color: "#2563eb",
-            opacity: 0.3
-        }
-
-    }
-
-});
 // ==========================
 // Mobile Menu
 // ==========================
@@ -308,16 +316,13 @@ particlesJS("particles-js", {
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
-if(menuToggle && navLinks){
+if (menuToggle && navLinks) {
 
-    menuToggle.addEventListener("click",()=>{
+    menuToggle.addEventListener("click", () => {
 
         navLinks.classList.toggle("active");
 
     });
-
-}
-if (navLinks) {
 
     document.querySelectorAll("#nav-links a").forEach(link => {
 
@@ -330,25 +335,25 @@ if (navLinks) {
     });
 
 }
+
+
 // ==========================
 // EmailJS Contact Form
 // ==========================
 
-(function(){
+if (typeof emailjs !== "undefined") {
 
     emailjs.init("tFlODmWgN7yCvUJJp");
 
-})();
+}
 
-emailjs.init("tFlODmWgN7yCvUJJp");
 const contactForm = document.getElementById("contact-form");
 
-if(contactForm){
+if (contactForm && typeof emailjs !== "undefined") {
 
-    contactForm.addEventListener("submit", function(e){
+    contactForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
-
 
         emailjs.sendForm(
             "service_1ph2e3i",
@@ -362,29 +367,48 @@ if(contactForm){
             contactForm.reset();
 
         })
-        .catch((error)=>{
+        .catch((error) => {
 
-            alert("Message Failed!");
-            console.log(error);
+            alert("Message Failed! Please try again.");
+
+            console.error("EmailJS Error:", error);
 
         });
 
     });
 
 }
+
+
+// ==========================
+// Copy Email
+// ==========================
+
 const copyBtn = document.getElementById("copyEmail");
 
 if (copyBtn) {
 
-    copyBtn.addEventListener("click", () => {
+    copyBtn.addEventListener("click", async () => {
 
-        navigator.clipboard.writeText("ikramahmed12201@gmail.com");
+        try {
 
-        alert("Email copied successfully!");
+            await navigator.clipboard.writeText(
+                "ikramahmed12201@gmail.com"
+            );
+
+            alert("Email copied successfully!");
+
+        } catch (error) {
+
+            console.error("Copy failed:", error);
+
+        }
 
     });
 
 }
+
+
 // ==========================
 // Preloader
 // ==========================
