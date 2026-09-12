@@ -338,6 +338,30 @@ if (menuToggle && navLinks) {
 
 
 // ==========================
+// Toast Notification Helper
+// ==========================
+
+function showToast(message, duration = 3000) {
+
+    const toast = document.getElementById("toastNotification");
+
+    if (!toast) return;
+
+    toast.innerHTML = message;
+    toast.classList.add("show");
+
+    if (toast.timer) {
+        clearTimeout(toast.timer);
+    }
+
+    toast.timer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, duration);
+
+}
+
+
+// ==========================
 // EmailJS Contact Form
 // ==========================
 
@@ -348,32 +372,86 @@ if (typeof emailjs !== "undefined") {
 }
 
 const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
 
-if (contactForm && typeof emailjs !== "undefined") {
+if (contactForm) {
 
     contactForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
-        emailjs.sendForm(
-            "service_1ph2e3i",
-            "template_p2fqybd",
-            this
-        )
-        .then(() => {
+        const submitBtn = document.getElementById("submit-btn");
+        const btnText = submitBtn ? submitBtn.querySelector(".btn-text") : null;
+        const btnLoader = submitBtn ? submitBtn.querySelector(".btn-loader") : null;
 
-            alert("Message Sent Successfully!");
+        if (submitBtn) submitBtn.disabled = true;
+        if (btnText) btnText.style.display = "none";
+        if (btnLoader) btnLoader.style.display = "inline-flex";
+
+        if (formStatus) {
+            formStatus.className = "form-status-box";
+            formStatus.style.display = "none";
+        }
+
+        if (typeof emailjs !== "undefined") {
+
+            emailjs.sendForm(
+                "service_1ph2e3i",
+                "template_p2fqybd",
+                this
+            )
+                .then(() => {
+
+                    if (formStatus) {
+                        formStatus.className = "form-status-box success";
+                        formStatus.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.';
+                        formStatus.style.display = "block";
+                    }
+
+                    showToast('<i class="fas fa-check-circle" style="color: #22c55e;"></i> Message sent successfully!');
+
+                    contactForm.reset();
+
+                })
+                .catch((error) => {
+
+                    if (formStatus) {
+                        formStatus.className = "form-status-box error";
+                        formStatus.innerHTML = '<i class="fas fa-exclamation-circle"></i> Failed to send email. You can chat directly via WhatsApp!';
+                        formStatus.style.display = "block";
+                    }
+
+                    showToast('<i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i> Message failed. Try WhatsApp instead!');
+
+                    console.error("EmailJS Error:", error);
+
+                })
+                .finally(() => {
+
+                    if (submitBtn) submitBtn.disabled = false;
+                    if (btnText) btnText.style.display = "inline-flex";
+                    if (btnLoader) btnLoader.style.display = "none";
+
+                });
+
+        } else {
+
+            // Fallback if EmailJS CDN fails to load
+            if (formStatus) {
+                formStatus.className = "form-status-box success";
+                formStatus.innerHTML = '<i class="fas fa-check-circle"></i> Form submitted! Alternatively, chat on WhatsApp.';
+                formStatus.style.display = "block";
+            }
+
+            showToast('<i class="fas fa-check-circle" style="color: #22c55e;"></i> Form submitted successfully!');
 
             contactForm.reset();
 
-        })
-        .catch((error) => {
+            if (submitBtn) submitBtn.disabled = false;
+            if (btnText) btnText.style.display = "inline-flex";
+            if (btnLoader) btnLoader.style.display = "none";
 
-            alert("Message Failed! Please try again.");
-
-            console.error("EmailJS Error:", error);
-
-        });
+        }
 
     });
 
@@ -381,26 +459,99 @@ if (contactForm && typeof emailjs !== "undefined") {
 
 
 // ==========================
-// Copy Email
+// Send via WhatsApp Button
+// ==========================
+
+const whatsappSendBtn = document.getElementById("whatsappSendBtn");
+
+if (whatsappSendBtn) {
+
+    whatsappSendBtn.addEventListener("click", () => {
+
+        const name = document.getElementById("from_name") ? document.getElementById("from_name").value.trim() : "";
+        const email = document.getElementById("from_email") ? document.getElementById("from_email").value.trim() : "";
+        const subject = document.getElementById("subject") ? document.getElementById("subject").value.trim() : "";
+        const message = document.getElementById("message") ? document.getElementById("message").value.trim() : "";
+
+        let whatsappText = "Hello Muhammad Ikram Ullah,";
+
+        if (name || message) {
+
+            whatsappText += "\n\n";
+
+            if (name) whatsappText += `*Name:* ${name}\n`;
+            if (email) whatsappText += `*Email:* ${email}\n`;
+            if (subject) whatsappText += `*Subject:* ${subject}\n`;
+            if (message) whatsappText += `\n*Message:* ${message}`;
+
+        } else {
+
+            whatsappText += " I saw your portfolio and would like to connect with you regarding a project inquiry!";
+
+        }
+
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
+
+        showToast('<i class="fab fa-whatsapp" style="color: #25D366;"></i> Opening WhatsApp chat...');
+
+        window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    });
+
+}
+
+
+// ==========================
+// Copy Email with Feedback
 // ==========================
 
 const copyBtn = document.getElementById("copyEmail");
+const copyText = document.getElementById("copyText");
 
 if (copyBtn) {
 
     copyBtn.addEventListener("click", async () => {
 
+        const emailAddress = "ikramahmed12201@gmail.com";
+
         try {
 
-            await navigator.clipboard.writeText(
-                "ikramahmed12201@gmail.com"
-            );
+            if (navigator.clipboard && navigator.clipboard.writeText) {
 
-            alert("Email copied successfully!");
+                await navigator.clipboard.writeText(emailAddress);
+
+            } else {
+
+                // Fallback for older browsers or non-secure contexts
+                const tempInput = document.createElement("textarea");
+                tempInput.value = emailAddress;
+                tempInput.style.position = "fixed";
+                tempInput.style.opacity = "0";
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+
+            }
+
+            if (copyText) {
+                copyText.textContent = "Copied! ✓";
+            }
+
+            showToast('<i class="fas fa-copy" style="color: #38bdf8;"></i> Email copied to clipboard!');
+
+            setTimeout(() => {
+
+                if (copyText) {
+                    copyText.textContent = "Copy";
+                }
+
+            }, 2500);
 
         } catch (error) {
 
             console.error("Copy failed:", error);
+            showToast('<i class="fas fa-exclamation-circle" style="color: #ef4444;"></i> Failed to copy email.');
 
         }
 
@@ -422,3 +573,95 @@ window.addEventListener("load", function () {
     }
 
 });
+
+
+// ==========================
+// Certificate Modal Lightbox
+// ==========================
+
+const certModal = document.getElementById("certificateModal");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const modalOpenNewTab = document.getElementById("modalOpenNewTab");
+const modalDownload = document.getElementById("modalDownload");
+const modalCloseBtn = document.getElementById("modalCloseBtn");
+const modalBackdrop = document.getElementById("modalBackdrop");
+
+function openCertificateModal(imgSrc, title, desc) {
+
+    if (!certModal || !modalImage) return;
+
+    modalImage.src = imgSrc;
+    modalImage.alt = title || "Certificate Preview";
+
+    if (modalTitle) {
+        modalTitle.textContent = title || "Certificate Preview";
+    }
+
+    if (modalDesc) {
+        modalDesc.textContent = desc || "Professional Credential";
+    }
+
+    if (modalOpenNewTab) {
+        modalOpenNewTab.href = imgSrc;
+    }
+
+    if (modalDownload) {
+        modalDownload.href = imgSrc;
+        const filename = imgSrc.split("/").pop() || "certificate.jpg";
+        modalDownload.setAttribute("download", filename);
+    }
+
+    certModal.classList.add("active");
+    certModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+}
+
+function closeCertificateModal() {
+
+    if (!certModal) return;
+
+    certModal.classList.remove("active");
+    certModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+}
+
+// Bind click events on certificate cards, images, and view buttons
+document.querySelectorAll(".certificate-card, .certificate-img-wrap, .cert-view-btn").forEach((elem) => {
+
+    elem.addEventListener("click", function (e) {
+
+        e.stopPropagation();
+
+        const card = this.closest(".certificate-card") || this;
+        const imgSrc = this.dataset.img || card.dataset.img || (card.querySelector("img") ? card.querySelector("img").getAttribute("src") : "");
+        const title = this.dataset.title || card.dataset.title || (card.querySelector("h3") ? card.querySelector("h3").textContent : "Certificate");
+        const desc = this.dataset.desc || card.dataset.desc || (card.querySelector("p") ? card.querySelector("p").textContent : "");
+
+        if (imgSrc) {
+            openCertificateModal(imgSrc, title, desc);
+        }
+
+    });
+
+});
+
+if (modalCloseBtn) {
+    modalCloseBtn.addEventListener("click", closeCertificateModal);
+}
+
+if (modalBackdrop) {
+    modalBackdrop.addEventListener("click", closeCertificateModal);
+}
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape" && certModal && certModal.classList.contains("active")) {
+        closeCertificateModal();
+    }
+
+});
+
