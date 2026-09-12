@@ -1984,3 +1984,864 @@ body.dark .modal-close-btn:hover {
     }
 
 }
+
+
+/* ==============================================
+   ACADEMIC PAGE & CERTIFICATE RESULTS STYLING
+============================================== */
+
+.academic-page {
+    min-height: 100vh;
+    padding: 130px 8% 80px;
+    background: var(--light);
+}
+
+.academic-container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.academic-hero {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.academic-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px;
+    border-radius: 9999px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.academic-hero h1 {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--secondary);
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.academic-hero h1 span {
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.academic-hero p {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Academic Key Metrics Bar */
+.academic-metrics-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.academic-metric-card {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.academic-metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.academic-metric-card .metric-val {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+.academic-metric-card .metric-val.perfect {
+    color: #10b981;
+}
+
+.academic-metric-card .metric-lbl {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Institution Overview Cards */
+.institutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.institution-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.institution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.09);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.inst-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.inst-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(56, 189, 248, 0.12));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.inst-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.inst-badge.current {
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.inst-badge.completed {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(37, 99, 235, 0.25);
+}
+
+.institution-card h2 {
+    font-size: 23px;
+    color: var(--secondary);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.institution-card h3 {
+    font-size: 16px;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.institution-card .inst-sub {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.inst-details-list {
+    list-style: none;
+    margin: 18px 0;
+    padding: 0;
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.inst-details-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--text);
+    border-bottom: 1px dashed rgba(226, 232, 240, 0.6);
+}
+
+.inst-details-list li:last-child {
+    border-bottom: none;
+}
+
+.inst-details-list li strong {
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.inst-details-list li span.val-highlight {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.inst-details-list li span.val-green {
+    font-weight: 700;
+    color: #10b981;
+}
+
+.inst-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.inst-tag {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ==============================================
+   BIMS OFFICIAL SEMESTER RESULTS SECTION
+============================================== */
+
+.section-block {
+    margin-bottom: 65px;
+}
+
+.block-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.block-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.block-header p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.semester-results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.semester-result-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.35s ease;
+}
+
+.semester-result-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+    border-color: rgba(37, 99, 235, 0.35);
+}
+
+.semester-card-top {
+    padding: 20px 22px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #f1f5f9;
+    background: #fafbfc;
+}
+
+.semester-title h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 4px;
+}
+
+.semester-title span {
+    font-size: 12px;
+    color: var(--muted);
+    display: block;
+}
+
+.gpa-tag {
+    padding: 6px 12px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 75px;
+}
+
+.gpa-tag.perfect {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1.5px solid rgba(16, 185, 129, 0.4);
+}
+
+.gpa-tag.near-perfect {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1.5px solid rgba(56, 189, 248, 0.4);
+}
+
+.gpa-tag.high {
+    background: rgba(37, 99, 235, 0.1);
+    border: 1.5px solid rgba(37, 99, 235, 0.3);
+}
+
+.gpa-tag .gpa-number {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.gpa-tag.perfect .gpa-number {
+    color: #10b981;
+}
+
+.gpa-tag.near-perfect .gpa-number {
+    color: #0284c7;
+}
+
+.gpa-tag.high .gpa-number {
+    color: var(--primary);
+}
+
+.gpa-tag .gpa-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+}
+
+.semester-img-container {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background: #0f172a;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.semester-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    opacity: 0.92;
+}
+
+.semester-img-container:hover img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.semester-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.semester-img-overlay i {
+    font-size: 24px;
+    color: #38bdf8;
+}
+
+.semester-img-container:hover .semester-img-overlay {
+    opacity: 1;
+}
+
+.semester-card-body {
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.semester-meta {
+    margin-bottom: 16px;
+}
+
+.semester-meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: var(--text);
+}
+
+.semester-meta-row strong {
+    color: var(--secondary);
+}
+
+.semester-meta-row .status-promoted {
+    color: #10b981;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-view-result {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    background: transparent;
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.btn-view-result:hover {
+    background: var(--primary);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+}
+
+/* ==============================================
+   CERTIFICATION EXAM SCORE REPORTS SECTION
+============================================== */
+
+.score-reports-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.score-report-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.score-report-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgba(37, 99, 235, 0.35);
+}
+
+.score-card-banner {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    border-bottom: 2px solid #38bdf8;
+}
+
+.score-card-banner .cert-provider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.score-card-banner .cert-provider i {
+    font-size: 22px;
+    color: #38bdf8;
+}
+
+.score-card-banner .cert-provider-info h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+.score-card-banner .cert-provider-info span {
+    font-size: 11.5px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pass-badge {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid #10b981;
+    color: #10b981;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.5px;
+}
+
+.score-card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.score-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 15px;
+}
+
+.score-exam-title h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 4px;
+}
+
+.score-exam-title p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+}
+
+.score-display-box {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(56, 189, 248, 0.08));
+    border: 1.5px solid rgba(37, 99, 235, 0.25);
+    border-radius: 14px;
+    padding: 10px 16px;
+    text-align: center;
+    min-width: 110px;
+}
+
+.score-display-box .big-score {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.score-display-box .score-target {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+}
+
+/* Exam Score Image Preview */
+.score-img-preview {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background: #0f172a;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+}
+
+.score-img-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+    transition: transform 0.35s ease;
+    background: #ffffff;
+}
+
+.score-img-preview:hover img {
+    transform: scale(1.04);
+}
+
+.score-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.score-img-overlay i {
+    font-size: 24px;
+    color: #38bdf8;
+}
+
+.score-img-preview:hover .score-img-overlay {
+    opacity: 1;
+}
+
+/* Score Breakdown List */
+.score-breakdown-box {
+    margin-bottom: 20px;
+}
+
+.score-breakdown-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.breakdown-row {
+    margin-bottom: 10px;
+}
+
+.breakdown-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.breakdown-label strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.breakdown-bar {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.breakdown-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2563eb, #38bdf8);
+    border-radius: 999px;
+    transition: width 1s ease-out;
+}
+
+.breakdown-bar-fill.perfect {
+    background: linear-gradient(90deg, #059669, #10b981);
+}
+
+.score-card-footer {
+    margin-top: auto;
+    display: flex;
+    gap: 12px;
+}
+
+.score-card-footer .btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-size: 13.5px;
+    border-radius: 10px;
+}
+
+/* ==============================================
+   DARK MODE ADAPTATIONS FOR ACADEMIC & RESULTS
+============================================== */
+
+body.dark .academic-page {
+    background: #0f172a;
+}
+
+body.dark .academic-hero h1,
+body.dark .block-header h2,
+body.dark .institution-card h2,
+body.dark .semester-title h3,
+body.dark .score-exam-title h3,
+body.dark .score-breakdown-box h4,
+body.dark .inst-details-list li strong,
+body.dark .semester-meta-row strong {
+    color: #f8fafc;
+}
+
+body.dark .academic-hero p,
+body.dark .block-header p,
+body.dark .institution-card .inst-sub,
+body.dark .semester-title span,
+body.dark .score-exam-title p,
+body.dark .inst-details-list li,
+body.dark .semester-meta-row,
+body.dark .breakdown-label {
+    color: #94a3b8;
+}
+
+body.dark .academic-metric-card,
+body.dark .institution-card,
+body.dark .semester-result-card,
+body.dark .score-report-card {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+body.dark .semester-card-top {
+    background: #192337;
+    border-color: #334155;
+}
+
+body.dark .inst-details-list {
+    border-color: #334155;
+}
+
+body.dark .inst-details-list li {
+    border-color: rgba(51, 65, 85, 0.6);
+}
+
+body.dark .inst-tag {
+    background: #334155;
+    color: #e2e8f0;
+}
+
+body.dark .breakdown-bar {
+    background: #334155;
+}
+
+body.dark .score-img-preview {
+    border-color: #334155;
+}
+
+body.dark .btn-view-result {
+    border-color: #38bdf8;
+    color: #38bdf8;
+}
+
+body.dark .btn-view-result:hover {
+    background: #38bdf8;
+    color: #0f172a;
+}
+
+/* ==============================================
+   RESPONSIVE LAYOUT FOR ACADEMIC & RESULTS
+============================================== */
+
+@media (max-width: 1024px) {
+    .academic-metrics-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .institutions-grid,
+    .score-reports-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .semester-results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .academic-page {
+        padding: 110px 5% 60px;
+    }
+
+    .academic-hero h1 {
+        font-size: 30px;
+    }
+
+    .academic-metrics-bar {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .academic-metric-card {
+        padding: 14px;
+    }
+
+    .academic-metric-card .metric-val {
+        font-size: 26px;
+    }
+
+    .semester-results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .institution-card,
+    .score-card-content {
+        padding: 22px 18px;
+    }
+
+    .score-card-banner {
+        padding: 14px 18px;
+    }
+
+    .score-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .score-display-box {
+        width: 100%;
+    }
+}

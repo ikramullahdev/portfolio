@@ -2,171 +2,38 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
 
-    <title>Academic | Muhammad Ikram Ullah</title>
+    <title>Academic & Certification Records | Muhammad Ikram Ullah</title>
 
-    <meta name="description" content="Academic background and education of Muhammad Ikram Ullah.">
+    <meta name="description"
+        content="Official academic records, semester-by-semester GPA results from BIMS (PMAS-Arid University), and international IT Specialist certification score reports of Muhammad Ikram Ullah.">
+    <meta name="author" content="Muhammad Ikram Ullah">
 
-    <!-- Google Font -->
+    <!-- Canonical -->
+    <link rel="canonical" href="https://ikramullahdev.github.io/portfolio/academic.html">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- Main CSS -->
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        .academic-page {
-            min-height: 100vh;
-            padding: 140px 8% 80px;
-        }
-
-        .academic-container {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .academic-intro {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .academic-intro h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        .academic-intro p {
-            font-size: 16px;
-            opacity: 0.8;
-        }
-
-        .academic-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .academic-card {
-            padding: 35px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            transition: 0.3s ease;
-        }
-
-        .academic-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .academic-icon {
-            width: 65px;
-            height: 65px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            margin-bottom: 20px;
-            font-size: 27px;
-        }
-
-        .academic-card h2 {
-            font-size: 25px;
-            margin-bottom: 8px;
-        }
-
-        .academic-card h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .academic-card .specialization {
-            font-size: 15px;
-            margin-bottom: 20px;
-            opacity: 0.85;
-        }
-
-        .academic-details {
-            margin: 20px 0;
-        }
-
-        .academic-details p {
-            margin: 10px 0;
-            line-height: 1.7;
-        }
-
-        .academic-details strong {
-            margin-right: 5px;
-        }
-
-        .academic-status {
-            display: inline-block;
-            padding: 7px 15px;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            font-size: 13px;
-            margin-bottom: 20px;
-        }
-
-        .academic-buttons {
-            margin-top: 25px;
-        }
-
-        .academic-buttons .btn {
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .back-home {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-
-
-        @media (max-width: 768px) {
-
-            .academic-page {
-                padding: 120px 5% 60px;
-            }
-
-            .academic-intro h1 {
-                font-size: 32px;
-            }
-
-            .academic-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .academic-card {
-                padding: 25px;
-            }
-
-        }
-    </style>
-
 </head>
-
 
 <body>
 
-
-
-
+    <!-- =========================
+         HEADER
+    ========================== -->
     <header>
-
         <div class="logo">
             Muhammad Ikram Ullah
         </div>
@@ -176,252 +43,578 @@
         </div>
 
         <nav id="nav-links" class="nav-links">
-
             <a href="index.html#home">Home</a>
-
             <a href="index.html#about">About</a>
-
             <a href="index.html#skills">Skills</a>
-
             <a href="index.html#projects">Projects</a>
-
-            <a href="academic.html">Academic</a>
-
+            <a href="academic.html" style="color: var(--accent);">Academic</a>
             <a href="index.html#certificates">Certificates</a>
-
             <a href="index.html#contact">Contact</a>
-
-            <button id="theme-toggle">
+            <button id="theme-toggle" aria-label="Toggle theme">
                 <i class="fas fa-moon"></i>
             </button>
-
         </nav>
-
     </header>
 
 
-
-
+    <!-- =========================
+         ACADEMIC & RESULTS MAIN
+    ========================== -->
     <main class="academic-page">
 
         <div class="academic-container">
 
-            <div class="academic-intro">
-
-                <h1>Academic Background</h1>
-
+            <!-- Hero Header -->
+            <div class="academic-hero">
+                <span class="academic-pill">
+                    <i class="fas fa-graduation-cap"></i> Verified Credentials & Results
+                </span>
+                <h1>Academic & <span>Certification Excellence</span></h1>
                 <p>
-                    My educational journey and academic record
+                    Comprehensive record of undergraduate education, official semester GPA transcripts, and international Pearson VUE / Certiport examination score reports.
                 </p>
+            </div>
+
+            <!-- Key Academic Metrics Bar -->
+            <div class="academic-metrics-bar">
+                <div class="academic-metric-card">
+                    <div class="metric-val">3.81</div>
+                    <div class="metric-lbl">Cumulative CGPA (BIMS)</div>
+                </div>
+                <div class="academic-metric-card">
+                    <div class="metric-val perfect">4.00</div>
+                    <div class="metric-lbl">Highest GPA (Spring 2026)</div>
+                </div>
+                <div class="academic-metric-card">
+                    <div class="metric-val">979 <span style="font-size: 16px; color: var(--muted); font-weight: 600;">/ 1000</span></div>
+                    <div class="metric-lbl">ITS Databases Exam (97.9%)</div>
+                </div>
+                <div class="academic-metric-card">
+                    <div class="metric-val">940 <span style="font-size: 16px; color: var(--muted); font-weight: 600;">/ 1000</span></div>
+                    <div class="metric-lbl">ITS JavaScript Exam (94.0%)</div>
+                </div>
+            </div>
+
+
+            <!-- Degree Institutions Overview -->
+            <div class="institutions-grid">
+
+                <!-- Institution 1: BIMS -->
+                <div class="institution-card">
+                    <div>
+                        <div class="inst-header">
+                            <div class="inst-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <span class="inst-badge completed">4 Semesters &bull; Migrated</span>
+                        </div>
+
+                        <h2>BS Software Engineering</h2>
+                        <h3>Barani Institute of Management Sciences (BIMS)</h3>
+                        <p class="inst-sub">Affiliated with PMAS-Arid Agriculture University Rawalpindi</p>
+
+                        <ul class="inst-details-list">
+                            <li>
+                                <strong><i class="fas fa-id-card"></i> Student ID / Roll No</strong>
+                                <span class="val-highlight">24-ARID-5248</span>
+                            </li>
+                            <li>
+                                <strong><i class="fas fa-chart-line"></i> Cumulative CGPA</strong>
+                                <span class="val-green">3.81 / 4.00</span>
+                            </li>
+                            <li>
+                                <strong><i class="fas fa-calendar-check"></i> Semesters Completed</strong>
+                                <span>4 Semesters (1st – 4th)</span>
+                            </li>
+                            <li>
+                                <strong><i class="fas fa-award"></i> Highest Semester GPA</strong>
+                                <span class="val-green">4.00 (Spring 2026)</span>
+                            </li>
+                            <li>
+                                <strong><i class="fas fa-exchange-alt"></i> Academic Status</strong>
+                                <span>Promoted &amp; Migrated to IMCB (QAU)</span>
+                            </li>
+                        </ul>
+
+                        <div class="inst-tags">
+                            <span class="inst-tag">Object-Oriented Programming</span>
+                            <span class="inst-tag">Database Systems</span>
+                            <span class="inst-tag">Data Structures</span>
+                            <span class="inst-tag">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Institution 2: IMCB / QAU -->
+                <div class="institution-card">
+                    <div>
+                        <div class="inst-header">
+                            <div class="inst-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <span class="inst-badge current">Currently Enrolled</span>
+                        </div>
+
+                        <h2>BS Statistics</h2>
+                        <h3>IMCB F-10/4, Islamabad</h3>
+                        <p class="inst-sub">Affiliated with Quaid-i-Azam University (QAU), Islamabad</p>
+
+                        <ul class="inst-details-list">
+                            <li>
+                                <strong><i class="fas fa-university"></i> Degree Awarding Body</strong>
+                                <span class="val-highlight">Quaid-i-Azam University (Ranked #1)</span>
+                            </li>
+                            <li>
+                                <strong><i class="fas fa-bullseye"></i> Specialization</strong>
+                                <span class="val-highlight">Data Science</span>
+                            </li>
+                            <li>
+                                <strong><i class="fas fa-clock"></i> Admission Date</strong>
+                                <span>September 2026</span>
+                            </li>
+                            <li>
+                                <strong><i class="fas fa-layer-group"></i> Current Stage</strong>
+                                <span class="val-green">5th Semester (Active)</span>
+                            </li>
+                            <li>
+                                <strong><i class="fas fa-check-circle"></i> Enrollment Status</strong>
+                                <span>Semester In Progress</span>
+                            </li>
+                        </ul>
+
+                        <div class="inst-tags">
+                            <span class="inst-tag">Statistical Modeling</span>
+                            <span class="inst-tag">Machine Learning</span>
+                            <span class="inst-tag">Probability Theory</span>
+                            <span class="inst-tag">Python Data Science</span>
+                            <span class="inst-tag">Big Data &amp; SQL</span>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
 
-            <div class="academic-cards">
+            <!-- ==============================================
+                 BIMS OFFICIAL SEMESTER RESULTS SECTION
+            ============================================== -->
+            <div class="section-block">
 
-
-
-                <div class="academic-card">
-
-                    <div class="academic-icon">
-
-                        <i class="fas fa-graduation-cap"></i>
-
-                    </div>
-
-                    <span class="academic-status">
-                        Previous Academic Record
-                    </span>
-
-                    <h2>BS Software Engineering</h2>
-
-                    <h3>
-                        Barani Institute of Management Sciences (BIMS)
-                    </h3>
-
-                    <p class="specialization">
-                        Previous University Record
+                <div class="block-header">
+                    <span class="academic-pill"><i class="fas fa-file-invoice"></i> Official University Records</span>
+                    <h2>BIMS Provisional Semester Results</h2>
+                    <p>
+                        Official semester-by-semester provisional GPA results for candidate <strong>Muhammad Ikram Ullah (Roll No: 24-ARID-5248)</strong> at Barani Institute of Management Sciences.
                     </p>
+                </div>
 
+                <div class="semester-results-grid">
 
-                    <div class="academic-details">
+                    <!-- Semester Result 1: Spring 2026 (GPA 4.00) -->
+                    <div class="semester-result-card" data-img="assets/academic/bims-spring-2026.png"
+                        data-title="4th Semester Provisional Result (Spring 2026) — GPA 4.00"
+                        data-desc="Roll No: 24-ARID-5248 | Muhammad Ikram Ullah | SPRING-2026 Provisional GPA: 4.00 | Status: Promoted">
 
-                        <p>
-                            <strong>1st Semester:</strong>
-                            GPA 3.47
-                        </p>
+                        <div class="semester-card-top">
+                            <div class="semester-title">
+                                <h3>4th Semester Result</h3>
+                                <span>SPRING-2026 &bull; BIMS</span>
+                            </div>
+                            <div class="gpa-tag perfect">
+                                <div class="gpa-number">4.00</div>
+                                <div class="gpa-label">Perfect GPA</div>
+                            </div>
+                        </div>
 
-                        <p>
-                            <strong>2nd Semester:</strong>
-                            GPA 3.98
-                        </p>
+                        <div class="semester-img-container"
+                            data-img="assets/academic/bims-spring-2026.png"
+                            data-title="4th Semester Provisional Result (Spring 2026) — GPA 4.00"
+                            data-desc="Roll No: 24-ARID-5248 | Muhammad Ikram Ullah | SPRING-2026 Provisional GPA: 4.00 | Status: Promoted">
+                            <img src="assets/academic/bims-spring-2026.png" alt="4th Semester Spring 2026 GPA 4.00 Result" loading="lazy">
+                            <div class="semester-img-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Click to View Full Result</span>
+                            </div>
+                        </div>
 
-                        <p>
-                            <strong>3rd semester</strong>
-                            GPA 3.82
+                        <div class="semester-card-body">
+                            <div class="semester-meta">
+                                <div class="semester-meta-row">
+                                    <span>Registration / Roll:</span>
+                                    <strong>24-ARID-5248</strong>
+                                </div>
+                                <div class="semester-meta-row">
+                                    <span>Academic Term:</span>
+                                    <strong>SPRING-2026</strong>
+                                </div>
+                                <div class="semester-meta-row">
+                                    <span>Academic Standing:</span>
+                                    <span class="status-promoted"><i class="fas fa-check-circle"></i> Promoted</span>
+                                </div>
+                            </div>
 
-                        </p>
-                        <p>
-                            <strong>4th semester</strong>
-                            GPA 4.0
-                        </p>
-
-                        <p>
-                            <strong>CGPA</strong>
-                            CGPA 3.81
-                        </p>
-
-                        <p>
-                            <strong>status</strong>
-                            Migrated
-                        </p>
-
+                            <button type="button" class="btn-view-result"
+                                data-img="assets/academic/bims-spring-2026.png"
+                                data-title="4th Semester Provisional Result (Spring 2026) — GPA 4.00"
+                                data-desc="Roll No: 24-ARID-5248 | Muhammad Ikram Ullah | SPRING-2026 Provisional GPA: 4.00 | Status: Promoted">
+                                <i class="fas fa-expand-alt"></i> View Official Result
+                            </button>
+                        </div>
                     </div>
 
+                    <!-- Semester Result 2: Fall 2025 (GPA 3.82) -->
+                    <div class="semester-result-card" data-img="assets/academic/bims-fall-2025.jpg"
+                        data-title="3rd Semester Provisional Result (Fall 2025) — GPA 3.82"
+                        data-desc="Roll No: 24-ARID-5248 | Muhammad Ikram Ullah | FALL-2025 Provisional GPA: 3.82 | Status: Promoted">
 
-                    <div class="academic-buttons">
+                        <div class="semester-card-top">
+                            <div class="semester-title">
+                                <h3>3rd Semester Result</h3>
+                                <span>FALL-2025 &bull; BIMS</span>
+                            </div>
+                            <div class="gpa-tag high">
+                                <div class="gpa-number">3.82</div>
+                                <div class="gpa-label">High Merit</div>
+                            </div>
+                        </div>
 
-                        <!-- Replace this path with your screenshot path -->
+                        <div class="semester-img-container"
+                            data-img="assets/academic/bims-fall-2025.jpg"
+                            data-title="3rd Semester Provisional Result (Fall 2025) — GPA 3.82"
+                            data-desc="Roll No: 24-ARID-5248 | Muhammad Ikram Ullah | FALL-2025 Provisional GPA: 3.82 | Status: Promoted">
+                            <img src="assets/academic/bims-fall-2025.jpg" alt="3rd Semester Fall 2025 GPA 3.82 Result" loading="lazy">
+                            <div class="semester-img-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Click to View Full Result</span>
+                            </div>
+                        </div>
 
-                        <a href="assets/academic/bims-result.jpg" target="_blank" class="btn">
+                        <div class="semester-card-body">
+                            <div class="semester-meta">
+                                <div class="semester-meta-row">
+                                    <span>Registration / Roll:</span>
+                                    <strong>24-ARID-5248</strong>
+                                </div>
+                                <div class="semester-meta-row">
+                                    <span>Academic Term:</span>
+                                    <strong>FALL-2025</strong>
+                                </div>
+                                <div class="semester-meta-row">
+                                    <span>Academic Standing:</span>
+                                    <span class="status-promoted"><i class="fas fa-check-circle"></i> Promoted</span>
+                                </div>
+                            </div>
 
-                            <i class="fas fa-image"></i>
-                            View BIMS Result
+                            <button type="button" class="btn-view-result"
+                                data-img="assets/academic/bims-fall-2025.jpg"
+                                data-title="3rd Semester Provisional Result (Fall 2025) — GPA 3.82"
+                                data-desc="Roll No: 24-ARID-5248 | Muhammad Ikram Ullah | FALL-2025 Provisional GPA: 3.82 | Status: Promoted">
+                                <i class="fas fa-expand-alt"></i> View Official Result
+                            </button>
+                        </div>
+                    </div>
 
-                        </a>
+                    <!-- Semester Result 3: Spring 2025 (GPA 3.98) -->
+                    <div class="semester-result-card" data-img="assets/academic/bims-spring-2025.png"
+                        data-title="2nd Semester Provisional Result (Spring 2025) — GPA 3.98"
+                        data-desc="Roll No: 24-ARID-5248 | Muhammad Ikram Ullah | SPRING-2025 Provisional GPA: 3.98 | Status: Promoted">
 
+                        <div class="semester-card-top">
+                            <div class="semester-title">
+                                <h3>2nd Semester Result</h3>
+                                <span>SPRING-2025 &bull; BIMS</span>
+                            </div>
+                            <div class="gpa-tag near-perfect">
+                                <div class="gpa-number">3.98</div>
+                                <div class="gpa-label">Top Merit</div>
+                            </div>
+                        </div>
+
+                        <div class="semester-img-container"
+                            data-img="assets/academic/bims-spring-2025.png"
+                            data-title="2nd Semester Provisional Result (Spring 2025) — GPA 3.98"
+                            data-desc="Roll No: 24-ARID-5248 | Muhammad Ikram Ullah | SPRING-2025 Provisional GPA: 3.98 | Status: Promoted">
+                            <img src="assets/academic/bims-spring-2025.png" alt="2nd Semester Spring 2025 GPA 3.98 Result" loading="lazy">
+                            <div class="semester-img-overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Click to View Full Result</span>
+                            </div>
+                        </div>
+
+                        <div class="semester-card-body">
+                            <div class="semester-meta">
+                                <div class="semester-meta-row">
+                                    <span>Registration / Roll:</span>
+                                    <strong>24-ARID-5248</strong>
+                                </div>
+                                <div class="semester-meta-row">
+                                    <span>Academic Term:</span>
+                                    <strong>SPRING-2025</strong>
+                                </div>
+                                <div class="semester-meta-row">
+                                    <span>Academic Standing:</span>
+                                    <span class="status-promoted"><i class="fas fa-check-circle"></i> Promoted</span>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn-view-result"
+                                data-img="assets/academic/bims-spring-2025.png"
+                                data-title="2nd Semester Provisional Result (Spring 2025) — GPA 3.98"
+                                data-desc="Roll No: 24-ARID-5248 | Muhammad Ikram Ullah | SPRING-2025 Provisional GPA: 3.98 | Status: Promoted">
+                                <i class="fas fa-expand-alt"></i> View Official Result
+                            </button>
+                        </div>
                     </div>
 
                 </div>
-
-
-
-
-
-                <div class="academic-card">
-
-                    <div class="academic-icon">
-
-                        <i class="fas fa-chart-line"></i>
-
-                    </div>
-
-                    <span class="academic-status">
-                        Recently Admitted
-                    </span>
-
-                    <h2>BS Statistics</h2>
-
-                    <h3>
-                        IMCB F-10/4
-                    </h3>
-
-                    <p class="specialization">
-                        Specialization in Data Science
-                    </p>
-
-
-                    <div class="academic-details">
-
-                        <p>
-                            <strong>University:</strong>
-                            Quaid-i-Azam University (QAU)
-                        </p>
-
-                        <p>
-                            <strong>Status:</strong>
-                            Semester Started
-                        </p>
-
-                        <p>
-                            <strong>Admission:</strong>
-                            September 2026
-                        </p>
-
-                        <p>
-                            <strong>Current Stage:</strong>
-                            5th semester
-                        </p>
-
-                    </div>
-
-
-                    <div class="academic-buttons">
-
-                        <a href="imcb.html" class="btn">
-
-                            <i class="fas fa-arrow-right"></i>
-                            View IMCB Details
-
-                        </a>
-
-                    </div>
-
-                </div>
-
 
             </div>
 
 
-            <!-- Back Button -->
+            <!-- ==============================================
+                 CERTIFICATION EXAM RESULTS / SCORE REPORTS
+            ============================================== -->
+            <div class="section-block">
 
-            <div class="back-home">
+                <div class="block-header">
+                    <span class="academic-pill"><i class="fas fa-certificate"></i> International IT Specialist Credentials</span>
+                    <h2>Certificate Exam Score Reports</h2>
+                    <p>
+                        Official exam score reports administered by Pearson VUE and Certiport, demonstrating mastery of Database Systems and JavaScript programming with section breakdown analytics.
+                    </p>
+                </div>
 
-                <a href="index.html" class="btn btn-outline">
+                <div class="score-reports-grid">
 
-                    <i class="fas fa-arrow-left"></i>
-                    Back to Portfolio
+                    <!-- Score Report 1: ITS Databases -->
+                    <div class="score-report-card" data-img="assets/certificates/database-score-report.jpg"
+                        data-title="Information Technology Specialist: Databases — Official Score Report"
+                        data-desc="Pearson VUE / Certiport Exam Score: 979/1000 (97.9%) — Candidate: Muhammad Ikram Ullah">
 
+                        <div class="score-card-banner">
+                            <div class="cert-provider">
+                                <i class="fas fa-database"></i>
+                                <div class="cert-provider-info">
+                                    <h4>Certiport / Pearson VUE</h4>
+                                    <span>IT Specialist Certification Exam</span>
+                                </div>
+                            </div>
+                            <span class="pass-badge"><i class="fas fa-check-circle"></i> PASS</span>
+                        </div>
+
+                        <div class="score-card-content">
+                            <div class="score-card-header">
+                                <div class="score-exam-title">
+                                    <h3>ITS: Databases</h3>
+                                    <p><i class="far fa-calendar-alt"></i> Exam Date: May 2, 2026 &bull; Ref #52109053</p>
+                                </div>
+                                <div class="score-display-box">
+                                    <div class="big-score">979 <span style="font-size: 13px; font-weight: 600; color: var(--muted);">/ 1000</span></div>
+                                    <div class="score-target">Required: 700 (97.9%)</div>
+                                </div>
+                            </div>
+
+                            <div class="score-img-preview"
+                                data-img="assets/certificates/database-score-report.jpg"
+                                data-title="ITS: Databases — Official Exam Score Report (Score: 979/1000)"
+                                data-desc="Certiport / Pearson VUE Exam Score: 979/1000. Database Design: 100%, Manipulation: 100%, Troubleshooting: 100%.">
+                                <img src="assets/certificates/database-score-report.jpg" alt="Certiport ITS Databases Exam Score Report" loading="lazy">
+                                <div class="score-img-overlay">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>View Full Score Report</span>
+                                </div>
+                            </div>
+
+                            <div class="score-breakdown-box">
+                                <h4><i class="fas fa-chart-pie"></i> Section Analysis Breakdown</h4>
+                                <div class="breakdown-row">
+                                    <div class="breakdown-label"><span>Database Design</span><strong>100%</strong></div>
+                                    <div class="breakdown-bar"><div class="breakdown-bar-fill perfect" style="width: 100%;"></div></div>
+                                </div>
+                                <div class="breakdown-row">
+                                    <div class="breakdown-label"><span>Data Manipulation</span><strong>100%</strong></div>
+                                    <div class="breakdown-bar"><div class="breakdown-bar-fill perfect" style="width: 100%;"></div></div>
+                                </div>
+                                <div class="breakdown-row">
+                                    <div class="breakdown-label"><span>Troubleshooting</span><strong>100%</strong></div>
+                                    <div class="breakdown-bar"><div class="breakdown-bar-fill perfect" style="width: 100%;"></div></div>
+                                </div>
+                                <div class="breakdown-row">
+                                    <div class="breakdown-label"><span>Database Object Management</span><strong>97%</strong></div>
+                                    <div class="breakdown-bar"><div class="breakdown-bar-fill" style="width: 97%;"></div></div>
+                                </div>
+                                <div class="breakdown-row">
+                                    <div class="breakdown-label"><span>Data Retrieval</span><strong>97%</strong></div>
+                                    <div class="breakdown-bar"><div class="breakdown-bar-fill" style="width: 97%;"></div></div>
+                                </div>
+                            </div>
+
+                            <div class="score-card-footer">
+                                <button type="button" class="btn btn-primary score-view-btn"
+                                    data-img="assets/certificates/database-score-report.jpg"
+                                    data-title="Information Technology Specialist: Databases — Official Score Report"
+                                    data-desc="Pearson VUE / Certiport Exam Score: 979/1000 (97.9%) — Candidate: Muhammad Ikram Ullah">
+                                    <i class="fas fa-expand-alt"></i> View Score Report
+                                </button>
+                                <a href="index.html#certificates" class="btn btn-outline" style="border-radius: 10px;">
+                                    <i class="fas fa-certificate"></i> View Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Score Report 2: ITS JavaScript -->
+                    <div class="score-report-card" data-img="assets/certificates/javascript-score-report.jpg"
+                        data-title="Information Technology Specialist: JavaScript — Official Score Report"
+                        data-desc="Pearson VUE / Certiport Exam Score: 940/1000 (94.0%) — Candidate: Muhammad Ikram Ullah">
+
+                        <div class="score-card-banner">
+                            <div class="cert-provider">
+                                <i class="fab fa-js-square"></i>
+                                <div class="cert-provider-info">
+                                    <h4>Certiport / Pearson VUE</h4>
+                                    <span>IT Specialist Certification Exam</span>
+                                </div>
+                            </div>
+                            <span class="pass-badge"><i class="fas fa-check-circle"></i> PASS</span>
+                        </div>
+
+                        <div class="score-card-content">
+                            <div class="score-card-header">
+                                <div class="score-exam-title">
+                                    <h3>ITS: JavaScript</h3>
+                                    <p><i class="far fa-calendar-alt"></i> Exam Date: July 31, 2026 &bull; Ref #52867186</p>
+                                </div>
+                                <div class="score-display-box">
+                                    <div class="big-score">940 <span style="font-size: 13px; font-weight: 600; color: var(--muted);">/ 1000</span></div>
+                                    <div class="score-target">Required: 700 (94.0%)</div>
+                                </div>
+                            </div>
+
+                            <div class="score-img-preview"
+                                data-img="assets/certificates/javascript-score-report.jpg"
+                                data-title="ITS: JavaScript — Official Exam Score Report (Score: 940/1000)"
+                                data-desc="Certiport / Pearson VUE Exam Score: 940/1000. Operators & Methods: 100%, Variables: 96%, Decisions: 94%.">
+                                <img src="assets/certificates/javascript-score-report.jpg" alt="Certiport ITS JavaScript Exam Score Report" loading="lazy">
+                                <div class="score-img-overlay">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>View Full Score Report</span>
+                                </div>
+                            </div>
+
+                            <div class="score-breakdown-box">
+                                <h4><i class="fas fa-chart-pie"></i> Section Analysis Breakdown</h4>
+                                <div class="breakdown-row">
+                                    <div class="breakdown-label"><span>Operators, Methods & Keywords</span><strong>100%</strong></div>
+                                    <div class="breakdown-bar"><div class="breakdown-bar-fill perfect" style="width: 100%;"></div></div>
+                                </div>
+                                <div class="breakdown-row">
+                                    <div class="breakdown-label"><span>Variables, Data Types & Functions</span><strong>96%</strong></div>
+                                    <div class="breakdown-bar"><div class="breakdown-bar-fill" style="width: 96%;"></div></div>
+                                </div>
+                                <div class="breakdown-row">
+                                    <div class="breakdown-label"><span>Decisions and Loops</span><strong>94%</strong></div>
+                                    <div class="breakdown-bar"><div class="breakdown-bar-fill" style="width: 94%;"></div></div>
+                                </div>
+                                <div class="breakdown-row">
+                                    <div class="breakdown-label"><span>HTML Forms</span><strong>92%</strong></div>
+                                    <div class="breakdown-bar"><div class="breakdown-bar-fill" style="width: 92%;"></div></div>
+                                </div>
+                                <div class="breakdown-row">
+                                    <div class="breakdown-label"><span>Document Object Model (DOM)</span><strong>81%</strong></div>
+                                    <div class="breakdown-bar"><div class="breakdown-bar-fill" style="width: 81%;"></div></div>
+                                </div>
+                            </div>
+
+                            <div class="score-card-footer">
+                                <button type="button" class="btn btn-primary score-view-btn"
+                                    data-img="assets/certificates/javascript-score-report.jpg"
+                                    data-title="Information Technology Specialist: JavaScript — Official Score Report"
+                                    data-desc="Pearson VUE / Certiport Exam Score: 940/1000 (94.0%) — Candidate: Muhammad Ikram Ullah">
+                                    <i class="fas fa-expand-alt"></i> View Score Report
+                                </button>
+                                <a href="index.html#certificates" class="btn btn-outline" style="border-radius: 10px;">
+                                    <i class="fas fa-certificate"></i> View Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Return to Portfolio Button -->
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="index.html" class="btn btn-primary" style="padding: 14px 32px; font-size: 15px; border-radius: 12px; display: inline-flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-arrow-left"></i> Back to Complete Portfolio
                 </a>
-
             </div>
-
 
         </div>
 
     </main>
 
 
+    <!-- =========================
+         LIGHTBOX MODAL
+    ========================== -->
+    <div id="certificateModal" class="certificate-modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <h3 id="modalTitle">Credential Preview</h3>
+                    <p id="modalDesc">Official Document Verification</p>
+                </div>
+                <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="Full Preview">
+            </div>
+            <div class="modal-footer">
+                <a id="modalOpenNewTab" href="" target="_blank" class="btn btn-outline modal-btn">
+                    <i class="fas fa-external-link-alt"></i> Open Full Image
+                </a>
+                <a id="modalDownload" href="" class="btn modal-btn" download>
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+        </div>
+    </div>
 
 
+    <!-- =========================
+         FOOTER
+    ========================== -->
     <footer>
-
         <h2>Muhammad Ikram Ullah</h2>
-
-        <p>
-            Data Science Student | Web Developer | Database Enthusiast
-        </p>
+        <p>BS Statistics (Data Science) Student &bull; Database Administrator &bull; Web Developer</p>
 
         <div class="social-icons">
-
-            <a href="https://github.com/ikramullahdev" target="_blank">
-
+            <a href="https://github.com/ikramullahdev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <i class="fab fa-github"></i>
-
             </a>
-
-            <a href="mailto:ikramahmed12201@gmail.com">
-
+            <a href="mailto:ikramahmed12201@gmail.com" aria-label="Email">
                 <i class="fas fa-envelope"></i>
-
             </a>
-
+            <a href="https://wa.me/923190820875" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
         </div>
 
         <p class="copyright">
-
-            © 2026 Muhammad Ikram Ullah.
-            All Rights Reserved.
-
+            &copy; 2026 Muhammad Ikram Ullah. All Rights Reserved.
         </p>
-
     </footer>
 
 
     <!-- =========================
          JAVASCRIPT
     ========================== -->
-
     <script src="script.js"></script>
 
 </body>

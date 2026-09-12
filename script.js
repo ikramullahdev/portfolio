@@ -629,16 +629,20 @@ function closeCertificateModal() {
 
 }
 
-// Bind click events on certificate cards, images, and view buttons
-document.querySelectorAll(".certificate-card, .certificate-img-wrap, .cert-view-btn").forEach((elem) => {
+// Bind click events on certificate cards, score reports, semester results, and view buttons
+document.querySelectorAll(
+    ".certificate-card, .certificate-img-wrap, .cert-view-btn, " +
+    ".semester-result-card, .semester-img-container, .btn-view-result, " +
+    ".score-report-card, .score-img-preview, .score-view-btn"
+).forEach((elem) => {
 
     elem.addEventListener("click", function (e) {
 
         e.stopPropagation();
 
-        const card = this.closest(".certificate-card") || this;
+        const card = this.closest(".certificate-card, .semester-result-card, .score-report-card") || this;
         const imgSrc = this.dataset.img || card.dataset.img || (card.querySelector("img") ? card.querySelector("img").getAttribute("src") : "");
-        const title = this.dataset.title || card.dataset.title || (card.querySelector("h3") ? card.querySelector("h3").textContent : "Certificate");
+        const title = this.dataset.title || card.dataset.title || (card.querySelector("h3") ? card.querySelector("h3").textContent : "Preview");
         const desc = this.dataset.desc || card.dataset.desc || (card.querySelector("p") ? card.querySelector("p").textContent : "");
 
         if (imgSrc) {
