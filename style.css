@@ -2265,8 +2265,79 @@ body.dark .modal-close-btn:hover {
 
 .semester-results-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gpa-tag.na {
+    background: rgba(148, 163, 184, 0.12);
+    border: 1.5px solid rgba(148, 163, 184, 0.4);
+}
+
+.gpa-tag.na .gpa-number {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.semester-na-container {
+    height: 180px;
+    background: #f8fafc;
+    border-top: 1px dashed #cbd5e1;
+    border-bottom: 1px dashed #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 18px;
+    gap: 8px;
+}
+
+.semester-na-container .na-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(148, 163, 184, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.semester-na-container h4 {
+    font-size: 14px;
+    color: var(--secondary);
+    margin: 0;
+    font-weight: 600;
+}
+
+.semester-na-container p {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.status-na {
+    color: var(--muted);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-na {
+    opacity: 0.65;
+    cursor: not-allowed !important;
+    border-color: #cbd5e1 !important;
+    color: var(--muted) !important;
+    background: #f1f5f9 !important;
+}
+
+.btn-na:hover {
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 .semester-result-card {
@@ -2780,6 +2851,21 @@ body.dark .btn-view-result {
 body.dark .btn-view-result:hover {
     background: #38bdf8;
     color: #0f172a;
+}
+
+body.dark .semester-na-container {
+    background: #141f33;
+    border-color: #334155;
+}
+
+body.dark .semester-na-container h4 {
+    color: #cbd5e1;
+}
+
+body.dark .btn-na {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #64748b !important;
 }
 
 /* ==============================================
